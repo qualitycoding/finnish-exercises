@@ -1,0 +1,473 @@
+{
+ "id": "aivojen-puhdistuminen-20261107",
+ "title": "Aivojen puhdistumista tehostettiin Oulussa",
+ "short": "Aivotutkimus",
+ "dateLabel": "7. marraskuuta 2026",
+ "level": "B1–B2",
+ "summary": "Oulun yliopiston tutkijat tehostivat aivojen puhdistumista lääkkeen ja värähtelyn avulla. Teksti kertoo, mitä tulos voi tarkoittaa muistisairauksille.",
+ "sources": [
+  {
+   "title": "Yle: Oulussa löydettiin helppo hoito, joka voi ehkäistä muistisairauden (3.11.2026)",
+   "url": "https://yle.fi/a/74-20249368"
+  },
+  {
+   "title": "Oulun yliopisto (STT Info): Oulun yliopiston tutkijoiden kehittämä hoito tehostaa aivojen puhdistumista (4.11.2026)",
+   "url": "https://www.sttinfo.fi/tiedote/72458361/oulun-yliopiston-tutkijoiden-kehittama-hoito-tehostaa-aivojen-puhdistumista-ja-avaa-uusia-mahdollisuuksia-aivorappeumasairauksien-ehkaisyyn?lang=fi"
+  }
+ ],
+ "exercises": {
+  "luku": {
+   "title": "Aivojen puhdistumista tehostettiin",
+   "intro": "Lue tiedeuutinen ja sen jälkeen keksitty keskustelu. Vastaa sitten kysymyksiin.",
+   "text": [
+    "Oulun yliopiston tutkijat ovat löytäneet tavan tehostaa aivojen puhdistumista. Tutkimus julkaistiin tiistaina 3. marraskuuta 2026 arvostetussa Nature Communications -tiedelehdessä. Tutkijat toivovat, että menetelmä voi tulevaisuudessa auttaa [[muistisairauksien|sairauksien, joissa muisti ja ajattelu heikkenevät · memory disorders]] [[ehkäisyssä|toimissa, joilla estetään sairauden synty · in prevention]] ja hoidossa. Yle muistuttaa, että muistisairaudet ovat naisten yleisin kuolinsyy Suomessa.",
+    "Menetelmässä yhdistetään verenpainetta laskeva lääke ja koko kehon [[värähtely|nopea edestakainen liike · vibration]]. Yle kertoo, että lääkkeenä käytettiin nitroa. Oulun yliopiston mukaan aivot puhdistuvat normaalisti erityisesti unen aikana, mutta nyt puhdistumista tehostettiin myös hereillä olevilla ihmisillä.",
+    "Tutkimukseen osallistui noin 30 tervettä aikuista [[vapaaehtoista|ihmistä, joka osallistuu omasta tahdostaan · volunteer]]. Heidän verestään löytyi hoidon jälkeen enemmän aivoissa syntyviä [[proteiineja|aineita, joita on esimerkiksi lihaksissa ja aivoissa · proteins]]. Oulun yliopiston mukaan tutkijat käyttivät muun muassa magneettikuvausta ja verikokeita. Haitallisia proteiineja kertyy aivoihin hitaasti vuosikymmenten aikana, esimerkiksi Alzheimerin taudissa.",
+    "Menetelmän teho potilailla ei kuitenkaan ole vielä tiedossa. Seuraavaksi tutkijat haluavat selvittää, auttaako hoito ihmisiä, joilla on muistisairauden alkuvaihe. Yle kertoo, että tutkijat varoittavat kokeilemasta hoitoa kotona, koska nitro voi laskea verenpainetta vaarallisesti. Tutkijat korostavat, että lisää tutkimusta tarvitaan."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Hei, [[oot|olet · you are (spoken form)|puhekieli]] sä lukenut sen Oulun tutkimuksen?",
+    "– Joo, luin aamulla. Mun isoäiti sairastaa muistisairautta, joten [[toi|tuo · that (spoken form)|puhekieli]] kiinnostaa mua tosi paljon.",
+    "– Voi ei. [[Onks|onko · is it (spoken form)|puhekieli]] se hoito jo käytössä?",
+    "– Ei vielä, se on vasta tutkimusvaihe. Tutkijat sanoo, ettei sitä kannata kokeilla kotona.",
+    "– Järkevää. Tutkijoiden [[duuni|työ · work (slang)|slangi]] on varmasti ollut pitkä ja vaikea.",
+    "– Niin on. Mä seuraan uutisia ja katson, mitä seuraavaksi tapahtuu."
+   ],
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Missä tiedelehdessä tutkimus julkaistiin?",
+     "options": [
+      "Suomen Lääkärilehdessä",
+      "Nature Communications -lehdessä",
+      "Helsingin Sanomissa"
+     ],
+     "answer": 1,
+     "explain": "Teksti: arvostetussa Nature Communications -tiedelehdessä."
+    },
+    {
+     "type": "tf",
+     "q": "Tutkimus julkaistiin 3. marraskuuta 2026.",
+     "answer": true,
+     "explain": "Teksti sanoo: tiistaina 3. marraskuuta 2026."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä menetelmässä yhdistetään?",
+     "options": [
+      "lääke ja ruokavalio",
+      "verenpainetta laskeva lääke ja koko kehon värähtely",
+      "unilääke ja kylmähoito"
+     ],
+     "answer": 1,
+     "explain": "Menetelmässä yhdistetään lääke ja värähtely."
+    },
+    {
+     "type": "tf",
+     "q": "Tutkimukseen osallistui noin 30 tervettä aikuista.",
+     "answer": true,
+     "explain": "Teksti: noin 30 tervettä aikuista vapaaehtoista."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä tekstin mukaan tapahtuu aivoissa Alzheimerin taudissa?",
+     "options": [
+      "Aivoihin kertyy haitallisia proteiineja.",
+      "Aivot kasvavat nopeasti.",
+      "Aivot eivät tarvitse unta."
+     ],
+     "answer": 0,
+     "explain": "Haitallisia proteiineja kertyy hitaasti vuosikymmenten aikana."
+    },
+    {
+     "type": "tf",
+     "q": "Menetelmän teho potilailla tiedetään jo hyvin.",
+     "answer": false,
+     "explain": "Teksti sanoo, ettei teho potilailla ole vielä tiedossa."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä tutkijat haluavat seuraavaksi selvittää?",
+     "options": [
+      "Auttaako hoito ihmisiä, joilla on muistisairauden alkuvaihe?",
+      "Kuinka paljon hoito maksaa?",
+      "Mikä on sopiva syömisaika?"
+     ],
+     "answer": 0,
+     "explain": "Seuraava vaihe: hoito muistisairauden alkuvaiheessa oleville."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä sana muistisairaus tarkoittaa?",
+     "options": [
+      "sairaus, jossa muisti ja ajattelu heikkenevät",
+      "sairaus, jossa iho kuivuu",
+      "sairaus, joka alkaa vain lapsena"
+     ],
+     "answer": 0,
+     "explain": "Sanan selitys on tekstissä."
+    },
+    {
+     "type": "tf",
+     "q": "Keskustelussa toisen henkilön isoäiti sairastaa muistisairautta.",
+     "answer": true,
+     "explain": "Hän sanoo: mun isoäiti sairastaa muistisairautta."
+    },
+    {
+     "type": "mc",
+     "q": "Miksi keskustelun mukaan hoitoa ei kannata kokeilla kotona?",
+     "options": [
+      "Hoito on vasta tutkimusvaiheessa.",
+      "Hoito on ilmaista.",
+      "Hoito on jo vanhentunut."
+     ],
+     "answer": 0,
+     "explain": "Ei vielä, se on vasta tutkimusvaihe."
+    }
+   ]
+  },
+  "kuuntelu": {
+   "title": "Uutinen aivotutkimuksesta",
+   "intro": "Kuuntele uutinen ja sen jälkeen keksitty keskustelu. Vastaa kysymyksiin. Tekstin saa nähdä vasta kuuntelun jälkeen.",
+   "vocab": [
+    "[[tutkija|ihminen, joka tekee tieteellistä tutkimusta · researcher]]",
+    "[[menetelmä|tapa tehdä jokin asia · method]]",
+    "[[värähtely|nopea edestakainen liike · vibration]]",
+    "[[potilas|ihminen, jota hoidetaan sairauden takia · patient]]"
+   ],
+   "script": [
+    "Oulun yliopiston tutkijat ovat kehittäneet menetelmän, joka tehostaa aivojen puhdistumista. Tutkimus julkaistiin 3. marraskuuta Nature Communications -tiedelehdessä.",
+    "Menetelmässä yhdistetään verenpainetta laskeva lääke ja koko kehon värähtely. Tutkimukseen osallistui noin kolmekymmentä tervettä aikuista. Oulun yliopiston mukaan tutkijat käyttivät muun muassa magneettikuvausta ja verikokeita. Tutkijat toivovat, että menetelmä voi auttaa muistisairauksien ehkäisyssä ja hoidossa. Tehoa potilailla ei kuitenkaan vielä tiedetä. Seuraavaksi tutkijat haluavat tutkia hoitoa ihmisillä, joilla on muistisairauden alkuvaihe."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – [[Kuulitsä|kuulitko sinä · did you hear (spoken form)|puhekieli]] uutisen Oulun tutkimuksesta?",
+    "– Joo, mä luin sen aamulla. Aivojen puhdistus kuulostaa [[tosi|erittäin · very (spoken form)|puhekieli]] mielenkiintoiselta.",
+    "– Niin. Tutkijoiden [[duuni|työ · work (slang)|slangi]] on varmasti ollut pitkä.",
+    "– Varmasti. Mut hoito ei oo vielä käytössä, joten sitä ei kannata kokeilla kotona.",
+    "– Ei niin. Mä seuraan uutisia ja katson, mitä seuraavaksi tapahtuu.",
+    "– Mäkin. Kerro sitten, jos luet siitä lisää."
+   ],
+   "questions": [
+    {
+     "type": "tf",
+     "q": "Tutkijat työskentelevät Oulun yliopistossa.",
+     "answer": true,
+     "explain": "Uutinen alkaa: Oulun yliopiston tutkijat."
+    },
+    {
+     "type": "mc",
+     "q": "Missä tiedelehdessä tutkimus julkaistiin?",
+     "options": [
+      "Nature Communications",
+      "Suomen Kuvalehti",
+      "Tiede-lehti"
+     ],
+     "answer": 0,
+     "explain": "Tutkimus julkaistiin Nature Communications -tiedelehdessä."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä menetelmässä yhdistetään?",
+     "options": [
+      "lääke ja värähtely",
+      "lääke ja ruoka",
+      "kylmähoito ja jumppa"
+     ],
+     "answer": 0,
+     "explain": "Menetelmässä yhdistetään verenpainetta laskeva lääke ja koko kehon värähtely."
+    },
+    {
+     "type": "tf",
+     "q": "Tutkimukseen osallistui sairaita potilaita.",
+     "answer": false,
+     "explain": "Tutkimukseen osallistui terveitä aikuisia."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä tutkijat toivovat menetelmästä?",
+     "options": [
+      "Se voi auttaa muistisairauksien ehkäisyssä ja hoidossa.",
+      "Se korvaa kaikki lääkkeet.",
+      "Se poistaa unen tarpeen."
+     ],
+     "answer": 0,
+     "explain": "Tutkijat toivovat apua muistisairauksien ehkäisyyn ja hoitoon."
+    },
+    {
+     "type": "tf",
+     "q": "Teho potilailla tiedetään jo hyvin.",
+     "answer": false,
+     "explain": "Uutinen sanoo, ettei tehoa potilailla vielä tiedetä."
+    },
+    {
+     "type": "mc",
+     "q": "Milloin toinen henkilö luki uutisen?",
+     "options": [
+      "aamulla",
+      "illalla",
+      "viime vuonna"
+     ],
+     "answer": 0,
+     "explain": "Hän sanoo: mä luin sen aamulla."
+    },
+    {
+     "type": "mc",
+     "q": "Miksi hoitoa ei keskustelun mukaan kannata kokeilla kotona?",
+     "options": [
+      "Hoito ei ole vielä käytössä.",
+      "Hoito on liian halpaa.",
+      "Lääkäri on kiinni."
+     ],
+     "answer": 0,
+     "explain": "He sanovat, että hoito ei ole vielä käytössä."
+    },
+    {
+     "type": "dictation",
+     "text": "Tutkimus julkaistiin tiedelehdessä."
+    },
+    {
+     "type": "dictation",
+     "text": "Tutkijat haluavat tutkia hoitoa potilailla."
+    }
+   ]
+  },
+  "kirjoitus": {
+   "title": "Kirjoita tutkimuksesta",
+   "tasks": [
+    {
+     "type": "gap",
+     "q": "Tutkimus ___ (julkaista) tiistaina.",
+     "hint": "passiivin imperfekti",
+     "accept": [
+      "julkaistiin"
+     ],
+     "explain": "julkaista – julkaistiin",
+     "near": [
+      "julkaistaan",
+      "julkaisi"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Menetelmä voi auttaa muistisairauksien ___ (ehkäisy).",
+     "hint": "inessiivi",
+     "accept": [
+      "ehkäisyssä"
+     ],
+     "explain": "ehkäisy – ehkäisyssä (missä?)",
+     "near": [
+      "ehkäisyyn",
+      "ehkäisystä"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Tutkimukseen osallistui noin kolmekymmentä ___ (terve) aikuista.",
+     "hint": "partitiivi yksikössä",
+     "accept": [
+      "tervettä"
+     ],
+     "explain": "terve – tervettä (numeraalin jälkeen yksikön partitiivi)",
+     "near": [
+      "terveitä",
+      "terve"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Menetelmä on kehitetty ___ (Oulu).",
+     "hint": "inessiivi",
+     "accept": [
+      "Oulussa"
+     ],
+     "explain": "Oulu – Oulussa (missä?)",
+     "near": [
+      "Oulusta",
+      "Ouluun"
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The researchers published the study.",
+     "accept": [
+      "Tutkijat julkaisivat tutkimuksen."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The method makes the cleaning of the brain more effective.",
+     "accept": [
+      "Menetelmä tehostaa aivojen puhdistumista."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The researchers do not yet know the effect.",
+     "accept": [
+      "Tutkijat eivät vielä tiedä tehoa."
+     ]
+    },
+    {
+     "type": "translate",
+     "en": "The study was published in a scientific journal.",
+     "keywords": [
+      [
+       "tutkim"
+      ],
+      [
+       "julkais"
+      ],
+      [
+       "tiedelehd",
+       "lehde"
+      ]
+     ],
+     "model": "Tutkimus julkaistiin tiedelehdessä."
+    },
+    {
+     "type": "translate",
+     "en": "The method combines a drug and vibration.",
+     "keywords": [
+      [
+       "menetelm"
+      ],
+      [
+       "yhdist"
+      ],
+      [
+       "lääk"
+      ],
+      [
+       "värähte",
+       "tärin"
+      ]
+     ],
+     "model": "Menetelmä yhdistää lääkkeen ja värähtelyn."
+    },
+    {
+     "type": "translate",
+     "en": "The researchers want to study the treatment on patients.",
+     "keywords": [
+      [
+       "tutkija"
+      ],
+      [
+       "halua",
+       "aiko"
+      ],
+      [
+       "potila"
+      ]
+     ],
+     "model": "Tutkijat haluavat tutkia hoitoa potilailla."
+    }
+   ],
+   "free": {
+    "prompt": "Kirjoita ystävälle viesti. Kerro, että luit uutisen aivotutkimuksesta, ja kerro omin sanoin, mitä tutkijat haluavat seuraavaksi selvittää.",
+    "words": "50–80",
+    "checklist": [
+     "Viestissä ystävälle voit käyttää puhekieltä, esimerkiksi mä, sä ja toi.",
+     "Kerro, mistä uutisessa on kyse.",
+     "Kerro, ettei hoitoa vielä kannata kokeilla kotona.",
+     "Jos kirjoitat lääkärille sähköpostin, käytä yleiskieltä."
+    ],
+    "model": "Moi! Mä luin tänään uutisen Oulun aivotutkimuksesta. Tutkijat yhdistivät lääkkeen ja värähtelyn, ja se tehosti aivojen puhdistumista. Hoito on vasta tutkimusvaiheessa, joten sitä ei kannata kokeilla kotona. Mä oon tosi kiinnostunut, mitä he tutkivat seuraavaksi!"
+   }
+  },
+  "puhe": {
+   "title": "Puhu tutkimuksesta",
+   "tasks": [
+    {
+     "type": "read",
+     "text": "Tutkimus julkaistiin tiedelehdessä."
+    },
+    {
+     "type": "read",
+     "text": "Menetelmä yhdistää lääkkeen ja värähtelyn."
+    },
+    {
+     "type": "read",
+     "text": "Tutkimukseen osallistui terveitä aikuisia."
+    },
+    {
+     "type": "read",
+     "text": "Tehoa potilailla ei vielä tunneta."
+    },
+    {
+     "type": "read",
+     "text": "Tutkijat haluavat tutkia hoitoa lisää."
+    },
+    {
+     "type": "read",
+     "text": "Oulun yliopisto on tehnyt tutkimuksen."
+    },
+    {
+     "type": "respond",
+     "q": "Missä yliopistossa tutkimus tehtiin?",
+     "hint": "kaupunki",
+     "keywords": [
+      [
+       "oulu"
+      ]
+     ],
+     "model": "Tutkimus tehtiin Oulun yliopistossa.",
+     "variants": [
+      "Oulun yliopistossa."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Mitä menetelmässä yhdistetään? Vastaa kokonaisella lauseella.",
+     "hint": "lääke, värähtely",
+     "keywords": [
+      [
+       "lääk"
+      ],
+      [
+       "värähte",
+       "tärin"
+      ]
+     ],
+     "model": "Siinä yhdistetään lääke ja värähtely."
+    },
+    {
+     "type": "respond",
+     "q": "Keitä tutkimukseen osallistui?",
+     "hint": "terveet aikuiset",
+     "keywords": [
+      [
+       "terve"
+      ],
+      [
+       "aikui",
+       "vapaaehto"
+      ]
+     ],
+     "model": "Tutkimukseen osallistui terveitä aikuisia.",
+     "variants": [
+      "Terveitä aikuisia."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Mitä tutkijat haluavat seuraavaksi selvittää? Vastaa kokonaisella lauseella.",
+     "hint": "hoito, potilaat",
+     "keywords": [
+      [
+       "selvit",
+       "tutki"
+      ],
+      [
+       "hoit"
+      ],
+      [
+       "potila",
+       "auttaa"
+      ]
+     ],
+     "model": "He haluavat selvittää, auttaako hoito potilaita."
+    }
+   ]
+  }
+ }
+}
