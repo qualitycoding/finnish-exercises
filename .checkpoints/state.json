@@ -97,9 +97,10 @@
  ],
  "implementation": {
   "branch": "impl-20261106T235415Z-finnish-current-affairs-exercises",
-  "active_step_id": "S-001",
+  "active_step_id": "S-002",
   "completed": [
-   "S-000"
+   "S-000",
+   "S-001"
   ],
   "attempts": {},
   "ci_run_ids": {},
