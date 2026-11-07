@@ -97,7 +97,7 @@
  ],
  "implementation": {
   "branch": "impl-20261106T235415Z-finnish-current-affairs-exercises",
-  "active_step_id": "S-PUBLISH",
+  "active_step_id": "S-LEARN",
   "completed": [
    "S-000",
    "S-001",
@@ -115,9 +115,13 @@
    "review_fixes": "42370042427",
    "S-PUBLISH": 42370184766
   },
-  "pages_run_ids": {},
-  "live_check_run_ids": {},
-  "gate": "G-PAGES",
+  "pages_run_ids": {
+   "S-PUBLISH": 42374267602
+  },
+  "live_check_run_ids": {
+   "S-PUBLISH": 42374301430
+  },
+  "gate": "G-LEARN",
   "awaiting": null,
   "hosts": {
    "yle.fi": "curl via proxy: 403 CONNECT denied (policy); WebFetch root URL: not on session allowlist",

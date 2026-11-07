@@ -11,4 +11,4 @@
 2. Open https://github.com/qualitycoding/finnish-exercises/settings/pages and set *Build and deployment → Source: Deploy from a branch → Branch: main → / (root) → Save*.
 3. Reply `done`.
 
-Response:
+Response: Done (owner, 2026-11-07 12:52 UK). Verified: default_branch = main, has_pages = true.
