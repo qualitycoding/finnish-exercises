@@ -97,14 +97,15 @@
  ],
  "implementation": {
   "branch": "impl-20261106T235415Z-finnish-current-affairs-exercises",
-  "active_step_id": "S-006",
+  "active_step_id": "S-007",
   "completed": [
    "S-000",
    "S-001",
    "S-002",
    "S-003",
    "S-004",
-   "S-005"
+   "S-005",
+   "S-006"
   ],
   "attempts": {},
   "ci_run_ids": {
@@ -118,6 +119,7 @@
    "yle.fi": "curl via proxy: 403 CONNECT denied (policy); WebFetch root URL: not on session allowlist",
    "www.hs.fi": "curl 403 CONNECT denied; WebFetch root URL not on allowlist",
    "www.kielitoimistonsanakirja.fi": "curl 403 CONNECT denied; WebFetch root URL not on allowlist"
-  }
+  },
+  "s006_commit": "pending"
  }
 }

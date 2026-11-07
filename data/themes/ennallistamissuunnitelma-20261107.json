@@ -1,0 +1,469 @@
+{
+ "id": "ennallistamissuunnitelma-20261107",
+ "title": "Ennallistamissuunnitelma lähti EU:lle",
+ "short": "Ympäristö",
+ "dateLabel": "7. marraskuuta 2026",
+ "level": "B1–B2",
+ "summary": "Hallitus päätti kansallisen ennallistamissuunnitelman luonnoksesta ja lähetti sen EU-komissiolle. Teksti kertoo, mistä suunnitelmassa kiistellään.",
+ "sources": [
+  {
+   "title": "Yle: Hallitus päätti kiistellystä ennallistamisesta: ei pakkoa suojelualueiden ulkopuolelle, metsistä ei vieläkään päätöstä (5.11.2026)",
+   "url": "https://yle.fi/a/74-20255222"
+  },
+  {
+   "title": "Karjalainen (STT): Järjestöiltä sataa kritiikkiä ennallistamissuunnitelmalle (5.11.2026)",
+   "url": "https://www.karjalainen.fi/uutissuomalainen/9930567"
+  },
+  {
+   "title": "Maaseudun Tulevaisuus: Kansallinen ennallistamissuunnitelma huomenna hallituksen käsittelyssä (4.11.2026)",
+   "url": "https://www.maaseuduntulevaisuus.fi/metsa/d07723a3-b4b9-4b07-8247-bdf02c7191c7"
+  }
+ ],
+ "exercises": {
+  "luku": {
+   "title": "Ennallistamissuunnitelma lähti EU:lle",
+   "intro": "Lue uutinen ja sen jälkeen keksitty keskustelu. Vastaa sitten kysymyksiin.",
+   "text": [
+    "Suomen hallitus päätti torstaina 5. marraskuuta kansallisen [[ennallistamissuunnitelman|suunnitelman, jolla luontoa palautetaan lähemmäs luonnontilaa · restoration plan]] luonnoksesta. Hallitus lähetti luonnoksen Euroopan komissiolle. Suunnitelma kertoo, miten Suomi toteuttaa EU:n [[ennallistamisasetuksen|EU:n lain, jonka tavoite on pysäyttää luontokato · restoration regulation]]. Toimet koskevat esimerkiksi soita, metsiä ja vesistöjä.",
+    "Suunnitelman kiistellyin kohta on [[heikentämättömyysvelvoite|velvoite, jonka mukaan hyvässä tilassa olevan luonnon tila ei saa merkittävästi heikentyä · non-deterioration obligation]]. Ylen mukaan hallitus rajasi sitovan velvoitteen vain Natura 2000 -alueisiin. Muualla toimet perustuvat vapaaehtoisuuteen. Karjalaisen julkaiseman STT:n uutisen mukaan Sahateollisuus ry pitää vapaaehtoisuutta hyvänä ratkaisuna yksityisillä mailla.",
+    "Luonnonsuojeluliitto sanoo, että rajaus on selvästi ennallistamisasetuksen vastainen. Liiton mielestä myös suojelualueiden ulkopuolisten metsien tilaa pitää parantaa. WWF Suomi haluaa, että komissiolle lähetetty luonnos tulee julkiseksi. Silloin ihmiset voivat arvioida, onko suunnitelma tehokas.",
+    "Metsät ovat olleet asetuksen vaikein kysymys. Päätös siitä, kuinka paljon boreaalisia luonnonmetsiä ennallistetaan, siirtyi vielä eteenpäin. Ylen mukaan hallituksen listalla on 57 toimenpidettä, eikä niille varata lisärahaa. Ylen mukaan komissio arvioi luonnoksen ensin, ja lopullinen suunnitelma valmistuu vasta seuraavan hallituksen aikana."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Mä luin uutisen luonnon ennallistamisesta.",
+    "– Mä puhuin tästä [[duunissa|työssä · at work (slang)|slangi]] eilen. Joo, [[mun|minun · my (spoken form)|puhekieli]] mielestä se on vaikea aihe.",
+    "– Miksi sä ajattelet niin?",
+    "– No kun osa ihmisistä haluaa suojella enemmän metsiä, ja osa pelkää, että metsätalous kärsii.",
+    "– Mä ymmärrän molemmat. [[Onks|onko · is it (spoken form)|puhekieli]] kenelläkään oikeaa vastausta?",
+    "– Ei kai. Siksi suunnitelmasta keskustellaan vielä pitkään.",
+    "– Mä haluaisin lukea siitä lisää, ennen kuin muodostan mielipiteen.",
+    "– Hyvä ajatus. Lue sekä luonnonsuojelijoiden että metsäalan kanta.",
+    "– Joo, mä teen niin. [[Toi|tuo · that (spoken form)|puhekieli]] on oikeastaan paras tapa ymmärtää kiistaa."
+   ],
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Mitä hallitus teki torstaina?",
+     "options": [
+      "Se päätti ennallistamissuunnitelman luonnoksesta ja lähetti sen komissiolle.",
+      "Se hyväksyi uuden metsälain.",
+      "Se perusti uuden kansallispuiston."
+     ],
+     "answer": 0,
+     "explain": "Hallitus päätti luonnoksesta ja lähetti sen Euroopan komissiolle."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä ennallistaminen tarkoittaa?",
+     "options": [
+      "luonnon palauttamista lähemmäs luonnontilaa",
+      "uusien teiden rakentamista",
+      "metsien hakkaamista"
+     ],
+     "answer": 0,
+     "explain": "Sanan selitys on tekstissä."
+    },
+    {
+     "type": "tf",
+     "q": "Suunnitelma kertoo, miten Suomi toteuttaa EU:n ennallistamisasetusta.",
+     "answer": true,
+     "explain": "Teksti sanoo näin."
+    },
+    {
+     "type": "mc",
+     "q": "Mihin alueisiin sitova heikentämättömyysvelvoite rajattiin?",
+     "options": [
+      "Natura 2000 -alueisiin",
+      "kaikkiin metsiin",
+      "kaupunkeihin"
+     ],
+     "answer": 0,
+     "explain": "Velvoite rajattiin vain Natura 2000 -alueisiin."
+    },
+    {
+     "type": "tf",
+     "q": "Natura-alueiden ulkopuolella toimet perustuvat vapaaehtoisuuteen.",
+     "answer": true,
+     "explain": "Muualla toimet perustuvat vapaaehtoisuuteen."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä Luonnonsuojeluliitto sanoo rajauksesta?",
+     "options": [
+      "Se on selvästi asetuksen vastainen.",
+      "Se on täydellinen ratkaisu.",
+      "Se ei kiinnosta liittoa."
+     ],
+     "answer": 0,
+     "explain": "Liitto sanoo, että rajaus on selvästi ennallistamisasetuksen vastainen."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä WWF Suomi haluaa?",
+     "options": [
+      "Se haluaa, että luonnos tulee julkiseksi.",
+      "Se haluaa lopettaa suunnitelman.",
+      "Se haluaa lisää hakkuita."
+     ],
+     "answer": 0,
+     "explain": "WWF haluaa, että komissiolle lähetetty luonnos tulee julkiseksi."
+    },
+    {
+     "type": "tf",
+     "q": "Hallitus päätti jo, kuinka paljon boreaalisia luonnonmetsiä ennallistetaan.",
+     "answer": false,
+     "explain": "Päätös siirtyi vielä eteenpäin."
+    },
+    {
+     "type": "tf",
+     "q": "Keskustelussa toinen puhuja ajattelee, että aihe on helppo.",
+     "answer": false,
+     "explain": "Hän sanoo, että aihe on vaikea."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä keskustelun puhuja aikoo tehdä?",
+     "options": [
+      "lukea aiheesta lisää",
+      "muuttaa metsään",
+      "kirjoittaa lain"
+     ],
+     "answer": 0,
+     "explain": "Hän sanoo: Mä haluaisin lukea siitä lisää."
+    }
+   ]
+  },
+  "kuuntelu": {
+   "title": "Uutinen ennallistamissuunnitelmasta",
+   "intro": "Kuuntele uutinen ja sen jälkeen keksitty keskustelu. Vastaa kysymyksiin. Tekstin saa nähdä vasta kuuntelun jälkeen.",
+   "vocab": [
+    "[[hallitus|ministerit, jotka johtavat maata · government]]",
+    "[[komissio|EU:n toimeenpaneva elin · the Commission]]",
+    "[[vapaaehtoinen|jotain, mitä ei ole pakko tehdä · voluntary]]",
+    "[[luonnos|ensimmäinen versio tekstistä · draft]]"
+   ],
+   "script": [
+    "Suomen hallitus päätti torstaina kansallisen ennallistamissuunnitelman luonnoksesta. Luonnos lähetettiin Euroopan komissiolle. Suunnitelma kertoo, miten Suomi toteuttaa EU:n ennallistamisasetusta. Ylen mukaan asetuksen tavoite on pysäyttää luontokato.",
+    "Ylen mukaan sitova velvoite heikentämättömyydestä koskee vain Natura 2000 -alueita. Muualla toimet perustuvat vapaaehtoisuuteen. Luonnonsuojeluliitto sanoo, että rajaus on asetuksen vastainen. WWF Suomi haluaa, että luonnos julkaistaan, jotta ihmiset voivat arvioida suunnitelmaa. Päätös boreaalisista luonnonmetsistä siirtyi eteenpäin."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Mä [[oon|olen · I am (spoken form)|puhekieli]] kuullut tästä suunnitelmasta vain vähän.",
+    "– Se koskee soita, metsiä ja vesistöjä.",
+    "– Ai, niin monta eri aluetta! Onks suunnitelma jo valmis?",
+    "– Ei vielä. Ylen mukaan komissio arvioi ensin luonnoksen.",
+    "– Sit mä seuraan uutisia, kun asia etenee.",
+    "– Hyvä. Tämä päätös vaikuttaa luontoon monta vuotta.",
+    "– Niin vaikuttaa. Siksi uutisia kannattaa lukea useasta lähteestä.",
+    "– Totta. Mä kysyn huomenna kaverilta, mitä hän ajattelee tästä asiasta."
+   ],
+   "questions": [
+    {
+     "type": "tf",
+     "q": "Hallitus päätti ennallistamissuunnitelman luonnoksesta torstaina.",
+     "answer": true,
+     "explain": "Uutinen alkaa tällä lauseella."
+    },
+    {
+     "type": "mc",
+     "q": "Kenelle luonnos lähetettiin?",
+     "options": [
+      "Euroopan komissiolle",
+      "kunnille",
+      "koulujen rehtoreille"
+     ],
+     "answer": 0,
+     "explain": "Luonnos lähetettiin Euroopan komissiolle."
+    },
+    {
+     "type": "mc",
+     "q": "Minkä EU:n asetuksen toteuttamisesta suunnitelma kertoo?",
+     "options": [
+      "ennallistamisasetuksen",
+      "tietosuoja-asetuksen",
+      "kalastusasetuksen"
+     ],
+     "answer": 0,
+     "explain": "Suunnitelma kertoo, miten Suomi toteuttaa EU:n ennallistamisasetusta."
+    },
+    {
+     "type": "mc",
+     "q": "Mihin alueisiin sitova velvoite koskee?",
+     "options": [
+      "vain Natura 2000 -alueisiin",
+      "kaikkiin alueisiin",
+      "vain kaupunkeihin"
+     ],
+     "answer": 0,
+     "explain": "Velvoite koskee vain Natura 2000 -alueita."
+    },
+    {
+     "type": "tf",
+     "q": "Natura-alueiden ulkopuolella toimet ovat vapaaehtoisia.",
+     "answer": true,
+     "explain": "Muualla toimet perustuvat vapaaehtoisuuteen."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä Luonnonsuojeluliitto sanoo rajauksesta?",
+     "options": [
+      "Se on asetuksen vastainen.",
+      "Se on hyvä.",
+      "Se on liian tiukka."
+     ],
+     "answer": 0,
+     "explain": "Liitto sanoo, että rajaus on asetuksen vastainen."
+    },
+    {
+     "type": "tf",
+     "q": "WWF Suomi haluaa, että luonnos julkaistaan.",
+     "answer": true,
+     "explain": "Uutinen sanoo näin."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä keskustelun toinen puhuja tekee, kun asia etenee?",
+     "options": [
+      "seuraa uutisia",
+      "muuttaa maalle",
+      "kirjoittaa lehteen"
+     ],
+     "answer": 0,
+     "explain": "Hän sanoo: Sit mä seuraan uutisia."
+    },
+    {
+     "type": "dictation",
+     "text": "Hallitus lähetti luonnoksen komissiolle."
+    },
+    {
+     "type": "dictation",
+     "text": "Toimet perustuvat vapaaehtoisuuteen."
+    }
+   ]
+  },
+  "kirjoitus": {
+   "title": "Kirjoita luonnosta",
+   "tasks": [
+    {
+     "type": "gap",
+     "q": "Hallitus ___ (päättää) luonnoksesta torstaina.",
+     "hint": "imperfekti, yksikön 3. persoona",
+     "accept": [
+      "päätti"
+     ],
+     "explain": "päättää – päätti",
+     "near": [
+      "päättää",
+      "päättivät"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Luonnos ___ (lähettää) komissiolle.",
+     "hint": "passiivin imperfekti",
+     "accept": [
+      "lähetettiin"
+     ],
+     "explain": "lähettää – lähetettiin",
+     "near": [
+      "lähetetään",
+      "lähetti"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Suunnitelma koskee soita ja ___ (metsä).",
+     "hint": "partitiivi monikko",
+     "accept": [
+      "metsiä"
+     ],
+     "explain": "metsä – metsiä (partitiivi monikko)",
+     "near": [
+      "metsät",
+      "metsää"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Natura-alueiden ___ (ulkopuoli) toimet ovat vapaaehtoisia.",
+     "hint": "adessiivi (missä?)",
+     "accept": [
+      "ulkopuolella"
+     ],
+     "explain": "ulkopuolella – missä?",
+     "near": [
+      "ulkopuoli",
+      "ulkopuolelle"
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The government sent the draft.",
+     "accept": [
+      "Hallitus lähetti luonnoksen."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The Commission assesses the plan.",
+     "accept": [
+      "Komissio arvioi suunnitelman."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The plan concerns forests.",
+     "accept": [
+      "Suunnitelma koskee metsiä."
+     ]
+    },
+    {
+     "type": "translate",
+     "en": "The government decided on the plan.",
+     "keywords": [
+      [
+       "hallitus"
+      ],
+      [
+       "päätti",
+       "päätä"
+      ],
+      [
+       "suunnitelma",
+       "suunnitelm"
+      ]
+     ],
+     "model": "Hallitus päätti suunnitelmasta."
+    },
+    {
+     "type": "translate",
+     "en": "The measures are voluntary.",
+     "keywords": [
+      [
+       "toimet",
+       "toimenpiteet",
+       "toimi"
+      ],
+      [
+       "vapaaehtoi"
+      ]
+     ],
+     "model": "Toimet ovat vapaaehtoisia."
+    },
+    {
+     "type": "translate",
+     "en": "The draft was sent to the Commission.",
+     "keywords": [
+      [
+       "luonnos"
+      ],
+      [
+       "lähetettiin",
+       "lähetetty"
+      ],
+      [
+       "komissio"
+      ]
+     ],
+     "model": "Luonnos lähetettiin komissiolle."
+    }
+   ],
+   "free": {
+    "prompt": "Kirjoita ystävälle viesti. Kerro, mitä mieltä olet luonnon ennallistamisesta, ja kysy, mitä ystävä ajattelee.",
+    "words": "50–80",
+    "checklist": [
+     "Viestissä ystävälle voit käyttää puhekieltä, esimerkiksi mä, sä ja onks.",
+     "Kerro oma mielipiteesi ja yksi syy.",
+     "Kysy ystävältä, mitä hän ajattelee.",
+     "Jos kirjoitat kansanedustajalle, käytä yleiskieltä."
+    ],
+    "model": "Moi! Mä oon lukenut uutisen luonnon ennallistamisesta. Mun mielestä luontoa pitää suojella enemmän, koska se on tärkeää meille kaikille. Mitä sä ajattelet? Onks sun mielestä vapaaehtoiset toimet tarpeeksi?"
+   }
+  },
+  "puhe": {
+   "title": "Puhu luonnon ennallistamisesta",
+   "tasks": [
+    {
+     "type": "read",
+     "text": "Hallitus lähetti luonnoksen komissiolle."
+    },
+    {
+     "type": "read",
+     "text": "Suunnitelma koskee soita ja metsiä."
+    },
+    {
+     "type": "read",
+     "text": "Toimet perustuvat vapaaehtoisuuteen."
+    },
+    {
+     "type": "read",
+     "text": "Luonnonsuojeluliitto kritisoi rajausta."
+    },
+    {
+     "type": "read",
+     "text": "WWF haluaa luonnoksen julkiseksi."
+    },
+    {
+     "type": "read",
+     "text": "Päätös luonnonmetsistä siirtyi."
+    },
+    {
+     "type": "respond",
+     "q": "Kenelle hallitus lähetti luonnoksen?",
+     "hint": "komissio",
+     "keywords": [
+      [
+       "komissio"
+      ]
+     ],
+     "model": "Hallitus lähetti luonnoksen komissiolle.",
+     "variants": [
+      "Komissiolle."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Mihin alueisiin sitova velvoite rajattiin? Vastaa kokonaisella lauseella.",
+     "hint": "Natura",
+     "keywords": [
+      [
+       "natura"
+      ]
+     ],
+     "model": "Velvoite rajattiin Natura-alueisiin.",
+     "variants": [
+      "Natura-alueisiin."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Millä tavalla toimet tehdään Natura-alueiden ulkopuolella?",
+     "hint": "vapaaehtoi",
+     "keywords": [
+      [
+       "vapaaehtoi"
+      ]
+     ],
+     "model": "Toimet perustuvat vapaaehtoisuuteen.",
+     "variants": [
+      "Vapaaehtoisesti."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Minkä EU:n asetuksen toteuttamisesta suunnitelma kertoo? Vastaa kokonaisella lauseella.",
+     "hint": "asetus",
+     "keywords": [
+      [
+       "ennallistamisasetu",
+       "ennallistamis"
+      ]
+     ],
+     "model": "Suunnitelma kertoo ennallistamisasetuksen toteuttamisesta.",
+     "variants": [
+      "Ennallistamisasetuksen."
+     ]
+    }
+   ]
+  }
+ }
+}

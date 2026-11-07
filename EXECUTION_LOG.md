@@ -6,3 +6,4 @@
 | 2026-11-07T02:07:50Z | S-003 | 1 | pass | eb2b2c0 | scoring.js from spike with English notes; T-001..T-009,T-025,T-027,T-029 pass (12 tests) |
 | 2026-11-07T02:08:08Z | S-004 | 1 | pass | 8f391c5 | validator + note checker from spike; 25 validator tests pass; CLI 'all valid: 1 themes, 4 exercises' |
 | 2026-11-07T10:35:46Z | S-005 | 1 | pass | 428c73a | app.js from interrupted run reviewed and reused; style.css added; 62/62 tests local; CI run 42364537580 success |
+| 2026-11-07T11:04:08Z | S-006 | 1 | pass | pending | six themes (areas 1-6), stub removed, manifest in area order; validate/check-notes ok; 82/82 tests; register 63 sources |
