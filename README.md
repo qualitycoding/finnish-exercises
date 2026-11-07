@@ -35,6 +35,10 @@ Every glossed word carries a label so it is clear how informal it is:
 Each reading text ends with an invented dialogue (clearly marked *keksitty esimerkki*) where the colloquial words appear in context.
 A word is labelled slang only when two independent web sources confirm it; the evidence is recorded in the theme's content note. Kielitoimiston sanakirja could not be consulted when the first six themes were made; see REFRESH.md for the re-check.
 
+### Security headers
+
+GitHub Pages cannot send HTTP response headers, so the Content-Security-Policy is a `<meta>` element in `index.html`. It covers scripts, styles, images and requests, but `frame-ancestors`, `Referrer-Policy` and `X-Content-Type-Options` cannot be set this way, so the site can be framed. The app has no sign-in and no action that needs protecting from framing.
+
 ### Browser support for speech
 
 - Text-to-speech uses `speechSynthesis`, which all mainstream browsers have; you need a Finnish voice installed in the device's text-to-speech settings. The listening page says which voice it found, and Chrome on desktop may have no Finnish voice.

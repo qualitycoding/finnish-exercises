@@ -1,0 +1,27 @@
+TAP version 13
+# Subtest: T-089 a theme with a broken exercise shows an error panel with a way out, and the other pages still work
+not ok 1 - T-089 a theme with a broken exercise shows an error panel with a way out, and the other pages still work
+  ---
+  duration_ms: 30296.409493
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4b.test.mjs:38:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('html[data-ready=\'error\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    TestContext.<anonymous> (/tmp/red/tests/e2e-review-v4b.test.mjs:45:16)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 31210.993394

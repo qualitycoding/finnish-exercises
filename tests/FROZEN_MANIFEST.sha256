@@ -9,3 +9,4 @@ eedb0743048692fda482756572388d018cab753db0827ae33a0398916f021085  tests/validate
 3a8f23ceeb63405687a769a6ba42b0b4782ac573b544f503e63087231cad18f3  tests/review-v4.test.mjs
 62dc451cad41fb4d072b735d7dc574ccc85868b2058c9cf73805ab1eef95ecfe  tests/e2e-review-v4.test.mjs
 4dc62384dfd8f8599ba30ec07cdcd3b3f7bd9f470580f6331ba9a1bdfcb06232  tests/content-review-v4.test.mjs
+5cf1d37c435cb2959d87264dc48158b8527e1f79a24051527d91e6e2c3e2e7ef  tests/e2e-review-v4b.test.mjs

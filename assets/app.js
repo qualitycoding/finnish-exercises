@@ -739,7 +739,7 @@ function renderAbout() {
       h(
         "p",
         {},
-        "Every exercise has ten items worth 1, ½ or 0 points. Typed answers must match exactly; half a point is given when only ä or ö is wrong, or for one typo in a word of six letters or more (Finnish vowel and consonant length changes the word, so short words get no typo allowance). Word-order tasks need the neutral order. Translations and spoken answers are checked for key words, and key words are matched inside inflected forms and compounds. A key word typed without ä or ö still counts but caps the item at half a point, as in the gap tasks. Dictation and read-aloud answers earn full marks at about 90 % similarity. Speaking allows up to three recordings per item and the best one counts.",
+        "Every exercise has ten items worth 1, ½ or 0 points. Typed answers must match exactly; half a point is given when only ä or ö is wrong, or for one typo in a word of six letters or more (Finnish vowel and consonant length changes the word, so short words get no typo allowance). Word-order tasks need the neutral order. Translations and spoken answers are checked for key words, and key words are matched inside inflected forms and compounds. A key word typed without ä or ö still counts but caps the item at half a point, as in the gap tasks. Key-word scoring does not understand negation, so an answer that denies the fact (“ei …”) can still earn points. Dictation and read-aloud answers earn full marks at about 90 % similarity. Speaking allows up to three recordings per item and the best one counts.",
       ),
       h("h2", {}, "Register labels"),
       legend(),
