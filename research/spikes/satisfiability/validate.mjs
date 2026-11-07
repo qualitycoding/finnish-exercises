@@ -106,7 +106,8 @@ export function validateTheme(theme, file = "theme") {
         else {
           if (q.accept.some((a) => a.includes(","))) fail("V9", at, "comma inside a word-order sentence");
           const words = q.accept[0].replace(/[.!?]$/, "").split(" ");
-          if (words.length > 8) fail("V9", at, `${words.length} chips (max 8)`);
+          if (words.length > 8 || words.length < 3) fail("V9", at, `${words.length} chips (allowed 3–8)`);
+          if (scoreOrder(words.slice().reverse(), q.accept).points === 1) fail("V9", at, "the reversed sentence is also accepted (a wrong run could score)");
           if (scoreOrder(words, q.accept).points !== 1) fail("V9", at, "canonical sentence does not rebuild");
           const bag = words.map((w) => w.toLowerCase()).sort().join(" ");
           for (const alt of q.accept.slice(1)) {
@@ -128,6 +129,7 @@ export function validateTheme(theme, file = "theme") {
       }
       if ((q.type === "dictation" || q.type === "read") && /\d/.test(String(q.text))) fail("V11", at, "digits in a spoken target");
     });
+    if (kind === "kirjoitus" && !(ex.tasks || []).some((q) => q.type === "gap" && /[äö]/i.test(q.accept?.[0] || ""))) fail("V8", where, "no gap answer contains ä or ö");
     if (kind === "kirjoitus") {
       const fr = ex.free;
       if (!fr) fail("V12", where, "missing free writing");

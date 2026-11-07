@@ -1,0 +1,1 @@
+# Cold read pass 1 (Sonnet, fresh context) — 24 items (A1–A24) and B1–B6; all resolved in commit 'Cold read pass 1 amendments' (PLAN conventions section, S-000 probes, live-check literal, D-006a, D-007 ranking, S-003 table, S-006 definitions, lesson-ID fixes).

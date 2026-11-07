@@ -4,6 +4,8 @@
 
 **Reading order.** `plan/PROFILE.md` → `plan/ASSUMPTIONS.md` → `plan/DECISIONS.md` → `plan/PLAN.md` → `plan/GATES.md` → `plan/ENVIRONMENT.md` → `research/PRIOR_KNOWLEDGE.md` (checklist at the top) → `tests/`.
 
+**Protocol and taxonomies.** The protocol is `qualitycoding/skills` `protocols/planning-protocol.md` at `0feb631` (local clone `/home/claude/qualitycoding/skills`); lesson/knowledge tag vocabularies are `TAXONOMY.md` in `qualitycoding/Lessons` and `qualitycoding/knowledge` (local clones `/home/claude/lessons`, `/home/claude/knowledge`). Read 'Conventions for every step' at the top of `plan/PLAN.md` before S-000.
+
 **Environment.** See `plan/ENVIRONMENT.md`. In the sandbox the browsers are preinstalled (`/opt/pw-browsers`); do not download them.
 
 **Frozen suite.** `node --test tests/*.test.mjs` (unit T-001…T-009, validator T-010…T-024, browser T-030…T-047). Verify the freeze with `sha256sum -c tests/FROZEN_MANIFEST.sha256`. Frozen files carry `FROZEN — DO NOT MODIFY`. You may not modify, skip, mark expected-failure or weaken them; if one is wrong, halt that step and write `TEST_CHALLENGE.md` (R-D2). `tests/server.mjs` is a helper and is frozen too.
