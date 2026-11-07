@@ -1,0 +1,469 @@
+{
+ "id": "kruunusillat-ratikka-20261107",
+ "title": "Ratikka ylittää Kruunuvuorensillan",
+ "short": "Kruunusillat",
+ "dateLabel": "7. marraskuuta 2026",
+ "level": "B1–B2",
+ "summary": "Helsingissä alkoi 7. marraskuuta raitiovaunuliikenne Kruunusiltoja pitkin. Teksti kertoo uudesta reitistä ja sillasta.",
+ "sources": [
+  {
+   "title": "Yle: Sadat ihmiset ryntäsivät kyytiin, kun raitiovaunureitti avattiin Helsingissä (7.11.2026)",
+   "url": "https://yle.fi/a/74-20254764"
+  },
+  {
+   "title": "HSL (STT Info): Raitiovaunuliikenne Kruunusilloilla alkaa 7.11.",
+   "url": "https://www.sttinfo.fi/tiedote/72277641/raitiovaunuliikenne-kruunusilloilla-alkaa-711?lang=fi"
+  }
+ ],
+ "exercises": {
+  "luku": {
+   "title": "Ratikka ylittää meren",
+   "intro": "Lue uutisteksti uudesta ratikkareitistä ja sen jälkeen keksitty keskustelu. Vastaa sitten kysymyksiin.",
+   "text": [
+    "Helsingissä avattiin lauantaina 7. marraskuuta 2026 uusi [[raitiotie|raitiovaunujen reitti, jolla vaunut kulkevat kiskoja pitkin · tram line]] Kruunusiltoja pitkin. Uudella reitillä [[liikennöivät|ajavat säännöllisesti · run services]] linjat 11 ja 12. Ylen mukaan ensimmäinen vuoro täyttyi innokkaista matkustajista. Se lähti Korkeasaaren pysäkiltä sillan yli kohti Yliskylää. Ennen lähtöä uusi raitiotie julistettiin avatuksi juhlamenoin.",
+    "Reitin pisin osa on Kruunuvuorensilta. Silta on noin 1,2 kilometriä pitkä, ja se on Suomen pisin silta. Kävelijät ja pyöräilijät saivat käyttää siltaa jo huhtikuussa. Autoilijat eivät saa ajaa sillalla, mutta [[pelastusajoneuvot|ambulanssit ja muut hälytysajoneuvot · emergency vehicles]] saavat käyttää sitä.",
+    "Uusi yhteys vie Laajasalon ja Kruunuvuorenrannan asukkaat nopeammin keskustaan ja Pasilaan. Linja 11 kulkee Kruunuvuorenrannasta Pasilaan, ja linja 12 kulkee Yliskylästä Rautatientorille. Reitin [[tavoite|asia, jota yritetään saavuttaa · aim]] on helpottaa asukkaiden arkea. HSL:n mukaan matka Yliskylästä Rautatientorille kestää noin 20 minuuttia, ja Laajasalon bussireitit muuttuvat vasta tammikuussa 2027.",
+    "Sillasta ja sen hinnasta on käyty paljon keskustelua, kertoo Yle. Niin käy usein isoissa rakennushankkeissa. Ylen haastattelema laajasalolainen uskoo, että uusi yhteys vaikuttaa hänen liikkumiseensa paljon. Nyt kaupunkilaiset voivat itse [[kokeilla|testata, miltä jokin tuntuu · try out]] uutta yhteyttä."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Moi! Mä [[oon|olen · I am (spoken form)|puhekieli]] ihan ihmeissäni: ratikka menee nyt meren yli!",
+    "– Joo, [[toi|tuo · that (spoken form)|puhekieli]] silta on [[tosi|erittäin · very (spoken form)|puhekieli]] pitkä. Aiotko mennä katsomaan?",
+    "– Totta kai. Mä otan [[fillarin|polkupyörän · bicycle (Helsinki slang)|slangi]] mukaan ja ajan sillan yli.",
+    "– [[Onks|onko · is it (spoken form)|puhekieli]] se sallittua?",
+    "– On. Kävelijät ja pyöräilijät saa mennä sinne, mutta autolla ei pääse.",
+    "– Tuleeko sinne mukaan joku muukin?",
+    "– Mä kysyin [[mun|minun · my (spoken form)|puhekieli]] kaverilta, ja se tulee varmaan.",
+    "– Hyvä juttu! [[Sit|sitten · then (spoken form)|puhekieli]] me mennään sinne yhdessä huomenna."
+   ],
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Milloin uusi raitiotie avattiin?",
+     "options": [
+      "sunnuntaina 8. marraskuuta",
+      "lauantaina 7. marraskuuta",
+      "perjantaina 6. marraskuuta"
+     ],
+     "answer": 1,
+     "explain": "Teksti: Helsingissä avattiin lauantaina 7. marraskuuta uusi raitiotie."
+    },
+    {
+     "type": "tf",
+     "q": "Uudella reitillä liikennöivät linjat 11 ja 12.",
+     "answer": true,
+     "explain": "Teksti sanoo, että reitillä ajavat linjat 11 ja 12."
+    },
+    {
+     "type": "mc",
+     "q": "Mikä Kruunuvuorensilta on?",
+     "options": [
+      "Helsingin vanhin silta",
+      "Suomen pisin silta",
+      "Euroopan korkein silta"
+     ],
+     "answer": 1,
+     "explain": "Silta on noin 1,2 kilometriä pitkä ja Suomen pisin silta."
+    },
+    {
+     "type": "tf",
+     "q": "Autoilijat saavat ajaa Kruunuvuorensillalla.",
+     "answer": false,
+     "explain": "Autoilu on kielletty. Vain pelastusajoneuvot saavat käyttää siltaa."
+    },
+    {
+     "type": "mc",
+     "q": "Milloin silta avattiin kävelijöille ja pyöräilijöille?",
+     "options": [
+      "tammikuussa",
+      "lokakuussa",
+      "huhtikuussa"
+     ],
+     "answer": 2,
+     "explain": "Kävelijät ja pyöräilijät saivat käyttää siltaa jo huhtikuussa."
+    },
+    {
+     "type": "mc",
+     "q": "Mikä linja kulkee Kruunuvuorenrannasta Pasilaan?",
+     "options": [
+      "linja 12",
+      "linja 11",
+      "linja 15"
+     ],
+     "answer": 1,
+     "explain": "Linja 11 kulkee Kruunuvuorenrannasta Pasilaan."
+    },
+    {
+     "type": "tf",
+     "q": "Linja 12 kulkee Yliskylästä Rautatientorille.",
+     "answer": true,
+     "explain": "Näin teksti kertoo linjasta 12."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä sana pelastusajoneuvo tarkoittaa tässä tekstissä?",
+     "options": [
+      "ambulanssi tai muu hälytysajoneuvo",
+      "tavallinen henkilöauto",
+      "turistibussi"
+     ],
+     "answer": 0,
+     "explain": "Sanan selitys: ambulanssit ja muut hälytysajoneuvot."
+    },
+    {
+     "type": "tf",
+     "q": "Keskustelussa toinen henkilö aikoo mennä sillalle fillarilla.",
+     "answer": true,
+     "explain": "Hän sanoo: Mä otan fillarin mukaan."
+    },
+    {
+     "type": "mc",
+     "q": "Miksi keskustelussa toinen henkilö ei mene sillalle autolla?",
+     "options": [
+      "Auto on rikki.",
+      "Autolla ei pääse sillalle.",
+      "Silta on kiinni kaikilta."
+     ],
+     "answer": 1,
+     "explain": "Dialogi sanoo: autolla ei pääse."
+    }
+   ]
+  },
+  "kuuntelu": {
+   "title": "Uutinen Kruunusilloista",
+   "intro": "Kuuntele uutinen ja sen jälkeen keksitty keskustelu. Vastaa kysymyksiin. Tekstin saa nähdä vasta kuuntelun jälkeen.",
+   "vocab": [
+    "[[raitiovaunu|ratikka · tram]]",
+    "[[silta|rakennelma, jota pitkin kuljetaan veden yli · bridge]]",
+    "[[pelastusajoneuvo|ambulanssi tai muu hälytysajoneuvo · emergency vehicle]]",
+    "[[kävelijä|ihminen, joka kulkee jalan · pedestrian]]"
+   ],
+   "script": [
+    "Helsingissä alkoi lauantaina 7. marraskuuta raitiovaunuliikenne Kruunusilloilla. Uusi reitti yhdistää Laajasalon ja Kruunuvuorenrannan keskustaan ja Pasilaan. Reitillä kulkevat linjat 11 ja 12. Ylen mukaan ensimmäinen ratikka täyttyi matkustajista heti aamulla.",
+    "Reitin tärkein osa on Kruunuvuorensilta. Se on Suomen pisin silta, ja sen pituus on noin 1,2 kilometriä. Silta avattiin kävelijöille ja pyöräilijöille jo huhtikuussa. Autoilu on kielletty, mutta pelastusajoneuvot saavat käyttää siltaa. HSL kertoo, että hanke valmistui aikataulua nopeammin. Nyt kaupunkilaiset voivat itse kokeilla uutta yhteyttä."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Moi! Mä [[oon|olen · I am (spoken form)|puhekieli]] tässä Kruunuvuorenrannan pysäkillä.",
+    "– Oot sä jo kokeillut uutta ratikkaa?",
+    "– Joo, mä tulin just keskustasta. Matka sujui tosi nopeasti.",
+    "– Entä sinne sillalle? Onko siellä paljon porukkaa?",
+    "– On, mutta kyllä sinne mahtuu. Siellä voi kävellä ja pyöräillä ihan rauhassa.",
+    "– Hyvä! Mä tuun huomenna [[fillarilla|polkupyörällä · by bicycle (Helsinki slang)|slangi]] katsomaan siltaa."
+   ],
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Mitä Helsingissä alkoi lauantaina 7. marraskuuta?",
+     "options": [
+      "bussiliikenne keskustassa",
+      "ratikkaliikenne Kruunusilloilla",
+      "metron uusi vuoro"
+     ],
+     "answer": 1,
+     "explain": "Uutinen: raitiovaunuliikenne alkoi Kruunusilloilla."
+    },
+    {
+     "type": "tf",
+     "q": "Uusi reitti yhdistää Laajasalon keskustaan ja Pasilaan.",
+     "answer": true,
+     "explain": "Näin uutinen sanoo."
+    },
+    {
+     "type": "mc",
+     "q": "Kuinka pitkä Kruunuvuorensilta on?",
+     "options": [
+      "noin 120 metriä",
+      "noin 12 kilometriä",
+      "noin 1,2 kilometriä"
+     ],
+     "answer": 2,
+     "explain": "Sillan pituus on noin 1,2 kilometriä."
+    },
+    {
+     "type": "tf",
+     "q": "Silta avattiin kävelijöille ja pyöräilijöille vasta marraskuussa.",
+     "answer": false,
+     "explain": "Silta avattiin heille jo huhtikuussa."
+    },
+    {
+     "type": "mc",
+     "q": "Ketkä saavat ajaa sillalla ajoneuvolla?",
+     "options": [
+      "pelastusajoneuvot",
+      "kaikki autoilijat",
+      "vain taksit"
+     ],
+     "answer": 0,
+     "explain": "Autoilu on kielletty, mutta pelastusajoneuvot saavat käyttää siltaa."
+    },
+    {
+     "type": "tf",
+     "q": "Keskustelussa toinen henkilö on jo kokeillut uutta ratikkaa.",
+     "answer": true,
+     "explain": "Hän sanoo: mä tulin just keskustasta."
+    },
+    {
+     "type": "mc",
+     "q": "Miten toinen henkilö tulee huomenna katsomaan siltaa?",
+     "options": [
+      "ratikalla",
+      "autolla",
+      "fillarilla"
+     ],
+     "answer": 2,
+     "explain": "Hän sanoo, että tulee fillarilla."
+    },
+    {
+     "type": "mc",
+     "q": "Minkä numeroiset linjat kulkevat uudella reitillä?",
+     "options": [
+      "1 ja 2",
+      "11 ja 12",
+      "15 ja 16"
+     ],
+     "answer": 1,
+     "explain": "Reitillä kulkevat linjat 11 ja 12."
+    },
+    {
+     "type": "dictation",
+     "text": "Silta on Suomen pisin silta."
+    },
+    {
+     "type": "dictation",
+     "text": "Pelastusajoneuvot saavat käyttää siltaa."
+    }
+   ]
+  },
+  "kirjoitus": {
+   "title": "Kirjoita ratikasta",
+   "tasks": [
+    {
+     "type": "gap",
+     "q": "Uusi raitiotie ___ (avata) lauantaina.",
+     "hint": "passiivin imperfekti",
+     "accept": [
+      "avattiin"
+     ],
+     "explain": "avata – avattiin (passiivi)",
+     "near": [
+      "avataan",
+      "avasi"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Kävelijät ja ___ (pyöräilijä) saavat käyttää siltaa.",
+     "hint": "monikon nominatiivi",
+     "accept": [
+      "pyöräilijät"
+     ],
+     "explain": "pyöräilijä – pyöräilijät",
+     "near": [
+      "pyöräilijä",
+      "pyöräilijöitä"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Linja 11 kulkee ___ (Pasila).",
+     "hint": "illatiivi",
+     "accept": [
+      "Pasilaan"
+     ],
+     "explain": "Pasila – Pasilaan (mihin?)",
+     "near": [
+      "Pasilassa",
+      "Pasilasta"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Pelastusajoneuvot ___ (saada) käyttää siltaa.",
+     "hint": "preesens, monikon 3. persoona",
+     "accept": [
+      "saavat"
+     ],
+     "explain": "saada – he saavat",
+     "near": [
+      "saa",
+      "saada"
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The tram crosses the bridge.",
+     "accept": [
+      "Ratikka ylittää sillan."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The line goes to Pasila.",
+     "accept": [
+      "Linja kulkee Pasilaan."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "Pedestrians use the bridge in April.",
+     "accept": [
+      "Kävelijät käyttävät siltaa huhtikuussa."
+     ]
+    },
+    {
+     "type": "translate",
+     "en": "The new tram line opened on Saturday.",
+     "keywords": [
+      [
+       "uusi",
+       "uude"
+      ],
+      [
+       "avat",
+       "avas"
+      ],
+      [
+       "lauantai"
+      ]
+     ],
+     "model": "Uusi raitiotie avattiin lauantaina."
+    },
+    {
+     "type": "translate",
+     "en": "The bridge is the longest in Finland.",
+     "keywords": [
+      [
+       "silt",
+       "sill"
+      ],
+      [
+       "suome"
+      ],
+      [
+       "pisin"
+      ]
+     ],
+     "model": "Silta on Suomen pisin silta."
+    },
+    {
+     "type": "translate",
+     "en": "Pedestrians and cyclists can use the bridge.",
+     "keywords": [
+      [
+       "kävelij",
+       "jalankulk"
+      ],
+      [
+       "pyöräilij",
+       "pyörä"
+      ],
+      [
+       "käyttä",
+       "kulkea"
+      ]
+     ],
+     "model": "Kävelijät ja pyöräilijät voivat käyttää siltaa."
+    }
+   ],
+   "free": {
+    "prompt": "Kirjoita ystävälle tekstiviesti. Kerro, että haluat kokeilla uutta ratikkareittiä Kruunusillalle, ja ehdota aikaa.",
+    "words": "50–80",
+    "checklist": [
+     "Tekstiviestissä ystävälle voit käyttää puhekieltä, esimerkiksi mä, sä ja onks.",
+     "Kerro, minä päivänä haluat mennä.",
+     "Kerro, miten matkustat: ratikalla, jalan vai pyörällä.",
+     "Jos kirjoitat virallisen sähköpostin kaupungille, käytä yleiskieltä."
+    ],
+    "model": "Moi! Mä haluaisin kokeilla uutta ratikkaa Kruunusillalle. Onks sulla aikaa huomenna iltapäivällä? Me voitais mennä ratikalla Kruunuvuorenrantaan ja kävellä sillalla. Sit voitais käydä kahvilla. Kerro, sopiiks se sulle!"
+   }
+  },
+  "puhe": {
+   "title": "Puhu ratikasta",
+   "tasks": [
+    {
+     "type": "read",
+     "text": "Helsingissä alkoi uusi ratikkaliikenne."
+    },
+    {
+     "type": "read",
+     "text": "Kruunuvuorensilta on Suomen pisin silta."
+    },
+    {
+     "type": "read",
+     "text": "Kävelijät ja pyöräilijät saivat käyttää siltaa huhtikuussa."
+    },
+    {
+     "type": "read",
+     "text": "Autoilijat eivät saa ajaa sillalla."
+    },
+    {
+     "type": "read",
+     "text": "Pelastusajoneuvot saavat käyttää siltaa."
+    },
+    {
+     "type": "read",
+     "text": "Uusi reitti yhdistää Laajasalon keskustaan."
+    },
+    {
+     "type": "respond",
+     "q": "Missä kaupungissa uusi raitiotie avattiin?",
+     "hint": "kaupunki",
+     "keywords": [
+      [
+       "helsin"
+      ]
+     ],
+     "model": "Uusi raitiotie avattiin Helsingissä.",
+     "variants": [
+      "Helsingissä."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Ketkä saivat käyttää siltaa huhtikuussa? Vastaa kokonaisella lauseella.",
+     "hint": "kävelijät, pyöräilijät",
+     "keywords": [
+      [
+       "kävelij",
+       "jalankulk"
+      ],
+      [
+       "pyöräilij"
+      ]
+     ],
+     "model": "Kävelijät ja pyöräilijät saivat käyttää siltaa."
+    },
+    {
+     "type": "respond",
+     "q": "Mikä silta on Suomen pisin?",
+     "hint": "sillan nimi",
+     "keywords": [
+      [
+       "kruunuvuorensil",
+       "kruunusil"
+      ]
+     ],
+     "model": "Kruunuvuorensilta on Suomen pisin silta.",
+     "variants": [
+      "Kruunuvuorensilta."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Mitkä raitiolinjat kulkevat uudella reitillä? Vastaa kokonaisella lauseella.",
+     "hint": "linjat",
+     "keywords": [
+      [
+       "yksitoista",
+       "11"
+      ],
+      [
+       "kaksitoista",
+       "12"
+      ]
+     ],
+     "model": "Uudella reitillä kulkevat linjat yksitoista ja kaksitoista."
+    }
+   ]
+  }
+ }
+}
