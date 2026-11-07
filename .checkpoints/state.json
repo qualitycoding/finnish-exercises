@@ -33,7 +33,7 @@
   "5.2"
  ],
  "pending": [
-  "implementation (S-000\u2026S-KNOW)"
+  "implementation (S-000…S-KNOW)"
  ],
  "environment": {
   "class": "stable (Claude cloud; per protocol 0.1 observed class)",
@@ -97,16 +97,19 @@
  ],
  "implementation": {
   "branch": "impl-20261106T235415Z-finnish-current-affairs-exercises",
-  "active_step_id": "S-005",
+  "active_step_id": "S-006",
   "completed": [
    "S-000",
    "S-001",
    "S-002",
    "S-003",
-   "S-004"
+   "S-004",
+   "S-005"
   ],
   "attempts": {},
-  "ci_run_ids": {},
+  "ci_run_ids": {
+   "S-005": "42364537580"
+  },
   "pages_run_ids": {},
   "live_check_run_ids": {},
   "gate": null,
