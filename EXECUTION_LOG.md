@@ -7,3 +7,11 @@
 | 2026-11-07T02:08:08Z | S-004 | 1 | pass | 8f391c5 | validator + note checker from spike; 25 validator tests pass; CLI 'all valid: 1 themes, 4 exercises' |
 | 2026-11-07T10:35:46Z | S-005 | 1 | pass | 428c73a | app.js from interrupted run reviewed and reused; style.css added; 62/62 tests local; CI run 42364537580 success |
 | 2026-11-07T11:04:08Z | S-006 | 1 | pass | pending | six themes (areas 1-6), stub removed, manifest in area order; validate/check-notes ok; 82/82 tests; register 63 sources |
+
+S-007 screenshots (Pixel 7, full page, viewed with the Read tool):
+- index.png: header, intro, score card (0 / 240), tag legend and six theme cards with four exercise rows each; legible at phone width, no horizontal overflow.
+- reading-slang.png: reading text with underlined terms, the dialogue marked (keksitty esimerkki) with SLANGI and PUHEKIELI tags, the open gloss "työssä · at work (slang)" and the glossary; ten questions and sources; no overflow. The sticky "Check my answers" bar appears mid-page only because of the full-page capture.
+- writing.png: gap fill with grammar hints, three word-order tasks with chips, translations, free-writing with checklist and sources; no overflow (sticky bar again overlaps gap 3 in the capture only).
+- speaking.png: instructions, read-aloud and question items with model, record and self-assessment controls; no overflow.
+Interface chrome (header, buttons, legend) is in English by design; exercise content is Finnish.
+| 2026-11-07T11:05:25Z | S-007 | 1 | pass | pending | README, REFRESH, tools/screenshots.mjs, 4 PNGs (all >10 kB), file-name check and forbidden-word grep ok |
