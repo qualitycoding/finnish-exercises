@@ -5,3 +5,4 @@
 e1888e7b5d620333d9caef1f2d217ca58dbec9153725bfaa8a651348376fa66f  tests/server.mjs
 6213af982488e2f7717e05b5adfd126c3238ba6059cffaf4959dbf69fb9bcad7  tests/validate.test.mjs
 06fedf84d883ea9bd3a4a75a29fefb0d617bab156737ad4f61363758a8aef5b6  tests/validate-v2.test.mjs
+eedb0743048692fda482756572388d018cab753db0827ae33a0398916f021085  tests/validate-v3.test.mjs

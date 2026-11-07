@@ -1,0 +1,47 @@
+TAP version 13
+# Subtest: T-060 [V15] contentRules rejects inflected numerals, percentages and ordinals in spoken targets
+not ok 1 - T-060 [V15] contentRules rejects inflected numerals, percentages and ordinals in spoken targets
+  ---
+  duration_ms: 0.688585
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v3.test.mjs:17:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: contentRules'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    contentRules (file:///home/claude/finnish-exercises/tools/validate.mjs:5:40)
+    v15 (file:///home/claude/finnish-exercises/tests/validate-v3.test.mjs:15:20)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v3.test.mjs:18:13)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: T-061 content notes: two publisher groups per fact and a source for every real-person sentence
+not ok 2 - T-061 content notes: two publisher groups per fact and a source for every real-person sentence
+  ---
+  duration_ms: 0.141675
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v3.test.mjs:38:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: checkNote'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    checkNote (file:///home/claude/finnish-exercises/tools/check-notes.mjs:3:37)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v3.test.mjs:39:20)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 72.817931

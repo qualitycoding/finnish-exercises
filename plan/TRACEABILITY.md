@@ -14,11 +14,17 @@
 | D-006 UI contract | T-030…T-047 | S-005 |
 | Security (threat model: hostile import file, corrupted storage, markup injection from data) | T-042 (bad import), S-ADVERSARIAL report, S-REVIEW `innerHTML` check | S-005, S-REVIEW, S-ADVERSARIAL |
 | Operational (load failure diagnostics, storage failure) | T-037, T-043 | S-005 |
+| D-017/D-018 scoring (near forms, compounds, spoken) | T-025, T-027, T-029 | S-003 |
+| D-017/D-018 validator and notes (V8, V9, V13–V17, N0–N4) | T-051…T-058, T-060, T-061, CI 'Check content notes' | S-004, S-006 |
+| D-017 import merge, persistence | T-048, T-059 | S-005 |
+| D-017 speech (Play never disabled, marker not spoken) | T-049, T-050 | S-005 |
+| D-017/D-018 security (no sinks, CSP, no inline styles, no `<>` in data) | T-057, CI steps 'No HTML injection sinks', 'No inline style attributes' | S-002, S-005 |
+| D-017/D-018 refresh flow | CI step 'Refresh adds only a theme and its note', REFRESH.md, live-check selection rule | S-002, S-007, S-REFRESH |
 | Performance | No targets (static pages, ≤ ~30 kB data per theme); no performance test — recorded here as N/A by intake (no target set) | — |
 
 ## Every test → requirement
 
-T-001…T-009 → D-004/SC-2; T-010…T-024 → D-003/SC-2/SC-4/SC-7; T-030 → SC-6 (index); T-031 → SC-2/SC-3; T-032 → SC-3; T-033 → SC-6; T-034 → SC-5; T-035 → D-004; T-036 → SC-5; T-037 → operational; T-038, T-039 → SC-4 (explanations usable on phone); T-040 → SC-4; T-041 → SC-5; T-042 → SC-3/security; T-043 → SC-3/operational; T-044 → SC-7; T-045 → SC-6; T-046 → SC-5; T-047 → SC-3.
+T-001…T-009 → D-004/SC-2; T-010…T-024 → D-003/SC-2/SC-4/SC-7; T-030 → SC-6 (index); T-031 → SC-2/SC-3; T-032 → SC-3; T-033 → SC-6; T-034 → SC-5; T-035 → D-004; T-036 → SC-5; T-037 → operational; T-038, T-039 → SC-4 (explanations usable on phone); T-040 → SC-4; T-041 → SC-5; T-042 → SC-3/security; T-043 → SC-3/operational; T-044 → SC-7; T-045 → SC-6; T-046 → SC-5; T-047 → SC-3; T-025, T-027, T-029 → D-017/SC-2; T-048 → SC-3/security; T-049, T-050 → SC-5; T-051…T-058 → SC-2/SC-7/security; T-059 → SC-3; T-060 → SC-5/SC-2; T-061 → SC-7.
 
 ## Platform mapping (3.9)
 

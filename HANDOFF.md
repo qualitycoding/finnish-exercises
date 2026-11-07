@@ -8,7 +8,7 @@
 
 **Environment.** See `plan/ENVIRONMENT.md`. In the sandbox the browsers are preinstalled (`/opt/pw-browsers`); do not download them.
 
-**Frozen suite.** `node --test tests/*.test.mjs` (unit T-001…T-009, validator T-010…T-024, browser T-030…T-047). Verify the freeze with `sha256sum -c tests/FROZEN_MANIFEST.sha256`. Frozen files carry `FROZEN — DO NOT MODIFY`. You may not modify, skip, mark expected-failure or weaken them; if one is wrong, halt that step and write `TEST_CHALLENGE.md` (R-D2). `tests/server.mjs` is a helper and is frozen too.
+**Frozen suite.** `node --test tests/*.test.mjs` (unit T-001…T-009, T-025, T-027, T-029; validator T-010…T-024, T-051…T-058, T-060, T-061; browser T-030…T-050, T-059). Verify the freeze with `sha256sum -c tests/FROZEN_MANIFEST.sha256`. Frozen files carry `FROZEN — DO NOT MODIFY`. You may not modify, skip, mark expected-failure or weaken them; if one is wrong, halt that step and write `TEST_CHALLENGE.md` (R-D2); new tests go through the D-018 Phase 2 route. `tests/server.mjs` is a helper and is frozen too.
 
 **Steps at a glance.** S-000 → S-001 → S-002 → S-003 → S-004 → S-005 → S-006 → S-007 → S-REVIEW → S-ADVERSARIAL → S-PUBLISH (G-PAGES if Pages is off; G-002 pre-approved for this site, A-011) → S-LEARN (G-LEARN) → S-REFRESH → S-RETRO → S-KNOW (G-003). S-REVIEW, S-ADVERSARIAL and S-RETRO are run by fresh-context agents dispatched by the orchestrating session; S-REFRESH's schedule is created by the orchestrating session. While halted at a gate you may continue any step that does not depend on it, never an external or irreversible action.
 

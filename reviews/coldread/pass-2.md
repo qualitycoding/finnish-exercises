@@ -1,0 +1,1 @@
+# Cold read pass 2 (Sonnet, fresh context) — 4 High, 10 Medium, 8 Low items; all addressed by amendment D-018 and plan edits (default branch, CSP/styles, tap-time voice selection, Phase 2 route, superseded-text banners, live-check rule, S-006 fixes, zero-count checks, import details, publication scope, REFRESH setup).

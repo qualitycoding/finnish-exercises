@@ -3,7 +3,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseMarkup, scoreKeywords, scoreOrder, scoreTyped, plain } from "./scoring.js";
+import { parseMarkup, scoreKeywords, scoreOrder, scoreTyped, plain, fold } from "./scoring.js";
 
 export const GENERIC_SENTENCES = [
   "En tiedä.",
@@ -24,8 +24,7 @@ const MIX = {
 const INVENTED = "(keksitty esimerkki)";
 const countWords = (texts) => plain(texts.join(" ")).split(/\s+/).filter((w) => /\p{L}/u.test(w)).length;
 
-const NUMBER_WORDS = new Set(["yksi", "kaksi", "kolme", "neljä", "viisi", "seitsemän", "kahdeksan", "yhdeksän", "kymmenen", "sata", "tuhat", "miljoona", "miljardi", "tuhatta", "miljoonaa", "miljardia", "sataa"]);
-const isNumberWord = (w) => NUMBER_WORDS.has(w) || /(kymmentä|toista)$/.test(w);
+export const NUMERAL = /^(nol+|yh(den|te|de)|yksi|kah(den|te|de)|kaksi|kolm|nelj|vii(si|de|te)|kuu(si|de|te)|seitsem|kahdeks|yhdeks|kymmen|sa(ta$|tan|tai|tojen|da|toja)|tuha(t|nn|nsi|tta)|miljoon|miljard|prosent|puolitoista|ensimmäi|toise)/;
 const strings = (x, out = []) => {
   if (typeof x === "string") out.push(x);
   else if (Array.isArray(x)) x.forEach((y) => strings(y, out));
@@ -138,7 +137,6 @@ export function validateTheme(theme, file = "theme") {
         if (q.type === "respond" && !q.q) fail("V10", at, "respond needs q");
       }
       if ((q.type === "dictation" || q.type === "read") && /\d/.test(String(q.text))) fail("V11", at, "digits in a spoken target");
-      if ((q.type === "dictation" || q.type === "read") && plain(String(q.text)).toLowerCase().split(/[^\p{L}]+/u).some(isNumberWord)) fail("V15", at, "number word in a spoken target");
       if (q.variants !== undefined) {
         if (!Array.isArray(q.variants)) fail("V14", at, "variants must be a list");
         else for (const va of q.variants) if (!q.keywords || scoreKeywords(va, q.keywords).points !== 1) fail("V14", at, `variant '${va}' does not score full marks`);
@@ -166,7 +164,14 @@ export function contentRules(theme, file = "theme") {
     const at = `${file}#kirjoitus item ${i + 1}`;
     if (!Array.isArray(q.near) || q.near.length < 1) problems.push(`${at}: [V13] gap needs a near list of typical wrong forms`);
     else if (q.near.some((n) => scoreTyped(n, q.accept || [], []).points === 1)) problems.push(`${at}: [V13] a near form is also an accepted answer`);
+    else if (q.near.some((n) => fold(n) === fold(q.accept?.[0] || ""))) problems.push(`${at}: [V13] a near form differs from the answer only in ä/ö (that slip earns ½)`);
   });
+  const spoken = [...(theme.exercises?.puhe?.tasks || []).filter((q) => q.type === "read"), ...(theme.exercises?.kuuntelu?.questions || []).filter((q) => q.type === "dictation")];
+  for (const q of spoken) {
+    const words = plain(String(q.text || "")).toLowerCase().split(/[^\p{L}]+/u).filter(Boolean);
+    const bad = words.filter((w) => NUMERAL.test(w));
+    if (bad.length) problems.push(`${file}: [V15] numeral or ordinal in a spoken target: ${bad.join(", ")}`);
+  }
   return problems;
 }
 

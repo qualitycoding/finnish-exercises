@@ -6,7 +6,7 @@ Goal: a single-page app on GitHub Pages with Finnish reading, listening, writing
 
 Success criteria (all measurable):
 - SC-1 Six themes × four exercises published at `https://qualitycoding.github.io/finnish-exercises/` (Live site check green for the deployed commit).
-- SC-2 Every exercise has exactly 10 scored items, correct answers score 10 and wrong answers ≤ 2 (T-031), validator passes (T-010…T-024 + `node tools/validate.mjs`).
+- SC-2 Every exercise has exactly 10 scored items, correct answers score 10 and wrong answers ≤ 2 (T-031), validator and note checker pass (T-010…T-024, T-051…T-061, `node tools/validate.mjs`, `node tools/check-notes.mjs`).
 - SC-3 Retry clears and reshuffles; best/last/attempts persist across reloads; export/import works (T-031, T-032, T-042, T-047).
 - SC-4 Every glossed term carries a register label; each reading has `slangi` and `puhekieli` terms; legend everywhere (V4, V5, T-040).
 - SC-5 Listening uses Finnish synthesis and reports a missing voice; speaking uses `fi-FI` recognition with a self-assessment fallback (T-034, T-036, T-041, T-046).
@@ -23,8 +23,12 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - **Gates.** "Halt at G-x" = write `GATE-G-x.md` (sections: Evidence, Questions, `Response:` left empty), set `state.json` `gate: "G-x"`, commit, push, and end your session with the questions as your final message. The owner's reply arrives as the next message: paste it verbatim under `Response:`, commit with the change it causes, set `gate: null`.
 - **Orchestrator steps.** After S-007 set `awaiting: "S-REVIEW"`, push, and end with `READY FOR S-REVIEW`. The orchestrating session runs S-REVIEW and S-ADVERSARIAL with fresh agents and re-invokes you with the review files for fixes (R-D10) and then S-PUBLISH. The same applies before S-RETRO (`READY FOR S-RETRO`) and for S-REFRESH (the orchestrator creates the schedule).
 - **After publication.** All later changes (iterate fixes, gate records, retrospective, lessons) are committed on the impl branch and published by repeating S-PUBLISH steps 1–6 (merge into `main`, push, wait for the three runs).
-- **Live check.** A `Live site check` run counts only under D-017 (job `live` concluded `success`; dispatch one if none appears within 10 minutes).
-- **Test totals.** The runner counts T-031 once per theme × skill, so totals differ from the ID count. "Tests pass" means `node --test tests/*.test.mjs` reports `# fail 0`, `# skipped 0`, `# todo 0` and every ID T-001…T-025, T-027, T-029, T-030…T-059 that exists in `tests/` appears in the output (T-026 and T-028 are unused).
+- **Live check.** A `Live site check` counts only under the D-018 selection rule (some run for the commit whose job `live` concluded `success`; dispatch fallbacks if none appears within 10 minutes of the Pages build).
+- **YAML blocks.** The workflow listings in this plan are indented by 5 spaces inside the list; dedent them when writing the files.
+- **CI before S-005.** Pushes during S-002…S-004 run CI against stubs and go red; do not wait for them (D-018).
+- **New tests during implementation.** Follow the D-018 Phase 2 route.
+- **Lesson/knowledge IDs.** Citations may use shortened slugs; they resolve by their timestamp prefix.
+- **Test totals.** The runner counts T-031 once per theme × skill, so totals differ from the ID count. "Tests pass" means `node --test tests/*.test.mjs` reports `# fail 0`, `# skipped 0`, `# todo 0` and every ID T-001…T-025, T-027, T-029, T-030…T-061 that exists in `tests/` appears in the output (T-026 and T-028 are unused).
 
 ### S-000 Environment & access verification
 - Tier: Haiku (run by the Sonnet implementer)
@@ -61,7 +65,7 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
   4. Remove the planning symlink if present: `rm -f node_modules`.
   5. `package.json`: `{"name":"finnish-exercises","private":true,"version":"1.0.0","description":"Finnish reading, listening, writing and speaking exercises on current affairs, served by GitHub Pages.","type":"module","license":"Apache-2.0","scripts":{"validate":"node tools/validate.mjs","test":"node tools/validate.mjs && node --test tests/*.test.mjs","serve":"node -e \"import('./tests/server.mjs').then(m=>m.serve('.')).then(s=>console.log(s.url))\"","screenshots":"node tools/screenshots.mjs"},"devDependencies":{"playwright":"1.63.0"}}`
   6. Lockfile: `rm -rf /tmp/lock && mkdir /tmp/lock && cp package.json /tmp/lock/ && (cd /tmp/lock && npm install --package-lock-only --no-audit --no-fund) && cp /tmp/lock/package-lock.json . && npm ci --no-audit --no-fund`.
-  7. `grep -c '"link": true' package-lock.json` must print `0`.
+  7. `! grep -q '"link": true' package-lock.json`.
 - Outputs: `LICENSE`, `.nojekyll`, `.gitignore`, `.gitattributes`, `package.json`, `package-lock.json`
 - Evidence produced: none
 - Done when: files exist; `npm ci` exits 0; `node -e "import('playwright').then(()=>console.log('ok'))"` prints `ok`.
@@ -115,15 +119,23 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
              run: |
                set -euo pipefail
                if grep -nE 'innerHTML|outerHTML|insertAdjacentHTML|document\.write' assets/*.js; then exit 1; fi
-           - name: Existing themes unchanged (refresh branches)
+           - name: Refresh adds only a theme and its note (refresh branches)
              if: startsWith(github.ref, 'refs/heads/refresh/')
              run: |
                set -euo pipefail
                git fetch --no-tags --depth=1 origin main
-               changed=$(git diff --name-status origin/main HEAD -- data/themes | awk '$1 != "A"')
-               if [ -n "$changed" ]; then echo "::error title=Existing theme changed::$changed"; exit 1; fi
+               bad=$(git diff --name-status origin/main HEAD | awk '!(($1=="A" && ($2 ~ /^data\/themes\/[^\/]+\.json$/ || $2 ~ /^content-notes\/[^\/]+\.md$/)) || ($1=="M" && $2=="data/manifest.json"))')
+               if [ -n "$bad" ]; then echo "::error title=Refresh changed other files::$bad"; exit 1; fi
+               git show origin/main:data/manifest.json > /tmp/old-manifest.json
+               python3 -c 'import json; o=json.load(open("/tmp/old-manifest.json"))["themes"]; n=json.load(open("data/manifest.json"))["themes"]; assert n[len(n)-len(o):]==o, "old themes must stay, in order, at the end of the manifest"'
+           - name: No inline style attributes
+             run: |
+               set -euo pipefail
+               if grep -nE "setAttribute\(\s*['\"]style|\bstyle\s*:" assets/*.js; then exit 1; fi
            - name: Validate exercise data
              run: node tools/validate.mjs
+           - name: Check content notes
+             run: node tools/check-notes.mjs
            - name: Unit, validator and browser tests
              run: node --test tests/*.test.mjs
      ```
@@ -202,10 +214,10 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - Depends on: S-003
 - Inputs: stub `tools/validate.mjs`; `research/spikes/satisfiability/validate.mjs`
 - Actions:
-  1. Copy the spike to `tools/validate.mjs`, change its import to `../assets/scoring.js`.
-  2. `node --test tests/validate.test.mjs tests/validate-v2.test.mjs` and `node tools/validate.mjs`. For the CLI to pass on the stub theme, add `near` lists to its four gaps (as in the T-051 fixture) and create `content-notes/stub-20261107.md` (deleted with the stub in S-006).
-- Outputs: `tools/validate.mjs`
-- Evidence produced: T-010…T-024, T-051…T-058 green
+  1. Copy the spike to `tools/validate.mjs`, change its import to `../assets/scoring.js`; copy `research/spikes/satisfiability/check-notes.mjs` to `tools/check-notes.mjs`.
+  2. `node --test tests/validate.test.mjs tests/validate-v2.test.mjs tests/validate-v3.test.mjs`, `node tools/validate.mjs` and `node tools/check-notes.mjs`. For the CLI to pass on the stub theme, add `near` lists to its four gaps (as in the T-051 fixture) and create `content-notes/stub-20261107.md` in the D-018 note format with two publisher groups (deleted with the stub in S-006).
+- Outputs: `tools/validate.mjs`, `tools/check-notes.mjs`
+- Evidence produced: T-010…T-024, T-051…T-058, T-060, T-061 green
 - Done when: tests pass; CLI exits 0 printing `all valid: 1 themes, 4 exercises`; `node tools/validate.mjs /nonexistent` exits non-zero.
 - Checkpoint: step pointer
 - On failure: R-D2.
@@ -221,9 +233,9 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - Inputs: `/home/claude/qualitycoding/swedish-exercises/{index.html,assets/app.js,assets/style.css}` (reference), D-006, D-007, D-008
 - Actions:
   1. Read `tests/e2e.test.mjs` first: D-006 and D-006a summarise it, the test file is authoritative. Port `index.html`, `assets/app.js`, `assets/style.css` from the reference to the UI contract D-006/D-006a: Finnish keys and routes, English interface text in British English, labels `slangi`/`puhekieli`/`idiomi`/`sana` (tag colours distinct, text contrast ≥ 4.5:1 per WCAG 2.2 AA; legend text: SLANGI = slang, informal and often group-bound; PUHEKIELI = everyday spoken Finnish; IDIOMI = fixed expression; SANA = ordinary word), `lang="en"` on `<html>` with `lang="fi"` on every Finnish content element, the dialogue blocks rendered under the heading 'Spoken Finnish (puhekieli) – invented example', listening plays `script` then `dialogue`, voice selection D-007 with `#voice-status` and the D-017 speech rules (Play never disabled, marker not spoken, sentence splitting), the D-017 import merge, CSP meta tag, no HTML sinks, `navigator.storage.persist()`, the back-up reminder, recognition `fi-FI`, storage key and import/export D-008, `#save-error`, `a#continue`, `.news-date`, `.sources`.
-  2. About page `#/tietoja` (title 'About'): how scoring works (D-004 in plain words), register labels, browser support (synthesis: Finnish voice needed — Chrome on desktop has none, use Edge, Safari or Android Chrome; recognition: Chrome, Edge, Safari; Firefox uses self-assessment), the privacy note that Chrome and Edge send recorded speech to an online service, export/import.
+  2. About page `#/tietoja` (title 'About'): how scoring works (D-004 in plain words), register labels, browser support (synthesis: a Finnish voice is needed — Chrome on desktop may have no Finnish voice and the page tells you if none is found; Edge, Safari and Android Chrome usually have one; recognition: Chrome, Edge, Safari; Firefox uses self-assessment), the privacy note that Chrome and Edge send recorded speech to an online service, export/import.
   3. Run `node --test tests/e2e.test.mjs` against the stub theme; then the full `node --test tests/*.test.mjs`.
-  4. Push the branch now and wait for CI on GitHub (L-20261009T191300Z): `gh api repos/qualitycoding/finnish-exercises/actions/runs --jq '.workflow_runs[] | select(.head_sha=="'$(git rev-parse HEAD)'") | [.name,.status,.conclusion,.id] | @tsv'` until `completed`; record the run id in `state.json`.
+  4. Push the branch now and wait for `CI` on HEAD per Conventions (L-20261009T191300Z); record it as `implementation.ci_run_ids.S-005` in `state.json`.
 - Outputs: `index.html`, `assets/app.js`, `assets/style.css`
 - Evidence produced: T-030…T-050, T-059 (22 IDs) green locally and in CI
 - Done when: tests pass (see Conventions, Test totals) locally; the CI run for HEAD concludes `success` (`ci_run_ids.S-005`).
@@ -237,19 +249,19 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 ### S-006 Content: six themes
 - Tier: Sonnet
 - Profile: software (courseware)
-- Depends on: S-004
+- Depends on: S-004, S-005
 - Inputs: D-002, D-009; the rules are steps 1–6 below (S-007 later copies them into `REFRESH.md`)
 - Actions (per theme, one at a time; run `node tools/validate.mjs` after each theme):
   0. Definitions. *Independent publishers*: two different publisher groups of D-017 (Yle; Sanoma; Alma Media; MTV; STT; each government authority). *Label mapping from Kielitoimiston sanakirja*: entries marked *slangia* or *slang.* → `slangi`; *puhekieltä*/*ark.* (arkikieltä) → `puhekieli`; fixed multi-word expressions listed as idioms → `idiomi`; if a word is not in the dictionary, or the site is unreachable, apply the D-017 slang fallback (two independent sources) or avoid the word; spoken-pronoun/verb forms of K-20261107T001500Z are `puhekieli`. Each `slangi` gloss names the region or age group where the source says so. Tools: WebSearch and WebFetch.
-  1. Search the web for Finnish news of the last 7 days (Yle Uutiset `yle.fi/uutiset`, Yle Selkouutiset `yle.fi/selkouutiset`, HS, IS, Iltalehti, MTV Uutiset, Kauppalehti, valtioneuvosto.fi). Pick six stories from six different areas: (1) politics and society, (2) economy and work, (3) science, health and environment, (4) culture and sport, (5) everyday life and new rules, (6) season, weather and Nordic life. Each story must have ≥2 independent publishers for every fact the exercises use. If an area has no suitable story in 7 days, widen to 14 days for that area; if there is still none, use area (6) twice with different topics and log it in `DEVIATIONS.md`.
-  2. Write `content-notes/<id>.md`: a table of facts (fact in English, source 1 URL, source 2 URL, used in item ids) and a table of every sentence naming a real person with its source URL. Paraphrase only; no source sentence copied; no quote over 15 words.
-  3. Write `data/themes/<id>.json` per D-002: reading 200–450 words in standard Finnish ending in a spoken-Finnish dialogue `(keksitty esimerkki) …` using ≥1 `slangi` and several `puhekieli` terms (e.g. *mä/sä*, *me mennään*, *onks*, *toi/tää*, *ihan/tosi*, *kiva*, *duuni*, *himaan* — label each correctly; check each slang word in Kielitoimiston sanakirja `kielitoimistonsanakirja.fi` where it is listed and record the check in the content note); listening script 80–220 words in standard Finnish plus a dialogue of 40–100 words, total 120–320; 8 mc/tf + 2 dictation; writing 4 gaps (case endings, verb tenses, consonant gradation), 3 word-order tasks (D-017 neutral order, 3–6 chips), 4 gaps each with a `near` list of typical wrong forms (wrong case, wrong tense, missing gradation), 3 translations with stems that survive inflection (e.g. `hallitu`, `päät`) and whole words only for 1–2 letter stems; free writing with checklist saying where each register fits (puhekieli fine in a text message to a friend, not in an email to a council); speaking 6 read-aloud sentences (no digits and no number words, V11/V15) + 4 questions (with `variants` where a natural short answer hits every group). Use absolute dates in texts, never *eilen*/*tällä viikolla*. Every gloss is `Finnish explanation · English`.
+  1. Run `date -u +%Y%m%d` once; that date is the suffix of all six ids. Search the web for Finnish news of the last 7 days (Yle Uutiset `yle.fi/uutiset`, Yle Selkouutiset `yle.fi/selkouutiset`, HS, IS, Iltalehti, MTV Uutiset, Kauppalehti, valtioneuvosto.fi). Pick six stories from six different areas: (1) politics and society, (2) economy and work, (3) science, health and environment, (4) culture and sport, (5) everyday life and new rules, (6) season, weather and Nordic life. Each story must have ≥2 independent publishers for every fact the exercises use. If an area has no suitable story in 7 days, widen to 14 days for that area; if there is still none, use area (6) twice with different topics and log it in `DEVIATIONS.md`.
+  2. Write `content-notes/<id>.md` in the D-018 format (`Area: n`, `## Facts`, `## Real people`, `## Word order`). Paraphrase only; no source sentence copied; no quote over 15 words.
+  3. Write `data/themes/<id>.json` per D-002: reading 200–450 words (text plus dialogue together) in standard Finnish ending in a spoken-Finnish dialogue `(keksitty esimerkki) …` using ≥1 `slangi` and several `puhekieli` terms (e.g. *mä/sä*, *me mennään*, *onks*, *toi/tää*, *ihan/tosi*, *kiva*, *duuni*, *himaan* — label each correctly; check each slang word in Kielitoimiston sanakirja `kielitoimistonsanakirja.fi` where it is listed and record the check in the content note); listening script 80–220 words in standard Finnish plus a dialogue of 40–100 words, total 120–320; 8 mc/tf + 2 dictation; writing: exactly 4 gaps (case endings, verb tenses, consonant gradation), each with a `near` list of typical wrong forms (wrong case, wrong tense, missing gradation; never the ä/ö-only variant), at least one answer containing ä or ö; 3 word-order tasks (D-017 neutral order, 3–6 chips); 3 translations with stems that survive inflection (e.g. `hallitu`, `päät`) and whole words only for 1–2 letter stems; free writing with checklist saying where each register fits (puhekieli fine in a text message to a friend, not in an email to a council); speaking 6 read-aloud sentences (no digits and no number words, V11/V15) + 4 questions (with `variants` where a natural short answer hits every group). Use absolute dates in texts, never *eilen*/*tällä viikolla*. Every gloss is `Finnish explanation · English`.
   4. Theme ids are `<ascii-slug>-<yyyymmdd>` with the research date; `dateLabel` in Finnish (`7. marraskuuta 2026`). Manifest order: newest first, the six themes in area order 1–6.
-  5. After all six: remove `themes/stub-20261107.json` from the manifest and delete the file. The newest theme (first in the manifest) must have ≥2 glossed terms in its reading text, a `slangi` term, and a gap answer with ä/ö (T-035, T-038, T-040 run on it). Run the full suite.
+  5. After all six: remove `themes/stub-20261107.json` from the manifest and delete it and `content-notes/stub-20261107.md`. The newest theme (first in the manifest) must have ≥2 glossed terms in its reading text, a `slangi` term, and a gap answer with ä/ö (T-035, T-038, T-040 run on it). Run the full suite.
   6. Re-read every sentence that names a real person against its content-note source (L-20261102T231800Z).
 - Outputs: `data/themes/*.json` (6), `data/manifest.json`, `content-notes/*.md` (6)
 - Evidence produced: V1–V12 pass on real content; T-031, T-035, T-040, T-044 run on every real theme
-- Done when: `node tools/validate.mjs` prints `all valid: 6 themes, 24 exercises` (it now also checks V13 and V17); `node --test tests/*.test.mjs` passes; `ls content-notes/*.md | wc -l` = 6; `grep -c stub data/manifest.json` = 0; every content note lists two sources per fact.
+- Done when: `node tools/validate.mjs` prints `all valid: 6 themes, 24 exercises` (it now also checks V13 and V17); `node --test tests/*.test.mjs` passes; `ls content-notes/*.md | wc -l` = 6; `! grep -q stub data/manifest.json`; `node tools/check-notes.mjs` exits 0; every content note lists two sources per fact.
 - Checkpoint: themes done so far
 - On failure: R-D3, R-D4, R-D5, R-D6.
 - Gate: none
@@ -264,8 +276,8 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - Inputs: reference `README.md`, `REFRESH.md`
 - Actions:
   1. `README.md` (British English): what it is, link `https://qualitycoding.github.io/finnish-exercises/`, themes table with dates, exercise/scoring table, register labels, browser speech support, content and sources policy, development commands, licence.
-  2. `REFRESH.md` per D-016 and the D-017 refresh flow (`refresh/<id>` branch, CI before `main`, fast-forward only, content note, publisher groups, slang fallback, absolute dates) (Finnish adaptation of the reference: sources list of S-006 step 1, keys `luku/kuuntelu/kirjoitus/puhe`, labels, dialogue and gloss rules, `dateLabel` in Finnish, commit message `Weekly theme: <title> (<dateLabel>)`, the three-run confirmation: CI, pages build and deployment, Live site check).
-  3. `tools/screenshots.mjs` per D-015: start `serve('.')` from `tests/server.mjs`, Playwright `chromium` with `devices['Pixel 7']`, open `#/`, the first theme's `luku` (click the first `.term` that has `.tag.slangi` before capturing), `kirjoitus` and `puhe`; wait for `html[data-route]`; `fullPage: true`; run it; open each PNG with the Read tool; note in `EXECUTION_LOG.md` what each shows (legible at phone width, tags visible, no overflow).
+  2. `REFRESH.md` per D-016 and the D-017/D-018 refresh flow: setup (`npm ci`; run `npx playwright install chromium` only if `$PLAYWRIGHT_BROWSERS_PATH/chromium-1243` is missing), baseline `npm test`, `refresh/<id>` branch, D-018 note format and publisher groups, slang fallback, absolute dates, no numerals in spoken targets, `git fetch origin main && git rebase origin/main` before pushing, CI must pass on the branch, fast-forward only, re-read every real-person sentence, the D-018 live-check selection rule, and a report with `git diff --stat origin/main~1 origin/main` (Finnish adaptation of the reference: sources list of S-006 step 1, keys `luku/kuuntelu/kirjoitus/puhe`, labels, dialogue and gloss rules, `dateLabel` in Finnish, commit message `Weekly theme: <title> (<dateLabel>)`, the three-run confirmation: CI, pages build and deployment, Live site check).
+  3. `tools/screenshots.mjs` per D-015: `mkdir -p docs/screenshots`; start `serve('.')` from `tests/server.mjs`, Playwright `chromium` with `devices['Pixel 7']`, open `#/`, the first theme's `luku` (click the first `.term` that has `.tag.slangi` before capturing), `kirjoitus` and `puhe`; wait for `html[data-route]`; `fullPage: true`; run it; open each PNG with the Read tool; note in `EXECUTION_LOG.md` what each shows (legible at phone width, tags visible, no overflow).
   4. File-name check: every path mentioned in README/REFRESH exists (`git ls-files`) (L-20261004T162226Z).
 - Outputs: `README.md`, `REFRESH.md`, `tools/screenshots.mjs`, `docs/screenshots/{index,reading-slang,writing,speaking}.png`
 - Evidence produced: D-015 visual check
@@ -317,13 +329,14 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - Actions:
   1. If `git ls-remote origin refs/heads/main` prints nothing (the repository has no `main` yet): `git checkout -B main impl-20261106T235415Z-finnish-current-affairs-exercises`. Otherwise: `git fetch origin main && git checkout -B main origin/main && git merge --no-ff impl-20261106T235415Z-finnish-current-affairs-exercises -m "Publish Finnish exercises"`.
   2. `git push origin main`; verify with `git ls-remote origin main`.
+  2a. Set `main` as the default branch per D-018 (owner at G-PAGES if refused).
   3. Wait for CI on that commit (`success`).
   4. `gh api repos/qualitycoding/finnish-exercises --jq .has_pages`; if `false`, halt at **G-PAGES**.
   5. After `done` (or if already `true`): find the `pages build and deployment` run for the commit: `gh api 'repos/qualitycoding/finnish-exercises/actions/runs?head_sha='$(git rev-parse HEAD) --jq '.workflow_runs[]|[.name,.status,.conclusion,.id]|@tsv'`. If Pages was enabled after the push and no run exists, push an empty commit `git commit --allow-empty -m "Trigger Pages build"` (a planned action, not a deviation; write an `EXECUTION_LOG.md` line) and repeat. Apply R-D8 on `startup_failure`.
   6. Wait for `Live site check` for the same commit and accept it only per D-017 (job `live` = `success`; dispatch if absent after 10 minutes) (R-D9).
 - Outputs: `main` branch; run ids in `state.json`
 - Evidence produced: SC-1
-- Done when: CI, pages build and deployment, and Live site check all `success` for the same commit on `main`.
+- Done when: for the same commit on `main`: CI `success`, pages build and deployment `success`, Live site check accepted by the D-018 rule, and `default_branch` = `main`.
 - Checkpoint: run ids
 - On failure: R-D7, R-D8, R-D9
 - Gate: G-PAGES (if Pages is off); G-002 pre-approved (A-011)
@@ -353,9 +366,9 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - Depends on: S-LEARN with response `proceed` or `proceed-with-rescope`
 - Inputs: `REFRESH.md`, live-check workflow (both on `main` from S-007/S-002)
 - Actions:
-  1. Confirm `REFRESH.md` and `.github/workflows/live-check.yml` are on `main` and that the Live site check succeeded at least once (S-PUBLISH step 6).
+  1. Confirm `REFRESH.md` and `.github/workflows/live-check.yml` are on `main`, `default_branch` is `main`, and the Live site check succeeded at least once (S-PUBLISH step 6).
   2. Look up the session's environment with the scheduling tools (`list_environments` if offered; otherwise omit `environment_id` so the task inherits this session's environment). Create a cloud scheduled task (no local device), push notifications on, cadence from G-LEARN (default `CRON_TZ=Europe/London 23 10 * * 6`), name `Finnish exercises weekly theme`.
-  3. Prompt (verbatim): "Weekly refresh for github.com/qualitycoding/finnish-exercises. Attach the repository with push access (add_repo qualitycoding/finnish-exercises, access push) and clone it. Run `git push --dry-run origin HEAD:main`; if refused, stop and report which GitHub App setting the owner must change. Then follow REFRESH.md in the repository exactly: add one new theme with its content note on a branch refresh/<id> (append-only, new dated id first in data/manifest.json, never edit or delete existing themes), push the branch, wait for CI success on it, then fast-forward main with `git push origin refresh/<id>:main` (never --force), rotate the topic area away from the newest theme, two independent sources per fact, publish only if `node tools/validate.mjs` and `node --test tests/*.test.mjs` pass (fix content, never tests or validator rules; stop after three attempts), and report the theme title, sources, commit and the results of CI, pages build and deployment and Live site check for that commit. If anything failed or was skipped, say so first. Write in British English."
+  3. Prompt (verbatim): "Weekly refresh for github.com/qualitycoding/finnish-exercises. Attach the repository with push access (add_repo qualitycoding/finnish-exercises, access push) and clone it. Run `git push --dry-run origin HEAD:main`; if refused, stop and report which GitHub App setting the owner must change. Then follow REFRESH.md in the repository exactly: add one new theme with its content note on a branch refresh/<id> (append-only, new dated id first in data/manifest.json, never edit or delete existing themes), push the branch, wait for CI success on it, then fast-forward main with `git push origin refresh/<id>:main` (never --force), rotate the topic area away from the newest theme, two independent sources per fact, re-read every sentence naming a real person against its source, publish only if `node tools/validate.mjs`, `node tools/check-notes.mjs` and `node --test tests/*.test.mjs` pass (fix content, never tests or validator rules; stop after three attempts), and report the theme title, sources, commit and the results of CI, pages build and deployment and Live site check for that commit. If anything failed or was skipped, say so first. Write in British English."
   4. Tell the owner the first run time and the approval setting the task received.
 - Outputs: scheduled task id recorded in `GATE-G-LEARN.md`
 - Evidence produced: SC-8

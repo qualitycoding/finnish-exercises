@@ -9,9 +9,9 @@ While halted at a gate, the implementer may continue any step that does not depe
 
 ## G-PAGES Enable GitHub Pages (human action)
 
-- **Trigger:** `S-PUBLISH` step 4, when `gh api repos/qualitycoding/finnish-exercises --jq .has_pages` prints `false` after the first push to `main`.
+- **Trigger:** `S-PUBLISH` step 2a (default branch refused) or step 4, when `gh api repos/qualitycoding/finnish-exercises --jq .has_pages` prints `false` after the first push to `main`.
 - **Evidence bundle (`GATE-G-PAGES.md`):** the pushed commit, the CI run id and conclusion for it.
-- **Question:** "Please open https://github.com/qualitycoding/finnish-exercises/settings/pages and set *Build and deployment → Source: Deploy from a branch → Branch: main → / (root) → Save*, then reply `done`."
+- **Question:** "Please open https://github.com/qualitycoding/finnish-exercises/settings/pages and set *Build and deployment → Source: Deploy from a branch → Branch: main → / (root) → Save*. If I reported that I could not change the default branch, also set *Settings → General → Default branch → main*. Then reply `done`."
 - **Responses:** `done` → continue `S-PUBLISH` step 5; `stop` → halt and run `S-RETRO`, `S-KNOW`.
 
 ## G-LEARN Learner trial (3.11)
@@ -30,7 +30,7 @@ While halted at a gate, the implementer may continue any step that does not depe
 ## G-003 Lessons and knowledge push (3.7.2)
 
 - **Trigger:** `S-KNOW` step 1.
-- **Evidence bundle (`GATE-G-003.md`):** lesson IDs/titles/tags, knowledge IDs/statements/tags, the source register on its own line with its source count and the number of rows with an `unknown` or `none stated` licence.
+- **Evidence bundle (`GATE-G-003.md`):** the TAXONOMY.md additions of D-017, lesson IDs/titles/tags, knowledge IDs/statements/tags, the source register on its own line with its source count and the number of rows with an `unknown` or `none stated` licence.
 - **Proposed targets:** lessons → `qualitycoding/Lessons`, knowledge → `qualitycoding/knowledge`.
 - **Responses:** `push-to-proposed`, `push-to: <lesson-target> [knowledge-target]`, `do-not-push`.
 
