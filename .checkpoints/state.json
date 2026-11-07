@@ -1,7 +1,7 @@
 {
  "run_id": "20261106T235415Z-finnish-current-affairs-exercises",
  "branch": "gen-20261106T235415Z-finnish-current-affairs-exercises",
- "sequence": 2,
+ "sequence": 3,
  "profiles": [
   "software"
  ],
@@ -10,8 +10,8 @@
   "software.deploys": true,
   "audio": false
  },
- "phase": "3",
- "subphase": "3.6 cold read + 4 pre-mortem pending",
+ "phase": "5",
+ "subphase": "5.3 pushed; plan READY",
  "completed": [
   "0.1",
   "0.3",
@@ -25,13 +25,15 @@
   "R7",
   "2B",
   "2E freeze",
-  "3.1-3.5"
+  "3.1-3.5",
+  "3.6 (3 passes)",
+  "4 (5 rounds)",
+  "4.7",
+  "5.1",
+  "5.2"
  ],
  "pending": [
-  "3.6",
-  "4",
-  "4.7",
-  "5"
+  "implementation (S-000\u2026S-KNOW)"
  ],
  "environment": {
   "class": "stable (Claude cloud; per protocol 0.1 observed class)",
@@ -54,7 +56,7 @@
   "commit_read": "bf95f15",
   "readable": true
  },
- "updated_at": "2026-11-07T00:14:48Z",
+ "updated_at": "2026-11-07T02:06:03Z",
  "not_applicable": [
   "2A",
   "2C",
@@ -69,7 +71,10 @@
  "lessons_recorded": [
   "L-20261107T002000Z-frozen-expected-values-reasoned-not-run",
   "L-20261107T002100Z-register-counts-written-by-hand",
-  "L-20261107T002200Z-node-test-directory-argument"
+  "L-20261107T002200Z-node-test-directory-argument",
+  "L-20261107T013000Z-outlets-assumed-independent",
+  "L-20261107T013100Z-localstorage-assumed-durable-on-ios",
+  "L-20261107T013200Z-pre-mortem-found-scoring-and-security-gaps"
  ],
  "knowledge_added": [
   "K-20261107T001000Z-finnish-tts-voices",
@@ -78,10 +83,16 @@
   "K-20261107T001300Z-node-test-directory-argument",
   "K-20261107T001400Z-yle-content-copyright",
   "K-20261107T001500Z-puhekieli-features",
-  "K-20261107T003000Z-source-register-finnish-exercises"
+  "K-20261107T003000Z-source-register-finnish-exercises",
+  "K-20261107T013300Z-finnish-media-publisher-groups",
+  "K-20261107T013400Z-safari-seven-day-storage-cap"
  ],
  "intake": {
   "answered_at": "2026-11-07T00:02Z",
   "answer": "Plan and build; include v3.15 refresh; switch to Sonnet for implementation; all other defaults"
- }
+ },
+ "premortem_round": 5,
+ "tier_substitutions": [
+  "Cold reads used Sonnet as specified; Haiku mechanical checks were folded into the Sonnet cold-read agents (Rule 5: next higher tier)."
+ ]
 }

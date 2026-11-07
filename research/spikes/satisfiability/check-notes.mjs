@@ -22,7 +22,7 @@ const section = (md, title) => {
   const m = md.match(new RegExp(`^## ${title}\\s*$([\\s\\S]*?)(?=^## |(?![\\s\\S]))`, "m"));
   return m ? m[1] : null;
 };
-const rows = (body) => body.split("\n").filter((l) => /^\|/.test(l) && !/^\|\s*-/.test(l)).slice(1);
+const rows = (body) => body.split("\n").filter((l) => /^\|/.test(l) && !/^\|\s*:?-/.test(l)).slice(1);
 const urls = (s) => s.match(/https:\/\/[^\s|)]+/g) || [];
 
 export function checkNote(md, file = "note.md") {

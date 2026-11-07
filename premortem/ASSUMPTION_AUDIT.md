@@ -65,3 +65,16 @@ Verdicts: **confirmed** means checked and true. **falsified** means checked and 
 | C-012 | Playwright 1.63.0 launches Chromium from `/opt/pw-browsers` | Launch failure | Committed spike output only (not rerun: browser runs were excluded) | confirmed (from record) |
 | C-013 | `node --test tests/` fails on Node 22; the glob works | The directory form passes | Reproduced: `# fail 1` for the directory form; 24/24 with explicit files | confirmed |
 | (missing) | `deployment_status` from Pages triggers workflows; non-success states create skipped runs | — | No claim exists | add C-014 after the first observed run (R-018) |
+
+## Dispositions of falsified items (planner, after rounds 1–3)
+
+| Item | Lesson | Knowledge | Amendment |
+|---|---|---|---|
+| A-008 / D-009 (outlets independent) | L-20261107T013000Z-outlets-assumed-independent | K-20261107T013300Z-finnish-media-publisher-groups | D-017 publishers, D-018 note checker (T-061) |
+| A-012 / D-008 (localStorage durable; import safe) | L-20261107T013100Z-localstorage-assumed-durable-on-ios | K-20261107T013400Z-safari-seven-day-storage-cap | D-017 import merge, persist, reminder (T-048, T-059) |
+| A-020 (tags in taxonomy) | — (record-keeping; no mistake in execution) | — | D-017 taxonomy additions at S-KNOW |
+| D-004 / D-005 (Finnish scoring and word order) | L-20261107T013200Z-pre-mortem-found-scoring-and-security-gaps | K-20261107T001100Z-finnish-keyword-stem-matching | D-017 (T-025, T-027, T-029, T-053), D-018 (T-060) |
+| D-014 (every validator rule has a failing test) | L-20261107T013200Z-pre-mortem-found-scoring-and-security-gaps | — | D-017 (T-052, T-053, T-058) |
+| D-016 (reference REFRESH publishes after CI) | L-20261107T013200Z-pre-mortem-found-scoring-and-security-gaps | — | D-017 refresh flow, D-018 allow-list, refresh guard (R-041) |
+
+Unverifiable items are carried as risks (R-003, R-004, R-008, R-028) with mitigations at G-LEARN.

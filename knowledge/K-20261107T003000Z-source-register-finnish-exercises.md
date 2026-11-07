@@ -1,6 +1,6 @@
 ---
 id: K-20261107T003000Z-source-register-finnish-exercises
-statement: Source register for the finnish-exercises planning research (run gen-20261106T235415Z): 27 external sources checked, 15 used, 6 corroborating, 3 rejected, 3 not relevant, 0 unreachable; 14 have an unknown or none-stated licence.
+statement: Source register for the finnish-exercises planning research (run gen-20261106T235415Z): 29 external sources checked, 16 used, 7 corroborating, 3 rejected, 3 not relevant, 0 unreachable; 16 have an unknown or none-stated licence.
 status: current
 supersedes: []
 tags: [subject:finnish-exercises, domain:language-learning, phase:research, kind:source-register]
@@ -41,5 +41,7 @@ recorded_at: 2026-11-07T00:30:00Z
 | 25 | swedish-exercises, qualitycoding (owner) | https://github.com/qualitycoding/swedish-exercises | b8c4f57 | 2026-11-07 | 1 | used | Reference implementation, REFRESH.md, live-check workflow. | — | Apache-2.0 (LICENSE file, read) | adapt with attribution (same owner; compatible with target Apache-2.0) | none |
 | 26 | skills, qualitycoding (owner) | https://github.com/qualitycoding/skills | 0feb631 | 2026-11-07 | 1 | used | Planning protocol v3.15; learning-exercise-site skill. | — | Apache-2.0 (LICENSE file, read) | adapt with attribution | none |
 | 27 | Readium Speech repository (LICENSE) | https://github.com/readium/speech | 6ef1f30 | 2026-11-07 | 2 | corroborating | Licence of row 3. | C-001 | BSD-3-Clause (LICENSE file, read) | redistribute with notice | none |
+| 28 | Safari 13.1 and 7-day script-writeable storage, Michael Tsai | https://mjtsai.com/blog/2020/03/26/safari-13-1-third-party-cookie-blocking-and-7-day-script-writeable-storage/ | 2020-03-26 | 2026-11-07 | 3 | used | Safari deletes script-writable storage after 7 days without interaction. | — | none stated (page; checked by the audit agent) | read only | none |
+| 29 | Apple cops flak for deleting local browser storage after 7 days, iTnews | https://www.itnews.com.au/news/apple-cops-flak-for-deleting-local-browser-storage-after-7-days-539833 | 2020 | 2026-11-07 | 3 | corroborating | Reports the same WebKit change. | — | iTnews terms (not read; unknown) | read only | none |
 
-Counts (computed from the table): used 15, corroborating 6, rejected 3, not relevant 3, unreachable 0; licence unknown or none stated: 14. Nothing from these sources is copied into the deliverable except the owner's own Apache-2.0 code (rows 25–26); the BSD-3 voice list (row 3) is kept only under research/spikes with its licence file.
+Counts (computed from the table): used 16, corroborating 7, rejected 3, not relevant 3, unreachable 0; licence unknown or none stated: 16. Nothing from these sources is copied into the deliverable except the owner's own Apache-2.0 code (rows 25–26); the BSD-3 voice list (row 3) is kept only under research/spikes with its licence file.

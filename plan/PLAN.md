@@ -1,6 +1,12 @@
 # PLAN — Finnish current-affairs exercises (qualitycoding/finnish-exercises)
 
-**Status:** see header written at Phase 5 below.
+> **Status: READY** · protocol v3.15 · profiles: `software` (+ `courseware`, `software.deploys`) · 2026-11-07
+> Claims: 5 verified, 4 corroborated, 4 single-source (C-001, C-004, C-005, C-006; carried as risks R-003/R-004).
+> Frozen tests (59 IDs): unit 12 (T-001…T-009, T-025, T-027, T-029), validator/notes 25 (T-010…T-024, T-051…T-058, T-060, T-061), browser 22 (T-030…T-050, T-059); all red-verified against stubs; non-browser 37/37 satisfiable against the planning spike.
+> Steps: 15 (S-000…S-007, S-REVIEW, S-ADVERSARIAL, S-PUBLISH, S-LEARN, S-REFRESH, S-RETRO, S-KNOW). Gates: 4 (G-002 pre-approved for Pages, G-PAGES, G-LEARN, G-003).
+> Risks raised over 5 pre-mortem rounds: 48 (5 Critical, 15 High, ~19 Medium, ~9 Low as first rated); every Critical/High mitigated by D-017/D-018; round 5 found 0 Critical, 0 High. Accepted Medium/Low: R-001, R-003, R-004, R-007, R-008, R-021, R-022, R-024, R-025, R-028, R-029, R-030, R-038, R-042.
+> Assumption audit: 21 confirmed, 8 falsified (all amended, see ASSUMPTION_AUDIT dispositions), 16 unverifiable (carried as risks or decided at G-LEARN).
+> Cold read: 3 passes; pass 3 found zero blocking items. Code review / adversarial / mutation: not yet run (implementation steps; S-MUTATE opted out, D-014).
 
 Goal: a single-page app on GitHub Pages with Finnish reading, listening, writing and speaking exercises about current affairs; ~10 minutes each, scored out of 10, retryable, scores saved between visits, slang and colloquial language labelled; refreshed weekly.
 
@@ -23,6 +29,7 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - **Gates.** "Halt at G-x" = write `GATE-G-x.md` (sections: Evidence, Questions, `Response:` left empty), set `state.json` `gate: "G-x"`, commit, push, and end your session with the questions as your final message. The owner's reply arrives as the next message: paste it verbatim under `Response:`, commit with the change it causes, set `gate: null`.
 - **Orchestrator steps.** After S-007 set `awaiting: "S-REVIEW"`, push, and end with `READY FOR S-REVIEW`. The orchestrating session runs S-REVIEW and S-ADVERSARIAL with fresh agents and re-invokes you with the review files for fixes (R-D10) and then S-PUBLISH. The same applies before S-RETRO (`READY FOR S-RETRO`) and for S-REFRESH (the orchestrator creates the schedule).
 - **After publication.** All later changes (iterate fixes, gate records, retrospective, lessons) are committed on the impl branch and published by repeating S-PUBLISH steps 1–6 (merge into `main`, push, wait for the three runs).
+- **Refresh guard.** The `Refresh guard` run is found only by the D-018 lookup (run name contains the commit sha), never by `head_sha`.
 - **Live check.** A `Live site check` counts only under the D-018 selection rule (some run for the commit whose job `live` concluded `success`; dispatch fallbacks if none appears within 10 minutes of the Pages build).
 - **YAML blocks.** The workflow listings in this plan are indented by 5 spaces inside the list; dedent them when writing the files.
 - **CI before S-005.** Pushes during S-002…S-004 run CI against stubs and go red; do not wait for them (D-018).
@@ -179,10 +186,48 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
                done
                exit $fail
      ```
-  3. Parse both with `python3 -c "import yaml,sys;[yaml.safe_load(open(f)) for f in sys.argv[1:]]" .github/workflows/*.yml` (install `pip install --break-system-packages pyyaml` if missing) (L-20261009T150801Z).
-- Outputs: `.github/workflows/ci.yml`, `.github/workflows/live-check.yml`
+  2b. Write `.github/workflows/refresh-guard.yml` exactly (R-041: it runs from the default branch `main`, so a refresh commit cannot remove it):
+     ```yaml
+     name: Refresh guard
+     run-name: Refresh guard ${{ github.event.workflow_run.head_sha }}
+     on:
+       workflow_run:
+         workflows: [CI]
+         types: [completed]
+         branches: ["refresh/**"]
+     permissions:
+       contents: read
+     jobs:
+       guard:
+         runs-on: ubuntu-24.04
+         timeout-minutes: 10
+         defaults:
+           run:
+             shell: bash
+         steps:
+           - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+             with:
+               ref: ${{ github.event.workflow_run.head_sha }}
+               fetch-depth: 0
+           - name: CI succeeded for this commit
+             env:
+               CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+             run: |
+               set -euo pipefail
+               test "$CONCLUSION" = "success"
+           - name: Refresh adds only a theme and its note
+             run: |
+               set -euo pipefail
+               git fetch --no-tags origin main
+               bad=$(git diff --name-status origin/main HEAD | awk '!(($1=="A" && ($2 ~ /^data\/themes\/[^\/]+\.json$/ || $2 ~ /^content-notes\/[^\/]+\.md$/)) || ($1=="M" && $2=="data/manifest.json"))')
+               if [ -n "$bad" ]; then echo "::error title=Refresh changed other files::$bad"; exit 1; fi
+               git show origin/main:data/manifest.json > /tmp/old-manifest.json
+               python3 -c 'import json; o=json.load(open("/tmp/old-manifest.json"))["themes"]; n=json.load(open("data/manifest.json"))["themes"]; assert n[len(n)-len(o):]==o, "old themes must stay, in order, at the end of the manifest"'
+     ```
+  3. Parse all three with `python3 -c "import yaml,sys;[yaml.safe_load(open(f)) for f in sys.argv[1:]]" .github/workflows/*.yml` (install `pip install --break-system-packages pyyaml` if missing) (L-20261009T150801Z).
+- Outputs: `.github/workflows/ci.yml`, `.github/workflows/live-check.yml`, `.github/workflows/refresh-guard.yml`
 - Evidence produced: CI job definition for T-001…T-047
-- Done when: both files parse; `grep -c 'actions/checkout@3d3c42e5' .github/workflows/ci.yml` = 1.
+- Done when: all three workflow files parse; `grep -c 'actions/checkout@3d3c42e5' .github/workflows/ci.yml` = 1.
 - Checkpoint: step pointer
 - On failure: R-D12.
 - Gate: none
@@ -276,7 +321,7 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - Inputs: reference `README.md`, `REFRESH.md`
 - Actions:
   1. `README.md` (British English): what it is, link `https://qualitycoding.github.io/finnish-exercises/`, themes table with dates, exercise/scoring table, register labels, browser speech support, content and sources policy, development commands, licence.
-  2. `REFRESH.md` per D-016 and the D-017/D-018 refresh flow: setup (`npm ci`; run `npx playwright install chromium` only if `$PLAYWRIGHT_BROWSERS_PATH/chromium-1243` is missing), baseline `npm test`, `refresh/<id>` branch, D-018 note format and publisher groups, slang fallback, absolute dates, no numerals in spoken targets, `git fetch origin main && git rebase origin/main` before pushing, CI must pass on the branch, fast-forward only, re-read every real-person sentence, the D-018 live-check selection rule, and a report with `git diff --stat origin/main~1 origin/main` (Finnish adaptation of the reference: sources list of S-006 step 1, keys `luku/kuuntelu/kirjoitus/puhe`, labels, dialogue and gloss rules, `dateLabel` in Finnish, commit message `Weekly theme: <title> (<dateLabel>)`, the three-run confirmation: CI, pages build and deployment, Live site check).
+  2. `REFRESH.md` per D-016 and the D-017/D-018 refresh flow: setup (`npm ci`; run `npx playwright install chromium` only if `$PLAYWRIGHT_BROWSERS_PATH/chromium-1243` is missing), baseline `npm test`, `refresh/<id>` branch, D-018 note format and publisher groups, slang fallback, absolute dates, no numerals in spoken targets, `git fetch origin main && git rebase origin/main` before pushing, CI and the `Refresh guard` run (found only by the D-018 lookup on `display_title == "Refresh guard <sha>"`) must both succeed for the branch commit, fast-forward only, re-read every real-person sentence, the D-018 live-check selection rule, and a report with `git diff --stat origin/main~1 origin/main` (Finnish adaptation of the reference: sources list of S-006 step 1, keys `luku/kuuntelu/kirjoitus/puhe`, labels, dialogue and gloss rules, `dateLabel` in Finnish, commit message `Weekly theme: <title> (<dateLabel>)`, the three-run confirmation: CI, pages build and deployment, Live site check).
   3. `tools/screenshots.mjs` per D-015: `mkdir -p docs/screenshots`; start `serve('.')` from `tests/server.mjs`, Playwright `chromium` with `devices['Pixel 7']`, open `#/`, the first theme's `luku` (click the first `.term` that has `.tag.slangi` before capturing), `kirjoitus` and `puhe`; wait for `html[data-route]`; `fullPage: true`; run it; open each PNG with the Read tool; note in `EXECUTION_LOG.md` what each shows (legible at phone width, tags visible, no overflow).
   4. File-name check: every path mentioned in README/REFRESH exists (`git ls-files`) (L-20261004T162226Z).
 - Outputs: `README.md`, `REFRESH.md`, `tools/screenshots.mjs`, `docs/screenshots/{index,reading-slang,writing,speaking}.png`
@@ -329,11 +374,11 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - Actions:
   1. If `git ls-remote origin refs/heads/main` prints nothing (the repository has no `main` yet): `git checkout -B main impl-20261106T235415Z-finnish-current-affairs-exercises`. Otherwise: `git fetch origin main && git checkout -B main origin/main && git merge --no-ff impl-20261106T235415Z-finnish-current-affairs-exercises -m "Publish Finnish exercises"`.
   2. `git push origin main`; verify with `git ls-remote origin main`.
-  2a. Set `main` as the default branch per D-018 (owner at G-PAGES if refused).
+  2a. Set `main` as the default branch per D-018. If refused, halt at G-PAGES (whatever `has_pages` says) so the owner sets it; the evidence names the CI run id for the commit even if it is still running.
   3. Wait for CI on that commit (`success`).
   4. `gh api repos/qualitycoding/finnish-exercises --jq .has_pages`; if `false`, halt at **G-PAGES**.
   5. After `done` (or if already `true`): find the `pages build and deployment` run for the commit: `gh api 'repos/qualitycoding/finnish-exercises/actions/runs?head_sha='$(git rev-parse HEAD) --jq '.workflow_runs[]|[.name,.status,.conclusion,.id]|@tsv'`. If Pages was enabled after the push and no run exists, push an empty commit `git commit --allow-empty -m "Trigger Pages build"` (a planned action, not a deviation; write an `EXECUTION_LOG.md` line) and repeat. Apply R-D8 on `startup_failure`.
-  6. Wait for `Live site check` for the same commit and accept it only per D-017 (job `live` = `success`; dispatch if absent after 10 minutes) (R-D9).
+  6. Wait for `Live site check` for the same commit and accept it only per the D-018 selection rule (R-D9).
 - Outputs: `main` branch; run ids in `state.json`
 - Evidence produced: SC-1
 - Done when: for the same commit on `main`: CI `success`, pages build and deployment `success`, Live site check accepted by the D-018 rule, and `default_branch` = `main`.
@@ -366,9 +411,10 @@ Steps run in order; a step may start when its dependencies pass. Every step appe
 - Depends on: S-LEARN with response `proceed` or `proceed-with-rescope`
 - Inputs: `REFRESH.md`, live-check workflow (both on `main` from S-007/S-002)
 - Actions:
-  1. Confirm `REFRESH.md` and `.github/workflows/live-check.yml` are on `main`, `default_branch` is `main`, and the Live site check succeeded at least once (S-PUBLISH step 6).
+  1. Confirm `REFRESH.md`, `.github/workflows/live-check.yml` and `.github/workflows/refresh-guard.yml` are on `main`, `default_branch` is `main`, and the Live site check succeeded at least once (S-PUBLISH step 6).
+  1a. Guard self-test (R-045): `git checkout -b refresh/guard-selftest origin/main && echo >> README.md && git commit -am 'Guard self-test (not for main)' && git push origin refresh/guard-selftest`; wait for `CI` on that sha to **complete** (expected conclusion `failure`: CI's own allow-list rejects README.md), then find the guard run with the D-018 lookup and confirm it concluded `failure`; in every outcome finish with `git push origin --delete refresh/guard-selftest && git checkout main` (set `git config user.name`/`user.email` first if missing). If the lookup finds nothing within 20 minutes, report it at G-LEARN follow-up and do not create the schedule.
   2. Look up the session's environment with the scheduling tools (`list_environments` if offered; otherwise omit `environment_id` so the task inherits this session's environment). Create a cloud scheduled task (no local device), push notifications on, cadence from G-LEARN (default `CRON_TZ=Europe/London 23 10 * * 6`), name `Finnish exercises weekly theme`.
-  3. Prompt (verbatim): "Weekly refresh for github.com/qualitycoding/finnish-exercises. Attach the repository with push access (add_repo qualitycoding/finnish-exercises, access push) and clone it. Run `git push --dry-run origin HEAD:main`; if refused, stop and report which GitHub App setting the owner must change. Then follow REFRESH.md in the repository exactly: add one new theme with its content note on a branch refresh/<id> (append-only, new dated id first in data/manifest.json, never edit or delete existing themes), push the branch, wait for CI success on it, then fast-forward main with `git push origin refresh/<id>:main` (never --force), rotate the topic area away from the newest theme, two independent sources per fact, re-read every sentence naming a real person against its source, publish only if `node tools/validate.mjs`, `node tools/check-notes.mjs` and `node --test tests/*.test.mjs` pass (fix content, never tests or validator rules; stop after three attempts), and report the theme title, sources, commit and the results of CI, pages build and deployment and Live site check for that commit. If anything failed or was skipped, say so first. Write in British English."
+  3. Prompt (verbatim): "Weekly refresh for github.com/qualitycoding/finnish-exercises. Attach the repository with push access (add_repo qualitycoding/finnish-exercises, access push) and clone it. Run `git push --dry-run origin HEAD:main`; if refused, stop and report which GitHub App setting the owner must change. Then follow REFRESH.md in the repository exactly: add one new theme with its content note on a branch refresh/<id> (append-only, new dated id first in data/manifest.json, never edit or delete existing themes), push the branch, wait for CI success and for the 'Refresh guard <sha>' run (look it up exactly as REFRESH.md says, by its run name containing the commit sha) to succeed, then fast-forward main with `git push origin refresh/<id>:main` (never --force), rotate the topic area away from the newest theme, two independent sources per fact, re-read every sentence naming a real person against its source, publish only if `node tools/validate.mjs`, `node tools/check-notes.mjs` and `node --test tests/*.test.mjs` pass (fix content, never tests or validator rules; stop after three attempts), and report the theme title, sources, commit and the results of CI, pages build and deployment and Live site check for that commit. If anything failed or was skipped, say so first. Write in British English."
   4. Tell the owner the first run time and the approval setting the task received.
 - Outputs: scheduled task id recorded in `GATE-G-LEARN.md`
 - Evidence produced: SC-8
