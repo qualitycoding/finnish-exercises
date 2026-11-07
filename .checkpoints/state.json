@@ -33,7 +33,7 @@
   "5.2"
  ],
  "pending": [
-  "implementation (S-000…S-KNOW)"
+  "implementation (S-000\u2026S-KNOW)"
  ],
  "environment": {
   "class": "stable (Claude cloud; per protocol 0.1 observed class)",
@@ -112,12 +112,13 @@
   "ci_run_ids": {
    "S-005": "42364537580",
    "final": "42366760840",
-   "review_fixes": "42370042427"
+   "review_fixes": "42370042427",
+   "S-PUBLISH": 42370184766
   },
   "pages_run_ids": {},
   "live_check_run_ids": {},
-  "gate": null,
-  "awaiting": "S-PUBLISH",
+  "gate": "G-PAGES",
+  "awaiting": null,
   "hosts": {
    "yle.fi": "curl via proxy: 403 CONNECT denied (policy); WebFetch root URL: not on session allowlist",
    "www.hs.fi": "curl 403 CONNECT denied; WebFetch root URL not on allowlist",
@@ -132,7 +133,7 @@
     "content": "c3bdaed",
     "t089": "9b5818e"
    },
-   "new_tests": "T-062…T-089",
+   "new_tests": "T-062\u2026T-089",
    "ci_run_id": "42370042427"
   }
  }

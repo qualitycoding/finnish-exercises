@@ -16,3 +16,4 @@ S-007 screenshots (Pixel 7, full page, viewed with the Read tool):
 Interface chrome (header, buttons, legend) is in English by design; exercise content is Finnish.
 | 2026-11-07T11:05:25Z | S-007 | 1 | pass | bdc70d3 | README, REFRESH, tools/screenshots.mjs, 4 PNGs (all >10 kB), file-name check and forbidden-word grep ok |
 | 2026-11-07T12:20:00Z | R-D10 fixes (S-REVIEW, S-ADVERSARIAL) | 1 | pass | 9b5818e | code eeb30fa, content c3bdaed, T-089 9b5818e; 28 new tests T-062…T-089, 25 red on 7c01b28 (T-065, T-076, T-078 are guards); suite 110/110; validate and check-notes ok; freeze manifest ok; CI run 42370042427 success on 3620c33 |
+| 2026-11-07T11:57:20Z | S-PUBLISH | 1 | blocked | 9ce3da9 | main pushed; default-branch change refused by proxy; halted at G-PAGES |
