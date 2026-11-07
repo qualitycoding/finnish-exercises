@@ -1,6 +1,6 @@
 // Planning spike (R6): shows the frozen validator tests T-010..T-024 are satisfiable.
 // S-004 may start from this file (copy to tools/validate.mjs and fix the import path).
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseMarkup, scoreKeywords, scoreOrder, scoreTyped, plain } from "./scoring.js";
@@ -24,6 +24,15 @@ const MIX = {
 const INVENTED = "(keksitty esimerkki)";
 const countWords = (texts) => plain(texts.join(" ")).split(/\s+/).filter((w) => /\p{L}/u.test(w)).length;
 
+const NUMBER_WORDS = new Set(["yksi", "kaksi", "kolme", "neljä", "viisi", "seitsemän", "kahdeksan", "yhdeksän", "kymmenen", "sata", "tuhat", "miljoona", "miljardi", "tuhatta", "miljoonaa", "miljardia", "sataa"]);
+const isNumberWord = (w) => NUMBER_WORDS.has(w) || /(kymmentä|toista)$/.test(w);
+const strings = (x, out = []) => {
+  if (typeof x === "string") out.push(x);
+  else if (Array.isArray(x)) x.forEach((y) => strings(y, out));
+  else if (x && typeof x === "object") Object.values(x).forEach((y) => strings(y, out));
+  return out;
+};
+
 export function validateTheme(theme, file = "theme") {
   const problems = [];
   const fail = (rule, where, msg) => problems.push(`${where}: [${rule}] ${msg}`);
@@ -44,6 +53,7 @@ export function validateTheme(theme, file = "theme") {
   };
 
   for (const f of ["id", "title", "short", "dateLabel", "level", "summary", "sources", "exercises"]) if (!(f in theme)) fail("V1", file, `missing field ${f}`);
+  for (const s of strings(theme)) if (/[<>]/.test(s)) fail("V16", file, `angle bracket in data: ${s.slice(0, 40)}`);
   if (typeof theme.id !== "string" || !/^[a-z0-9]+(-[a-z0-9]+)*-\d{8}$/.test(theme.id)) fail("V1", file, `id '${theme.id}' is not <ascii-slug>-<yyyymmdd>`);
 
   const srcs = Array.isArray(theme.sources) ? theme.sources : [];
@@ -106,7 +116,7 @@ export function validateTheme(theme, file = "theme") {
         else {
           if (q.accept.some((a) => a.includes(","))) fail("V9", at, "comma inside a word-order sentence");
           const words = q.accept[0].replace(/[.!?]$/, "").split(" ");
-          if (words.length > 8 || words.length < 3) fail("V9", at, `${words.length} chips (allowed 3–8)`);
+          if (words.length > 6 || words.length < 3) fail("V9", at, `${words.length} chips (allowed 3–6)`);
           if (scoreOrder(words.slice().reverse(), q.accept).points === 1) fail("V9", at, "the reversed sentence is also accepted (a wrong run could score)");
           if (scoreOrder(words, q.accept).points !== 1) fail("V9", at, "canonical sentence does not rebuild");
           const bag = words.map((w) => w.toLowerCase()).sort().join(" ");
@@ -128,6 +138,11 @@ export function validateTheme(theme, file = "theme") {
         if (q.type === "respond" && !q.q) fail("V10", at, "respond needs q");
       }
       if ((q.type === "dictation" || q.type === "read") && /\d/.test(String(q.text))) fail("V11", at, "digits in a spoken target");
+      if ((q.type === "dictation" || q.type === "read") && plain(String(q.text)).toLowerCase().split(/[^\p{L}]+/u).some(isNumberWord)) fail("V15", at, "number word in a spoken target");
+      if (q.variants !== undefined) {
+        if (!Array.isArray(q.variants)) fail("V14", at, "variants must be a list");
+        else for (const va of q.variants) if (!q.keywords || scoreKeywords(va, q.keywords).points !== 1) fail("V14", at, `variant '${va}' does not score full marks`);
+      }
     });
     if (kind === "kirjoitus" && !(ex.tasks || []).some((q) => q.type === "gap" && /[äö]/i.test(q.accept?.[0] || ""))) fail("V8", where, "no gap answer contains ä or ö");
     if (kind === "kirjoitus") {
@@ -143,6 +158,18 @@ export function validateTheme(theme, file = "theme") {
   return problems;
 }
 
+/** Content rules that the original frozen fixture predates (D-017): every gap lists near-misses. */
+export function contentRules(theme, file = "theme") {
+  const problems = [];
+  (theme.exercises?.kirjoitus?.tasks || []).forEach((q, i) => {
+    if (q.type !== "gap") return;
+    const at = `${file}#kirjoitus item ${i + 1}`;
+    if (!Array.isArray(q.near) || q.near.length < 1) problems.push(`${at}: [V13] gap needs a near list of typical wrong forms`);
+    else if (q.near.some((n) => scoreTyped(n, q.accept || [], []).points === 1)) problems.push(`${at}: [V13] a near form is also an accepted answer`);
+  });
+  return problems;
+}
+
 export function validateAll(root) {
   const manifest = JSON.parse(readFileSync(join(root, "data/manifest.json"), "utf8"));
   const problems = [];
@@ -152,7 +179,8 @@ export function validateAll(root) {
     if (ids.has(theme.id)) problems.push(`${file}: [V1] duplicate theme id ${theme.id}`);
     ids.add(theme.id);
     if (`themes/${theme.id}.json` !== file) problems.push(`${file}: [V1] file name does not match id ${theme.id}`);
-    problems.push(...validateTheme(theme, file));
+    problems.push(...validateTheme(theme, file), ...contentRules(theme, file));
+    if (!existsSync(join(root, "content-notes", `${theme.id}.md`))) problems.push(`${file}: [V17] missing content-notes/${theme.id}.md`);
   }
   return { problems, summary: `${manifest.themes.length} themes, ${manifest.themes.length * 4} exercises` };
 }

@@ -13,3 +13,4 @@ export const total = ni("total");
 export const shuffle = ni("shuffle");
 export const parseMarkup = ni("parseMarkup");
 export const plain = ni("plain");
+export const scoreSpoken = ni("scoreSpoken");

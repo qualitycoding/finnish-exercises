@@ -1,0 +1,228 @@
+TAP version 13
+# Subtest: T-025 a listed near-miss (the grammar error a gap tests) scores 0 even when it is one letter away
+not ok 1 - T-025 a listed near-miss (the grammar error a gap tests) scores 0 even when it is one letter away
+  ---
+  duration_ms: 0.658922
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/scoring-v2.test.mjs:6:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: scoreTyped'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    file:///home/claude/finnish-exercises/assets/scoring.js:2:36
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/scoring-v2.test.mjs:7:16)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: T-027 stems of four or more letters also match inside compounds; shorter stems keep their rules
+not ok 2 - T-027 stems of four or more letters also match inside compounds; shorter stems keep their rules
+  ---
+  duration_ms: 0.107285
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/scoring-v2.test.mjs:14:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: scoreKeywords'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    file:///home/claude/finnish-exercises/assets/scoring.js:2:36
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/scoring-v2.test.mjs:15:16)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: T-029 spoken answers are compared by characters with spaces removed, best alternative wins
+not ok 3 - T-029 spoken answers are compared by characters with spaces removed, best alternative wins
+  ---
+  duration_ms: 0.088014
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/scoring-v2.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: scoreSpoken'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    file:///home/claude/finnish-exercises/assets/scoring.js:2:36
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/scoring-v2.test.mjs:23:16)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-051 the amended valid fixture passes validateTheme and contentRules
+not ok 4 - T-051 the amended valid fixture passes validateTheme and contentRules
+  ---
+  duration_ms: 2.012758
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v2.test.mjs:90:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: validateTheme'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    validateTheme (file:///home/claude/finnish-exercises/tools/validate.mjs:3:41)
+    all (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:82:24)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:91:20)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: T-052 [V8] a writing exercise without a gap answer containing ä or ö
+not ok 5 - T-052 [V8] a writing exercise without a gap answer containing ä or ö
+  ---
+  duration_ms: 0.215785
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v2.test.mjs:94:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: validateTheme'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    validateTheme (file:///home/claude/finnish-exercises/tools/validate.mjs:3:41)
+    all (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:82:24)
+    expectRule (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:86:13)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:95:3)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: T-053 [V9] the reversed sentence is accepted, or more than six chips
+not ok 6 - T-053 [V9] the reversed sentence is accepted, or more than six chips
+  ---
+  duration_ms: 0.184118
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v2.test.mjs:98:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: validateTheme'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    validateTheme (file:///home/claude/finnish-exercises/tools/validate.mjs:3:41)
+    all (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:82:24)
+    expectRule (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:86:13)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:99:3)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-054 [V13] contentRules: every gap lists at least one near-miss that is not an accepted answer
+not ok 7 - T-054 [V13] contentRules: every gap lists at least one near-miss that is not an accepted answer
+  ---
+  duration_ms: 0.133512
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v2.test.mjs:103:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: validateTheme'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    validateTheme (file:///home/claude/finnish-exercises/tools/validate.mjs:3:41)
+    all (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:82:24)
+    expectRule (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:86:13)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:104:3)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-055 [V14] every listed variant answer scores full marks
+not ok 8 - T-055 [V14] every listed variant answer scores full marks
+  ---
+  duration_ms: 0.179636
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v2.test.mjs:108:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: validateTheme'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    validateTheme (file:///home/claude/finnish-exercises/tools/validate.mjs:3:41)
+    all (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:82:24)
+    expectRule (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:86:13)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:109:3)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-056 [V15] number words in read-aloud or dictation targets
+not ok 9 - T-056 [V15] number words in read-aloud or dictation targets
+  ---
+  duration_ms: 0.128784
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v2.test.mjs:115:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: validateTheme'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    validateTheme (file:///home/claude/finnish-exercises/tools/validate.mjs:3:41)
+    all (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:82:24)
+    expectRule (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:86:13)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:116:3)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-057 [V16] angle brackets anywhere in a theme (no HTML in data)
+not ok 10 - T-057 [V16] angle brackets anywhere in a theme (no HTML in data)
+  ---
+  duration_ms: 0.169841
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v2.test.mjs:120:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: validateTheme'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    validateTheme (file:///home/claude/finnish-exercises/tools/validate.mjs:3:41)
+    all (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:82:24)
+    expectRule (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:86:13)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:121:3)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-058 [V1]/[V17] validateAll: duplicate id, file name not matching id, missing content note
+not ok 11 - T-058 [V1]/[V17] validateAll: duplicate id, file name not matching id, missing content note
+  ---
+  duration_ms: 0.738609
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/validate-v2.test.mjs:125:1'
+  failureType: 'testCodeFailure'
+  error: 'not implemented: validateAll'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    validateAll (file:///home/claude/finnish-exercises/tools/validate.mjs:4:39)
+    TestContext.<anonymous> (file:///home/claude/finnish-exercises/tests/validate-v2.test.mjs:134:24)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 0
+# fail 11
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 171.037179

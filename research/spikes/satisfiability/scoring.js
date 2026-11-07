@@ -55,11 +55,12 @@ export function wordSimilarity(heard, target) {
  * Score a typed short answer against accepted alternatives.
  * 1 = exact (after normalisation); 0.5 = only å/ä/ö differ, or one typo in a word of 6+ letters; 0 otherwise.
  */
-export function scoreTyped(input, accepted) {
+export function scoreTyped(input, accepted, near = []) {
   const given = normalize(input);
   if (!given) return { points: 0, note: "Inget svar." };
   const list = accepted.map(normalize);
   if (list.includes(given)) return { points: 1, note: "Rätt!" };
+  if (near.map(normalize).includes(given)) return { points: 0, note: "Not quite: check the ending." };
   if (list.some((a) => fold(a) === fold(given))) {
     return { points: 0.5, note: "Almost: check ä and ö." };
   }
@@ -89,7 +90,9 @@ export function scoreKeywords(answer, groups) {
     stems.some((stem) => {
       const s = normalize(stem);
       if (s.includes(" ")) return joined.includes(` ${s}`);
-      return s.length <= 2 ? words.includes(s) : words.some((w) => w.startsWith(s));
+      if (s.length <= 2) return words.includes(s);
+      if (s.length >= 4) return words.some((w) => w.includes(s));
+      return words.some((w) => w.startsWith(s));
     }),
   );
   const found = hit.filter(Boolean).length;
@@ -154,4 +157,18 @@ export function plain(text) {
   return parseMarkup(text)
     .map((p) => p.text)
     .join("");
+}
+
+/** Spoken answers: character similarity with spaces removed, best alternative; ≥ 0.9 → 1, ≥ 0.6 → ½. */
+export function scoreSpoken(alternatives, target, full = 0.9, half = 0.6) {
+  const t = normalize(target).replace(/ /g, "");
+  let best = 0;
+  for (const a of alternatives || []) {
+    const h = normalize(a).replace(/ /g, "");
+    const sim = t.length === 0 ? 0 : Math.max(0, 1 - levenshtein(h, t) / Math.max(h.length, t.length));
+    best = Math.max(best, sim);
+  }
+  if (best >= full) return { points: 1, sim: best, note: "Very good!" };
+  if (best >= half) return { points: 0.5, sim: best, note: "Almost." };
+  return { points: 0, sim: best, note: "Try again." };
 }

@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: T-048 importing an older export merges per exercise, keeps the better score and ignores hostile or invalid entries
+not ok 1 - T-048 importing an older export merges per exercise, keeps the better score and ignores hostile or invalid entries
+  ---
+  duration_ms: 30248.463357
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:116:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('html[data-ready=\'1\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    open (/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:68:14)
+    async TestContext.<anonymous> (/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:121:3)
+  ...
+# Subtest: T-049 Play is never disabled: with no Finnish voice it still speaks with lang fi-FI
+not ok 2 - T-049 Play is never disabled: with no Finnish voice it still speaks with lang fi-FI
+  ---
+  duration_ms: 30059.484663
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:136:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('html[data-ready=\'1\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    open (/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:68:14)
+    async TestContext.<anonymous> (/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:139:3)
+  ...
+# Subtest: T-050 the '(keksitty esimerkki)' marker is shown but never spoken
+not ok 3 - T-050 the '(keksitty esimerkki)' marker is shown but never spoken
+  ---
+  duration_ms: 30052.4292
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:148:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('html[data-ready=\'1\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    open (/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:68:14)
+    async TestContext.<anonymous> (/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:150:3)
+  ...
+# Subtest: T-059 the About page offers export and asks the browser to keep storage
+not ok 4 - T-059 the About page offers export and asks the browser to keep storage
+  ---
+  duration_ms: 30046.528917
+  type: 'test'
+  location: '/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:157:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('html[data-ready=\'1\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    open (/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:68:14)
+    async TestContext.<anonymous> (/home/claude/finnish-exercises/tests/e2e-v2.test.mjs:160:3)
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 0
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 121349.698762
