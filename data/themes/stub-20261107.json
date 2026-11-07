@@ -214,7 +214,10 @@
           "accept": [
             "esitti"
           ],
-          "explain": "esittää – esitti"
+          "explain": "esittää – esitti",
+          "near": [
+            "esittää"
+          ]
         },
         {
           "type": "gap",
@@ -223,7 +226,10 @@
           "accept": [
             "tehtiin"
           ],
-          "explain": "tehdä – tehtiin"
+          "explain": "tehdä – tehtiin",
+          "near": [
+            "tehdään"
+          ]
         },
         {
           "type": "gap",
@@ -232,7 +238,10 @@
           "accept": [
             "päätöksestä"
           ],
-          "explain": "päätös – päätöksestä"
+          "explain": "päätös – päätöksestä",
+          "near": [
+            "päätöksessä"
+          ]
         },
         {
           "type": "gap",
@@ -241,7 +250,10 @@
           "accept": [
             "eduskuntaan"
           ],
-          "explain": "eduskunta – eduskuntaan"
+          "explain": "eduskunta – eduskuntaan",
+          "near": [
+            "eduskunnassa"
+          ]
         },
         {
           "type": "order",
