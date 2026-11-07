@@ -1,0 +1,472 @@
+{
+ "id": "polaaripyorre-talvi-20261107",
+ "title": "Polaaripyörre heikkenee ja talvi lähestyy",
+ "short": "Polaaripyörre",
+ "dateLabel": "7. marraskuuta 2026",
+ "level": "B1–B2",
+ "summary": "Napa-alueen polaaripyörre on heikentynyt poikkeuksellisen aikaisin. Teksti kertoo, mitä se voi tarkoittaa Suomen säälle.",
+ "sources": [
+  {
+   "title": "Yle: Polaaripyörre hajosi harvinaisen aikaisin (6.11.2026)",
+   "url": "https://yle.fi/a/74-20255601"
+  },
+  {
+   "title": "Ilmatieteen laitos: Polaaripyörteen poikkeuksellinen heikkeneminen voi muuttaa alkutalven säätä (3.11.2026)",
+   "url": "https://www.ilmatieteenlaitos.fi/tiedote/79fGR4xZDaqeapwXxSZZJ7"
+  },
+  {
+   "title": "Ilmatieteen laitos: Lokakuu oli Suomessa laajalti poikkeuksellisen lämmin (2.11.2026)",
+   "url": "https://www.ilmatieteenlaitos.fi/tiedote/4x8Bzsupb4BsDqlALXcJUw"
+  },
+  {
+   "title": "Yle: Keli on nyt petollinen, monin paikoin odotettavissa kuuraliukkautta (6.11.2026)",
+   "url": "https://yle.fi/a/74-20255611"
+  }
+ ],
+ "exercises": {
+  "luku": {
+   "title": "Polaaripyörre heikkenee",
+   "intro": "Lue sääuutinen ja sen jälkeen keksitty keskustelu. Vastaa sitten kysymyksiin.",
+   "text": [
+    "Napa-alueen yllä oleva [[polaaripyörre|stratosfäärissä oleva laaja kylmän ilman alue napa-alueen päällä · polar vortex]] on heikentynyt poikkeuksellisen aikaisin. Ilmatieteen laitoksen mukaan pyörre on tähän aikaan vuodesta tavallista heikompi. Ylen mukaan pyörre on jopa hajonnut, vaikka hajoaminen on yleensä keskitalven ilmiö. Ilmatieteen laitoksen mukaan pyörrettä kiertävät länsituulet ovat heikentyneet nopeasti.",
+    "Pyörteen [[vaikutus|muutos, jonka jokin aiheuttaa · effect]] säähän ei näy heti. Sekä Ilmatieteen laitos että Yle kertovat, että vaikutukset näkyvät vasta viikkojen kuluttua. Jos pyörre pysyy heikkona pitkään, kylmää ilmaa voi päästä napa-alueelta etelään. Se ei kuitenkaan tarkoita, että Suomeen tulee varmasti kova [[pakkanen|lämpötila, joka on alle nollan · frost]].",
+    "Ilmatieteen laitos kertoo myös, että lokakuu oli poikkeuksellisen lämmin lähes koko maassa. Marraskuun alussa lämpötila putosi kuitenkin pakkasen puolelle. Ylen meteorologin mukaan tienpinta voi olla [[kuurassa|peittynyt ohueen jääkerrokseen · covered in hoarfrost]] tai jäässä, vaikka sääennuste näyttäisi plussaa. Perjantaina tieliikenteessä sattui Ylen mukaan useita onnettomuuksia. Siksi autoilijoiden pitää varoa [[kuuraliukkautta|liukasta tienpintaa, kun kosteus on jäätynyt tien pintaan · slippery frost on the road]].",
+    "Ilmatieteen laitos muistuttaa, että talvi on vasta alkamassa. Siksi kannattaa seurata uusia ennusteita. Pitkät [[sääennusteet|arviot tulevasta säästä · weather forecasts]] ovat sen mukaan epävarmoja."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Moi! Sä [[oot|olet · you are (spoken form)|puhekieli]] myöhässä. [[Onks|onko · has (spoken form)|puhekieli]] jotain sattunut?",
+    "– Joo, sori. Tie oli [[tosi|erittäin · very (spoken form)|puhekieli]] liukas, vaikka mittari näytti plussaa.",
+    "– Niin Yle sanoikin, että kuuraa voi olla. Mä lähdin [[duuniin|töihin · to work (slang)|slangi]] ajoissa.",
+    "– Onneksi tulit perille. Mun [[mutsi|äiti · mum (slang)|slangi]] sanoo aina, että syksyllä pitää ajaa varovasti.",
+    "– Niinpä. [[Toi|tuo · that (spoken form)|puhekieli]] on hyvä neuvo. Huomenna mä lähden vielä aikaisemmin.",
+    "– Hyvä, että sä [[oot|olet · you are (spoken form)|puhekieli]] nyt täällä. Otetaanko kahvit?"
+   ],
+   "questions": [
+    {
+     "type": "tf",
+     "q": "Polaaripyörre on heikentynyt poikkeuksellisen aikaisin.",
+     "answer": true,
+     "explain": "Teksti sanoo näin."
+    },
+    {
+     "type": "mc",
+     "q": "Missä polaaripyörre on?",
+     "options": [
+      "Itämeren päällä",
+      "stratosfäärissä napa-alueen yllä",
+      "Suomen metsien päällä"
+     ],
+     "answer": 1,
+     "explain": "Polaaripyörre on stratosfäärissä oleva kylmän ilman alue napa-alueen päällä."
+    },
+    {
+     "type": "mc",
+     "q": "Milloin pyörteen vaikutukset näkyvät säässä?",
+     "options": [
+      "heti seuraavana päivänä",
+      "vasta viikkojen kuluttua",
+      "viime kesänä"
+     ],
+     "answer": 1,
+     "explain": "Vaikutukset näkyvät vasta viikkojen kuluttua."
+    },
+    {
+     "type": "tf",
+     "q": "Teksti sanoo, että Suomeen tulee varmasti kova pakkasjakso.",
+     "answer": false,
+     "explain": "Teksti sanoo, että se ei ole varmaa."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä voi tapahtua, jos pyörre pysyy heikkona pitkään?",
+     "options": [
+      "Kylmää ilmaa voi päästä etelään.",
+      "Kaikki lumi sulaa.",
+      "Lokakuu palaa takaisin."
+     ],
+     "answer": 0,
+     "explain": "Kylmää ilmaa voi päästä napa-alueelta etelään."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä sana kuuraliukkaus tarkoittaa?",
+     "options": [
+      "liukasta tienpintaa, kun kosteus on jäätynyt",
+      "kuumaa kesäpäivää",
+      "kovaa myrskyä"
+     ],
+     "answer": 0,
+     "explain": "Sanan selitys on tekstissä."
+    },
+    {
+     "type": "tf",
+     "q": "Pakkanen tarkoittaa, että lämpötila on alle nollan.",
+     "answer": true,
+     "explain": "Sanan selitys: lämpötila, joka on alle nollan."
+    },
+    {
+     "type": "mc",
+     "q": "Miksi keskustelussa toinen henkilö on myöhässä?",
+     "options": [
+      "Hän nukkui pitkään.",
+      "Tie oli liukas.",
+      "Auto oli rikki."
+     ],
+     "answer": 1,
+     "explain": "Hän sanoo, että tie oli tosi liukas."
+    },
+    {
+     "type": "tf",
+     "q": "Toinen henkilö lähtee huomenna vielä aikaisemmin.",
+     "answer": true,
+     "explain": "Hän sanoo: huomenna mä lähden vielä aikaisemmin."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä mutsi sanoo aina?",
+     "options": [
+      "Syksyllä pitää ajaa varovasti.",
+      "Syksyllä pitää ostaa uusi auto.",
+      "Syksyllä kannattaa jäädä kotiin."
+     ],
+     "answer": 0,
+     "explain": "Mutsi sanoo, että syksyllä pitää ajaa varovasti."
+    }
+   ]
+  },
+  "kuuntelu": {
+   "title": "Uutinen polaaripyörteestä",
+   "intro": "Kuuntele uutinen ja sen jälkeen keksitty keskustelu. Vastaa kysymyksiin. Tekstin saa nähdä vasta kuuntelun jälkeen.",
+   "vocab": [
+    "[[polaaripyörre|kylmän ilman alue napa-alueen yllä · polar vortex]]",
+    "[[heikentyä|tulla heikommaksi · to weaken]]",
+    "[[vaikutus|muutos, jonka jokin aiheuttaa · effect]]",
+    "[[epävarma|ei varma · uncertain]]"
+   ],
+   "script": [
+    "Napa-alueen yllä oleva polaaripyörre on heikentynyt poikkeuksellisen aikaisin. Pyörre on laaja kylmän ilman alue stratosfäärissä. Ilmatieteen laitos kertoo, että se on tähän aikaan vuodesta tavallista heikompi. Pyörrettä kiertävät länsituulet ovat heikentyneet nopeasti.",
+    "Pyörteen vaikutukset säähän näkyvät vasta viikkojen kuluttua. Jos pyörre pysyy heikkona pitkään, kylmää ilmaa voi päästä etelään. Se ei silti tarkoita varmaa pakkasjaksoa Suomessa. Ilmatieteen laitos muistuttaa, että talvi on vasta alkamassa. Siksi kannattaa seurata uusia sääennusteita."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Kuulitsä uutisen? Talvi voi tulla aikaisin.",
+    "– Joo, kuulin. Mut ei se [[oo|ole · is (spoken form)|puhekieli]] vielä varmaa.",
+    "– Ei niin. Mun [[mutsi|äiti · mum (slang)|slangi]] sanoo, että talvi tulee aina yllättäen.",
+    "– Mä aion silti ostaa uudet villasukat. Tuleeks sulle kylmä, jos pakkanen alkaa?",
+    "– Tulee kyllä. Mä otan huomenna paksun takin mukaan [[duuniin|töihin · to work (slang)|slangi]].",
+    "– Hyvä idea. Kaikki ei vielä usko, että talvi on tulossa."
+   ],
+   "questions": [
+    {
+     "type": "tf",
+     "q": "Polaaripyörre on heikentynyt poikkeuksellisen aikaisin.",
+     "answer": true,
+     "explain": "Uutinen sanoo näin."
+    },
+    {
+     "type": "mc",
+     "q": "Missä polaaripyörre on?",
+     "options": [
+      "stratosfäärissä",
+      "meressä",
+      "metsässä"
+     ],
+     "answer": 0,
+     "explain": "Pyörre on kylmän ilman alue stratosfäärissä."
+    },
+    {
+     "type": "mc",
+     "q": "Milloin vaikutukset säähän näkyvät?",
+     "options": [
+      "heti",
+      "vasta viikkojen kuluttua",
+      "vasta ensi vuonna"
+     ],
+     "answer": 1,
+     "explain": "Vaikutukset näkyvät vasta viikkojen kuluttua."
+    },
+    {
+     "type": "tf",
+     "q": "Pyörre aiheuttaa varmasti kovan pakkasjakson Suomeen.",
+     "answer": false,
+     "explain": "Uutinen sanoo, että se ei ole varmaa."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä voi tapahtua, jos pyörre pysyy heikkona?",
+     "options": [
+      "Kylmää ilmaa voi päästä etelään.",
+      "Tulee heti helle.",
+      "Sataa aina vettä."
+     ],
+     "answer": 0,
+     "explain": "Kylmää ilmaa voi päästä etelään."
+    },
+    {
+     "type": "tf",
+     "q": "Keskustelussa toinen henkilö on kuullut uutisen.",
+     "answer": true,
+     "explain": "Hän sanoo: Joo, kuulin."
+    },
+    {
+     "type": "mc",
+     "q": "Mikä ei ole keskustelun mukaan vielä varmaa?",
+     "options": [
+      "talven tulo",
+      "ruoan hinta",
+      "kaupan aukioloaika"
+     ],
+     "answer": 0,
+     "explain": "He sanovat, että talven tulo ei ole vielä varmaa."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä mutsi sanoo talvesta?",
+     "options": [
+      "Talvi tulee aina yllättäen.",
+      "Talvi ei tule koskaan.",
+      "Talvi tulee vain pohjoiseen."
+     ],
+     "answer": 0,
+     "explain": "Mutsi sanoo, että talvi tulee aina yllättäen."
+    },
+    {
+     "type": "dictation",
+     "text": "Polaaripyörre on heikentynyt aikaisin."
+    },
+    {
+     "type": "dictation",
+     "text": "Vaikutukset näkyvät vasta viikkojen kuluttua."
+    }
+   ]
+  },
+  "kirjoitus": {
+   "title": "Kirjoita säästä",
+   "tasks": [
+    {
+     "type": "gap",
+     "q": "Pyörre on ___ (heikentyä) poikkeuksellisen aikaisin.",
+     "hint": "perfektin partisiippi",
+     "accept": [
+      "heikentynyt"
+     ],
+     "explain": "heikentyä – on heikentynyt",
+     "near": [
+      "heikentyy",
+      "heikentyi"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Vaikutukset ___ (näkyä) vasta viikkojen kuluttua.",
+     "hint": "preesens, monikon 3. persoona",
+     "accept": [
+      "näkyvät"
+     ],
+     "explain": "näkyä – ne näkyvät",
+     "near": [
+      "näkyy",
+      "näkyi"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Talvi on vasta ___ (alkaa).",
+     "hint": "3. infinitiivin inessiivi",
+     "accept": [
+      "alkamassa"
+     ],
+     "explain": "alkaa – on alkamassa",
+     "near": [
+      "alkamaan",
+      "alkaa"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Kylmää ilmaa voi päästä ___ (etelä).",
+     "hint": "illatiivi",
+     "accept": [
+      "etelään"
+     ],
+     "explain": "etelä – etelään (mihin?)",
+     "near": [
+      "etelässä",
+      "etelästä"
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The vortex weakens quickly.",
+     "accept": [
+      "Pyörre heikkenee nopeasti."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The road surface can be slippery.",
+     "accept": [
+      "Tienpinta voi olla liukas."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The weather changes after weeks.",
+     "accept": [
+      "Sää muuttuu viikkojen kuluttua."
+     ]
+    },
+    {
+     "type": "translate",
+     "en": "The polar vortex has weakened early.",
+     "keywords": [
+      [
+       "polaari",
+       "pyörre"
+      ],
+      [
+       "heikent"
+      ],
+      [
+       "aikai"
+      ]
+     ],
+     "model": "Polaaripyörre on heikentynyt aikaisin."
+    },
+    {
+     "type": "translate",
+     "en": "The effects will be seen in a few weeks.",
+     "keywords": [
+      [
+       "vaikut"
+      ],
+      [
+       "näky",
+       "näkyv"
+      ],
+      [
+       "viik"
+      ]
+     ],
+     "model": "Vaikutukset näkyvät muutaman viikon kuluttua."
+    },
+    {
+     "type": "translate",
+     "en": "Winter is only just beginning.",
+     "keywords": [
+      [
+       "talv"
+      ],
+      [
+       "vasta"
+      ],
+      [
+       "alka"
+      ]
+     ],
+     "model": "Talvi on vasta alkamassa."
+    }
+   ],
+   "free": {
+    "prompt": "Kirjoita ystävälle viesti. Kerro, että tiet ovat liukkaat, ja ehdota, että tapaatte vasta huomenna.",
+    "words": "50–80",
+    "checklist": [
+     "Viestissä ystävälle voit käyttää puhekieltä, esimerkiksi mä, sä ja oon.",
+     "Kerro, miksi et halua ajaa autolla tänään.",
+     "Ehdota selvä aika huomiselle.",
+     "Jos kirjoitat työnantajalle sähköpostin, käytä yleiskieltä."
+    ],
+    "model": "Moi! Tiet on tänään tosi liukkaat, joten mä en halua ajaa autolla. Voitaisko me tavata vasta huomenna iltapäivällä? Mä voin tulla kahville sun luo kolmelta. Ajele sä myös varovasti!"
+   }
+  },
+  "puhe": {
+   "title": "Puhu säästä",
+   "tasks": [
+    {
+     "type": "read",
+     "text": "Polaaripyörre on heikentynyt aikaisin."
+    },
+    {
+     "type": "read",
+     "text": "Vaikutukset näkyvät vasta viikkojen kuluttua."
+    },
+    {
+     "type": "read",
+     "text": "Tienpinta voi olla liukas."
+    },
+    {
+     "type": "read",
+     "text": "Kylmää ilmaa voi päästä etelään."
+    },
+    {
+     "type": "read",
+     "text": "Talvi on vasta alkamassa."
+    },
+    {
+     "type": "read",
+     "text": "Kuuraliukkaus on vaarallista."
+    },
+    {
+     "type": "respond",
+     "q": "Missä polaaripyörre on? Vastaa kokonaisella lauseella.",
+     "hint": "stratosfääri",
+     "keywords": [
+      [
+       "stratosf"
+      ],
+      [
+       "napa"
+      ]
+     ],
+     "model": "Polaaripyörre on stratosfäärissä napa-alueen yllä."
+    },
+    {
+     "type": "respond",
+     "q": "Milloin pyörteen vaikutus näkyy säässä?",
+     "hint": "viikot",
+     "keywords": [
+      [
+       "viik"
+      ],
+      [
+       "kulutt",
+       "vasta"
+      ]
+     ],
+     "model": "Vaikutus näkyy vasta viikkojen kuluttua.",
+     "variants": [
+      "Viikkojen kuluttua."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Mitä kylmälle ilmalle voi tapahtua, jos pyörre heikkenee? Vastaa kokonaisella lauseella.",
+     "hint": "etelä",
+     "keywords": [
+      [
+       "kylm"
+      ],
+      [
+       "etelä"
+      ]
+     ],
+     "model": "Kylmää ilmaa voi päästä etelään."
+    },
+    {
+     "type": "respond",
+     "q": "Mitä tienpinnalle voi tulla pakkasyönä? Vastaa kokonaisella lauseella.",
+     "hint": "kuura, jää",
+     "keywords": [
+      [
+       "kuura",
+       "jää"
+      ]
+     ],
+     "model": "Tienpinnalle voi tulla kuuraa.",
+     "variants": [
+      "Kuuraa tai jäätä."
+     ]
+    }
+   ]
+  }
+ }
+}
