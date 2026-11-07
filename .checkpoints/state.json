@@ -94,5 +94,23 @@
  "premortem_round": 5,
  "tier_substitutions": [
   "Cold reads used Sonnet as specified; Haiku mechanical checks were folded into the Sonnet cold-read agents (Rule 5: next higher tier)."
- ]
+ ],
+ "implementation": {
+  "branch": "impl-20261106T235415Z-finnish-current-affairs-exercises",
+  "active_step_id": "S-001",
+  "completed": [
+   "S-000"
+  ],
+  "attempts": {},
+  "ci_run_ids": {},
+  "pages_run_ids": {},
+  "live_check_run_ids": {},
+  "gate": null,
+  "awaiting": null,
+  "hosts": {
+   "yle.fi": "curl via proxy: 403 CONNECT denied (policy); WebFetch root URL: not on session allowlist",
+   "www.hs.fi": "curl 403 CONNECT denied; WebFetch root URL not on allowlist",
+   "www.kielitoimistonsanakirja.fi": "curl 403 CONNECT denied; WebFetch root URL not on allowlist"
+  }
+ }
 }
