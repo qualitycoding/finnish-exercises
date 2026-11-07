@@ -115,7 +115,7 @@
   "pages_run_ids": {},
   "live_check_run_ids": {},
   "gate": null,
-  "awaiting": null,
+  "awaiting": "S-REVIEW",
   "hosts": {
    "yle.fi": "curl via proxy: 403 CONNECT denied (policy); WebFetch root URL: not on session allowlist",
    "www.hs.fi": "curl 403 CONNECT denied; WebFetch root URL not on allowlist",
