@@ -1,0 +1,37 @@
+name: Live site check
+on:
+  workflow_dispatch:
+  deployment_status:
+permissions:
+  contents: read
+jobs:
+  live:
+    if: github.event_name == 'workflow_dispatch' || github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      SITE: https://qualitycoding.github.io/finnish-exercises/
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Every file is served, every data file is JSON
+        run: |
+          set -euo pipefail
+          files="index.html assets/app.js assets/scoring.js assets/style.css data/manifest.json"
+          files="$files $(python3 -c 'import json; print(" ".join("data/" + f for f in json.load(open("data/manifest.json"))["themes"]))')"
+          fail=0
+          for f in $files; do
+            code=$(curl -sS -o /tmp/body -w '%{http_code}' -L "${SITE}${f}")
+            echo "$f -> $code"
+            if [ "$code" != "200" ]; then echo "::error title=Not served::$f -> HTTP $code"; fail=1; fi
+            case "$f" in
+              *.json)
+                if ! python3 -c 'import json; json.load(open("/tmp/body"))'; then
+                  echo "::error title=Not JSON::$f -> $(head -c 120 /tmp/body | tr '\n' ' ')"
+                  fail=1
+                fi ;;
+            esac
+          done
+          exit $fail

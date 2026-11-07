@@ -1,0 +1,35 @@
+name: Refresh guard
+run-name: Refresh guard ${{ github.event.workflow_run.head_sha }}
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: ["refresh/**"]
+permissions:
+  contents: read
+jobs:
+  guard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - name: CI succeeded for this commit
+        env:
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+        run: |
+          set -euo pipefail
+          test "$CONCLUSION" = "success"
+      - name: Refresh adds only a theme and its note
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          bad=$(git diff --name-status origin/main HEAD | awk '!(($1=="A" && ($2 ~ /^data\/themes\/[^\/]+\.json$/ || $2 ~ /^content-notes\/[^\/]+\.md$/)) || ($1=="M" && $2=="data/manifest.json"))')
+          if [ -n "$bad" ]; then echo "::error title=Refresh changed other files::$bad"; exit 1; fi
+          git show origin/main:data/manifest.json > /tmp/old-manifest.json
+          python3 -c 'import json; o=json.load(open("/tmp/old-manifest.json"))["themes"]; n=json.load(open("data/manifest.json"))["themes"]; assert n[len(n)-len(o):]==o, "old themes must stay, in order, at the end of the manifest"'

@@ -1,0 +1,54 @@
+name: CI
+on:
+  push:
+    branches: [main, "impl-**", "refresh/**"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+      - name: Frozen tests unchanged
+        run: sha256sum -c tests/FROZEN_MANIFEST.sha256
+      - name: No failure-swallowing in workflows
+        run: |
+          set -euo pipefail
+          if grep -nE '\|\| *true|continue-on-error|set \+e' .github/workflows/*.yml | grep -v 'grep -nE'; then exit 1; fi
+      - name: Install Playwright 1.63.0 and Chromium
+        run: |
+          set -euo pipefail
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: No HTML injection sinks
+        run: |
+          set -euo pipefail
+          if grep -nE 'innerHTML|outerHTML|insertAdjacentHTML|document\.write' assets/*.js; then exit 1; fi
+      - name: Refresh adds only a theme and its note (refresh branches)
+        if: startsWith(github.ref, 'refs/heads/refresh/')
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin main
+          bad=$(git diff --name-status origin/main HEAD | awk '!(($1=="A" && ($2 ~ /^data\/themes\/[^\/]+\.json$/ || $2 ~ /^content-notes\/[^\/]+\.md$/)) || ($1=="M" && $2=="data/manifest.json"))')
+          if [ -n "$bad" ]; then echo "::error title=Refresh changed other files::$bad"; exit 1; fi
+          git show origin/main:data/manifest.json > /tmp/old-manifest.json
+          python3 -c 'import json; o=json.load(open("/tmp/old-manifest.json"))["themes"]; n=json.load(open("data/manifest.json"))["themes"]; assert n[len(n)-len(o):]==o, "old themes must stay, in order, at the end of the manifest"'
+      - name: No inline style attributes
+        run: |
+          set -euo pipefail
+          if grep -nE "setAttribute\(\s*['\"]style|\bstyle\s*:" assets/*.js; then exit 1; fi
+      - name: Validate exercise data
+        run: node tools/validate.mjs
+      - name: Check content notes
+        run: node tools/check-notes.mjs
+      - name: Unit, validator and browser tests
+        run: node --test tests/*.test.mjs
