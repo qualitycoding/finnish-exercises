@@ -1,0 +1,483 @@
+{
+ "id": "halpatuonti-tullimaksu-20261107",
+ "title": "Halpojen tilausten määrä laski tullimaksun jälkeen",
+ "short": "Tullimaksu",
+ "dateLabel": "7. marraskuuta 2026",
+ "level": "B1–B2",
+ "summary": "EU:n ulkopuolelta tilattujen halpojen ostosten määrä laski, kun uusi kolmen euron tullimaksu tuli voimaan. Teksti kertoo, mitä Tulli ja Keskuskauppakamari sanovat.",
+ "sources": [
+  {
+   "title": "Yle: Suomeen tullattujen halpatuontilähetysten määrä laski voimakkaasti (6.11.2026)",
+   "url": "https://yle.fi/a/74-20255501"
+  },
+  {
+   "title": "Tulli: A 3 euro customs duty to be introduced to curb low-value import consignments (25.5.2026)",
+   "url": "https://tulli.fi/en/-/a-3-customs-duty-to-be-introduced-to-curb-low-value-import-consignments"
+  },
+  {
+   "title": "Tulli (STT Info): EU:n ulkopuolelta tilattujen halpatuontilähetysten kokonaisarvo laski heinäkuussa (19.8.2026)",
+   "url": "https://www.sttinfo.fi/tiedote/72245639/eun-ulkopuolelta-tilattujen-suomessa-tullattujen-halpatuontilahetysten-kokonaisarvo-laski-kolmanneksen-heinakuussa?lang=fi"
+  },
+  {
+   "title": "Keskuskauppakamari (STT Info): Pienpakettien tullimaksu oikea ja tervetullut ratkaisu (1.7.2026)",
+   "url": "https://www.sttinfo.fi/tiedote/72173063/keskuskauppakamari-pienpakettien-tullimaksu-oikea-ja-tervetullut-ratkaisu?lang=fi"
+  }
+ ],
+ "exercises": {
+  "luku": {
+   "title": "Halpojen tilausten määrä romahti",
+   "intro": "Lue talousuutinen ja sen jälkeen keksitty keskustelu. Vastaa sitten kysymyksiin.",
+   "text": [
+    "Suomeen tullattujen [[halpatuontilähetysten|EU:n ulkopuolelta tilattujen edullisten tuotteiden lähetysten · of low-cost imported parcels]] määrä on laskenut jyrkästi. Yle kertoo Tullin tietojen mukaan, että EU:n ulkopuolelta tilattujen halpojen ostosten tavaraerien määrä oli heinä–syyskuussa 77 prosenttia pienempi kuin vuotta aiemmin. Myös tavaraerien yhteisarvo laski, noin 53 prosenttia. Heinäkuussa määrä oli Tullin mukaan jo noin 76 prosenttia pienempi kuin vuotta aiemmin.",
+    "Taustalla on uusi [[tullimaksu|maksu, jonka Tulli perii maahan tuodusta tavarasta · customs duty]]. Heinäkuun alusta 2026 maksu on koskenut myös enintään 150 euron arvoisia tilauksia, jotka tulevat EU:n ulkopuolelta. Ennen sitä tullia perittiin vain yli 150 euron tilauksista. Nyt maksu on yleensä kolme euroa jokaista [[tavaraerää|yhtä tuotetta tai samanlaisten tuotteiden ryhmää lähetyksessä · goods item]] kohden.",
+    "Keskuskauppakamari pitää maksua tervetulleena. Sen mukaan maksu korjaa epäreilua [[kilpailua|yritysten taistelua samoista asiakkaista · competition]] eurooppalaisten ja kiinalaisten verkkokauppojen välillä. Tulli muistuttaa kuitenkin, että lasku ei vielä kerro koko totuutta. Sen mukaan ostajat ja myyjät voivat yrittää välttää maksuja esimerkiksi laittamalla samanlaisia tuotteita samaan erään. Vasta koko EU:n luvut näyttävät, kuinka paljon uusi maksu on todella vähentänyt suomalaisten tilauksia.",
+    "Tulli kertoi toukokuussa, että kaikille EU:n ulkopuolisille verkkokauppaostoksille suunnitellaan lisäksi [[käsittelymaksua|maksua, joka peritään tavaran tullauksesta · handling fee]] marraskuulle. Maksu koskisi tilauksia arvosta riippumatta."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – [[Näitsä|näitkö sinä · did you see (spoken form)|puhekieli]] uutisen halpatilauksista?",
+    "– Joo. Tilausten määrä on [[tosi|erittäin · very (spoken form)|puhekieli]] paljon pienempi kuin viime vuonna.",
+    "– Mä tilasin ennen usein, mutta nyt mä mietin kahdesti. Kolme euroa tuotteesta alkaa tuntua.",
+    "– Mun [[faija|isä · dad (slang)|slangi]] valitti samasta. Hän tilasi kuulokkeet ja kaksi kaapelia.",
+    "– [[Onks|onko · is it (spoken form)|puhekieli]] ne tulleet jo perille?",
+    "– Eivät vielä, mutta mä odotan ihan rauhassa."
+   ],
+   "questions": [
+    {
+     "type": "tf",
+     "q": "Tavaraerien määrä laski jyrkästi uuden maksun jälkeen.",
+     "answer": true,
+     "explain": "Yle ja Tulli kertovat jyrkästä laskusta."
+    },
+    {
+     "type": "mc",
+     "q": "Milloin tullimaksu alkoi koskea halpoja tilauksia?",
+     "options": [
+      "tammikuun alusta",
+      "heinäkuun alusta 2026",
+      "joulukuun alusta"
+     ],
+     "answer": 1,
+     "explain": "Heinäkuun alusta 2026 maksu koskee myös enintään 150 euron tilauksia."
+    },
+    {
+     "type": "mc",
+     "q": "Kuinka paljon maksu on yleensä jokaista tavaraerää kohden?",
+     "options": [
+      "yksi euro",
+      "kolme euroa",
+      "kolmekymmentä euroa"
+     ],
+     "answer": 1,
+     "explain": "Maksu on yleensä kolme euroa tavaraerää kohden."
+    },
+    {
+     "type": "tf",
+     "q": "Ennen heinäkuuta halvoista tilauksista ei peritty tullia.",
+     "answer": true,
+     "explain": "Tullia peritään aiemmin vain yli 150 euron tilauksista."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä tilauksia uusi maksu koskee?",
+     "options": [
+      "vain Suomen sisäisiä tilauksia",
+      "EU:n ulkopuolelta tilattuja tuotteita",
+      "vain ruokaa"
+     ],
+     "answer": 1,
+     "explain": "Maksu koskee EU:n ulkopuolelta tulevia tilauksia."
+    },
+    {
+     "type": "tf",
+     "q": "Tulli sanoo, että vähennys kertoo jo tarkasti, kuinka paljon suomalaiset tilaavat.",
+     "answer": false,
+     "explain": "Tulli sanoo, että vasta koko EU:n luvut kertovat tarkemmin."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä sana tavaraerä tarkoittaa tässä tekstissä?",
+     "options": [
+      "yksi tuote tai samanlaisten tuotteiden ryhmä lähetyksessä",
+      "koko kauppa",
+      "pakettiauto"
+     ],
+     "answer": 0,
+     "explain": "Sanan selitys on tekstissä."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä sana halpatuonti tarkoittaa?",
+     "options": [
+      "edullisten tuotteiden tuontia",
+      "kallista kotimaista tavaraa",
+      "ilmaista jakelua"
+     ],
+     "answer": 0,
+     "explain": "Halpatuonti on edullisten tuotteiden tuontia ulkomailta."
+    },
+    {
+     "type": "tf",
+     "q": "Keskustelussa toinen henkilö tilasi ennen usein tuotteita netistä.",
+     "answer": true,
+     "explain": "Hän sanoo: Mä tilasin ennen usein."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä faija tilasi keskustelun mukaan?",
+     "options": [
+      "kuulokkeet ja kaksi kaapelia",
+      "kengät",
+      "kirjoja"
+     ],
+     "answer": 0,
+     "explain": "Keskustelussa faija tilasi kuulokkeet ja kaksi kaapelia."
+    }
+   ]
+  },
+  "kuuntelu": {
+   "title": "Uutinen tullimaksusta",
+   "intro": "Kuuntele uutinen ja sen jälkeen keksitty keskustelu. Vastaa kysymyksiin. Tekstin saa nähdä vasta kuuntelun jälkeen.",
+   "vocab": [
+    "[[tullimaksu|maksu, jonka Tulli perii tuonnista · customs duty]]",
+    "[[verkkokauppa|kauppa, jossa ostokset tehdään netissä · online shop]]",
+    "[[tavaraerä|yksi tuote tai samanlaisten tuotteiden ryhmä lähetyksessä · goods item]]",
+    "[[laskea|tulla pienemmäksi · to fall]]"
+   ],
+   "script": [
+    "Suomeen tullattujen halpatuontilähetysten määrä on laskenut voimakkaasti. Tullin mukaan EU:n ulkopuolelta tilattujen halpojen ostosten tavaraerien määrä oli heinä–syyskuussa lähes kolme neljäsosaa pienempi kuin vuotta aiemmin. Myös tavaraerien yhteisarvo laski. Tullin mukaan kiinnostus halpatuontiin on voinut myös vähentyä.",
+    "Taustalla on uusi tullimaksu. Heinäkuun alusta lähtien maksu on koskenut myös enintään sadan viidenkymmenen euron tilauksia. Maksu on yleensä kolme euroa jokaista tavaraerää kohden. Tulli sanoo, että vasta koko EU:n luvut kertovat tarkemmin maksun vaikutuksesta."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – [[Näitsä|näitkö sinä · did you see (spoken form)|puhekieli]] uutisen halpatilauksista?",
+    "– Joo. Tilausten määrä on [[tosi|erittäin · very (spoken form)|puhekieli]] paljon pienempi kuin viime vuonna.",
+    "– Mä tilasin ennen usein, mutta nyt mä mietin kahdesti. Kolme euroa tuotteesta alkaa tuntua.",
+    "– Sama. Mä tilasin viimeksi työvaatteita [[duuniin|töihin · to work (slang)|slangi]].",
+    "– [[Onks|onko · is it (spoken form)|puhekieli]] ne tulleet jo perille?",
+    "– Eivät vielä, mutta mä odotan ihan rauhassa.",
+    "– Hyvä, että sä jaksat odottaa. Kerro sitten, miltä ne näyttävät."
+   ],
+   "questions": [
+    {
+     "type": "tf",
+     "q": "Halpatuontilähetysten määrä on laskenut voimakkaasti.",
+     "answer": true,
+     "explain": "Uutinen sanoo näin."
+    },
+    {
+     "type": "mc",
+     "q": "Mistä lähtien maksu on koskenut myös halpoja tilauksia?",
+     "options": [
+      "heinäkuun alusta",
+      "tammikuun alusta",
+      "helmikuun alusta"
+     ],
+     "answer": 0,
+     "explain": "Heinäkuun alusta lähtien maksu on koskenut myös halpoja tilauksia."
+    },
+    {
+     "type": "mc",
+     "q": "Kuinka paljon maksu on yleensä tavaraerää kohden?",
+     "options": [
+      "kolme euroa",
+      "kolmekymmentä euroa",
+      "kolme senttiä"
+     ],
+     "answer": 0,
+     "explain": "Maksu on yleensä kolme euroa tavaraerää kohden."
+    },
+    {
+     "type": "tf",
+     "q": "Maksu koskee vain yli 150 euron tilauksia.",
+     "answer": false,
+     "explain": "Maksu koskee myös enintään 150 euron tilauksia."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä Tulli sanoo luvuista?",
+     "options": [
+      "Vasta koko EU:n luvut kertovat tarkemmin.",
+      "Luvut ovat salaisia.",
+      "Luvut ovat virheellisiä."
+     ],
+     "answer": 0,
+     "explain": "Tulli sanoo, että vasta koko EU:n luvut kertovat tarkemmin."
+    },
+    {
+     "type": "tf",
+     "q": "Keskustelussa toinen henkilö tilasi ennen usein.",
+     "answer": true,
+     "explain": "Hän sanoo: Mä tilasin ennen usein."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä toinen henkilö tilasi viimeksi?",
+     "options": [
+      "työvaatteita",
+      "kirjoja",
+      "leluja"
+     ],
+     "answer": 0,
+     "explain": "Hän tilasi viimeksi työvaatteita."
+    },
+    {
+     "type": "mc",
+     "q": "Miksi hän miettii tilaamista kahdesti?",
+     "options": [
+      "Kolme euroa tuotteesta alkaa tuntua.",
+      "Kauppa on kiinni.",
+      "Posti ei toimi."
+     ],
+     "answer": 0,
+     "explain": "Hän sanoo, että kolme euroa tuotteesta alkaa tuntua."
+    },
+    {
+     "type": "dictation",
+     "text": "Tullimaksu koskee tilauksia ulkomailta."
+    },
+    {
+     "type": "dictation",
+     "text": "Vasta koko EU:n luvut kertovat tarkemmin."
+    }
+   ]
+  },
+  "kirjoitus": {
+   "title": "Kirjoita tullimaksusta",
+   "tasks": [
+    {
+     "type": "gap",
+     "q": "Tullimaksu ___ (koskea) nyt myös halpoja tilauksia.",
+     "hint": "preesens, yksikön 3. persoona",
+     "accept": [
+      "koskee"
+     ],
+     "explain": "koskea – se koskee",
+     "near": [
+      "koskevat",
+      "koski"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Tavaraerien määrä ___ (laskea) heinä–syyskuussa.",
+     "hint": "imperfekti",
+     "accept": [
+      "laski"
+     ],
+     "explain": "laskea – se laski",
+     "near": [
+      "laskee",
+      "laskevat"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Tuotteet tulevat EU:n ___ (ulkopuoli).",
+     "hint": "ablatiivi",
+     "accept": [
+      "ulkopuolelta"
+     ],
+     "explain": "ulkopuoli – ulkopuolelta (mistä?)",
+     "near": [
+      "ulkopuolella",
+      "ulkopuolelle"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Minä ___ (päättää) tilata vain yhden tuotteen, koska maksu tulee jokaisesta tuotteesta.",
+     "hint": "imperfekti, yksikön 1. persoona",
+     "accept": [
+      "päätin"
+     ],
+     "explain": "päättää – minä päätin",
+     "near": [
+      "päätän",
+      "päättää"
+     ]
+    },
+    {
+     "type": "order",
+     "en": "Customs collects the duty.",
+     "accept": [
+      "Tulli perii maksun."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The number of orders fell sharply.",
+     "accept": [
+      "Tilausten määrä laski jyrkästi."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The duty applies to foreign orders.",
+     "accept": [
+      "Maksu koskee ulkomaisia tilauksia."
+     ]
+    },
+    {
+     "type": "translate",
+     "en": "The customs duty is three euros per goods item.",
+     "keywords": [
+      [
+       "tullimaks",
+       "maksu"
+      ],
+      [
+       "kolme",
+       "3"
+      ],
+      [
+       "tavaraer"
+      ]
+     ],
+     "model": "Tullimaksu on kolme euroa tavaraerää kohden."
+    },
+    {
+     "type": "translate",
+     "en": "The number of orders has fallen sharply.",
+     "keywords": [
+      [
+       "tilau"
+      ],
+      [
+       "määr",
+       "lukum"
+      ],
+      [
+       "lask",
+       "pien",
+       "väh"
+      ]
+     ],
+     "model": "Tilausten määrä on laskenut jyrkästi."
+    },
+    {
+     "type": "translate",
+     "en": "Ordering from outside the EU costs more now.",
+     "keywords": [
+      [
+       "ulkopuol"
+      ],
+      [
+       "maksa",
+       "kallii"
+      ],
+      [
+       "nyt",
+       "enemmän"
+      ]
+     ],
+     "model": "EU:n ulkopuolelta tilaaminen maksaa nyt enemmän."
+    }
+   ],
+   "free": {
+    "prompt": "Kirjoita ystävälle viesti. Kerro, että aioit tilata tuotteen ulkomailta, mutta uusi tullimaksu saa sinut miettimään. Kysy ystävän mielipide.",
+    "words": "50–80",
+    "checklist": [
+     "Viestissä ystävälle voit käyttää puhekieltä, esimerkiksi mä, sä ja onks.",
+     "Kerro, mitä aioit tilata.",
+     "Mainitse uusi tullimaksu omin sanoin.",
+     "Jos kirjoitat kaupan asiakaspalveluun, käytä yleiskieltä."
+    ],
+    "model": "Moi! Mä aioin tilata uudet kuulokkeet netistä, mutta tullimaksu mietityttää. Onks sun mielestä parempi ostaa ne kotimaasta? Mä en tiedä, kumpi on halvempi. Kerro, mitä sä tekisit!"
+   }
+  },
+  "puhe": {
+   "title": "Puhu tullimaksusta",
+   "tasks": [
+    {
+     "type": "read",
+     "text": "Tullimaksu koskee tilauksia ulkomailta."
+    },
+    {
+     "type": "read",
+     "text": "Tavaraerien määrä laski jyrkästi."
+    },
+    {
+     "type": "read",
+     "text": "Tulli perii maksun jokaisesta tavaraerästä."
+    },
+    {
+     "type": "read",
+     "text": "Verkkokaupat kilpailevat keskenään."
+    },
+    {
+     "type": "read",
+     "text": "Tilauksia tulee nyt vähemmän."
+    },
+    {
+     "type": "read",
+     "text": "Tullin luvut kertovat muutoksesta."
+    },
+    {
+     "type": "respond",
+     "q": "Mistä tilauksista tullimaksu peritään? Vastaa kokonaisella lauseella.",
+     "hint": "EU:n ulkopuoli",
+     "keywords": [
+      [
+       "ulkopuol",
+       "ulkomai"
+      ],
+      [
+       "tilau"
+      ]
+     ],
+     "model": "Maksu peritään EU:n ulkopuolelta tulevista tilauksista."
+    },
+    {
+     "type": "respond",
+     "q": "Mikä laski voimakkaasti uuden maksun jälkeen? Vastaa kokonaisella lauseella.",
+     "hint": "tavaraerät, tilaukset",
+     "keywords": [
+      [
+       "tavaraer",
+       "tilau",
+       "lähetys"
+      ],
+      [
+       "lask",
+       "pien"
+      ]
+     ],
+     "model": "Tavaraerien määrä laski voimakkaasti.",
+     "variants": [
+      "Tilausten määrä laski."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Kuinka paljon tullimaksu on yleensä tavaraerää kohden?",
+     "hint": "euroa",
+     "keywords": [
+      [
+       "kolme",
+       "3"
+      ]
+     ],
+     "model": "Maksu on yleensä kolme euroa.",
+     "variants": [
+      "Kolme euroa."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Mitä Tulli tarvitsee, jotta se voi arvioida maksun vaikutusta tarkemmin? Vastaa kokonaisella lauseella.",
+     "hint": "luvut",
+     "keywords": [
+      [
+       "luku",
+       "luvu"
+      ],
+      [
+       "koko",
+       "eu"
+      ]
+     ],
+     "model": "Tulli tarvitsee koko EU:n luvut."
+    }
+   ]
+  }
+ }
+}
