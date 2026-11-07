@@ -1,0 +1,484 @@
+{
+ "id": "finlandia-ehdokkaat-20261107",
+ "title": "Finlandia-ehdokkaat julkistettiin",
+ "short": "Finlandia",
+ "dateLabel": "7. marraskuuta 2026",
+ "level": "B1–B2",
+ "summary": "Suomen Kirjasäätiö julkisti Finlandia-palkintojen ehdokkaat. Teksti kertoo palkinnoista, ehdokkaista ja voittajien julkistamisesta.",
+ "sources": [
+  {
+   "title": "Yle: Yksi näistä kuudesta Finlandia-ehdokkaasta voittaa 30 000 euroa (5.11.2026)",
+   "url": "https://yle.fi/a/74-20254792"
+  },
+  {
+   "title": "Yle: Nämä kuusi teosta kilpailevat lasten- ja nuortenkirjallisuuden Finlandia-palkinnosta (4.11.2026)",
+   "url": "https://yle.fi/a/74-20254759"
+  },
+  {
+   "title": "Yle: Nämä kuusi teosta kilpailevat tietokirjallisuuden Finlandiasta (3.11.2026)",
+   "url": "https://yle.fi/a/74-20254555"
+  },
+  {
+   "title": "Suomen Kirjasäätiö: Tietoa Finlandia-palkinnoista",
+   "url": "https://kirjasaatio.fi/finlandia/tietoa-finlandia-palkinnoista"
+  },
+  {
+   "title": "Suomen Kirjasäätiö: Kaunokirjallisuuden Finlandia",
+   "url": "https://kirjasaatio.fi/finlandia/kaunokirjallisuuden-finlandia"
+  }
+ ],
+ "exercises": {
+  "luku": {
+   "title": "Finlandia-ehdokkaat julkistettiin",
+   "intro": "Lue kulttuuriuutinen ja sen jälkeen keksitty keskustelu. Vastaa sitten kysymyksiin.",
+   "text": [
+    "Suomen Kirjasäätiö jakaa vuosittain [[Finlandia-palkinnot|Suomen tunnetuimmat kirjallisuuspalkinnot · the best-known literature prizes in Finland]] kolmessa sarjassa: [[kaunokirjallisuudessa|romaaneissa, runoissa ja muissa keksityissä teksteissä · in fiction]], [[tietokirjallisuudessa|kirjoissa, jotka kertovat tosiasioista · in non-fiction]] sekä lasten- ja nuortenkirjallisuudessa. Jokaisessa sarjassa on kuusi [[ehdokasta|teosta, joka on ehdolla palkintoon · nominee]].",
+    "Ehdokkaat julkistettiin marraskuun ensimmäisellä viikolla. Ylen mukaan tietokirjallisuuden ehdokkaat kerrottiin tiistaina 3. marraskuuta, lasten- ja nuortenkirjallisuuden keskiviikkona 4. marraskuuta ja kaunokirjallisuuden torstaina 5. marraskuuta. Jokainen voittaja saa 30 000 euroa.",
+    "Voittajat julkistetaan 26. marraskuuta. Ylen mukaan julkistus tulee Ylen suorassa lähetyksessä. Ehdokkaat valitsee ensin ehdokaslautakunta, ja voittajan valitsee kussakin sarjassa erikseen kutsuttu valitsija. Kaunokirjallisuuden Finlandia perustettiin vuonna 1984, ja nyt se jaetaan 43. kerran.",
+    "Ylen mukaan kaunokirjallisuuden ehdokkaat kirjoittavat muun muassa kuolemasta, isäsuhteesta sekä ulkopuolisuuden ja häpeän tunteesta. Tietokirjallisuuden ehdokkaat ovat Ylen mukaan huolissaan ilmastonmuutoksesta, Gazan tilanteesta ja ruoantuotannon haasteista. Lasten- ja nuortenkirjallisuuden ehdokkaissa on kuvakirjoja, [[säeromaaneja|romaaneja, jotka on kirjoitettu runon muotoon · novels in verse]] ja yksi tulevaisuuteen sijoittuva fantasiakirja."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Mä kuulin, että Finlandia-ehdokkaat on julkistettu.",
+    "– Joo! [[Mun|minun · my (spoken form)|puhekieli]] [[mutsi|äiti · mum (slang)|slangi]] lukee aina kaikki kaunokirjalliset ehdokkaat.",
+    "– [[Onks|onko · is it (spoken form)|puhekieli]] se jo lukenut ne?",
+    "– Ei vielä, mutta se on tilannut pari kirjaa kirjastosta.",
+    "– [[Toi|tuo · that (spoken form)|puhekieli]] on hyvä idea. Mä luen mieluummin lastenkirjoja, koska ne on [[tosi|erittäin · very (spoken form)|puhekieli]] kauniita.",
+    "– Sit me voidaan keskustella niistä yhdessä.",
+    "– Mä voisin ostaa sulle yhden kirjan lahjaksi, jos sä kerrot, mistä sarjasta tykkäät eniten.",
+    "– Kiitos! Mä tykkään kaikista sarjoista, mutta kaunokirjallisuus on mulle rakkain.",
+    "– Hyvä! Sit mä katson, mitä kirjakaupassa on tarjolla, ja soitan sulle illalla.",
+    "– Okei, mä odotan puhelua. Kiitos jo etukäteen!"
+   ],
+   "questions": [
+    {
+     "type": "mc",
+     "q": "Kuka jakaa Finlandia-palkinnot?",
+     "options": [
+      "Yle",
+      "Suomen Kirjasäätiö",
+      "Helsingin kaupunki"
+     ],
+     "answer": 1,
+     "explain": "Teksti: Suomen Kirjasäätiö jakaa palkinnot vuosittain."
+    },
+    {
+     "type": "mc",
+     "q": "Kuinka monessa sarjassa palkinnot jaetaan?",
+     "options": [
+      "kahdessa",
+      "kolmessa",
+      "neljässä"
+     ],
+     "answer": 1,
+     "explain": "Sarjoja on kolme: kaunokirjallisuus, tietokirjallisuus sekä lasten- ja nuortenkirjallisuus."
+    },
+    {
+     "type": "tf",
+     "q": "Jokaisessa sarjassa on kuusi ehdokasta.",
+     "answer": true,
+     "explain": "Teksti sanoo näin."
+    },
+    {
+     "type": "mc",
+     "q": "Kuinka paljon jokainen voittaja saa?",
+     "options": [
+      "3 000 euroa",
+      "30 000 euroa",
+      "300 000 euroa"
+     ],
+     "answer": 1,
+     "explain": "Jokainen voittaja saa 30 000 euroa."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä kaunokirjallisuus tarkoittaa tekstin mukaan?",
+     "options": [
+      "romaaneja, runoja ja muita keksittyjä tekstejä",
+      "kirjoja, jotka kertovat tosiasioista",
+      "vain lastenkirjoja"
+     ],
+     "answer": 0,
+     "explain": "Sanan selitys on tekstissä."
+    },
+    {
+     "type": "tf",
+     "q": "Voittajat julkistetaan 26. marraskuuta.",
+     "answer": true,
+     "explain": "Teksti sanoo näin."
+    },
+    {
+     "type": "tf",
+     "q": "Kaunokirjallisuuden Finlandia jaetaan nyt ensimmäistä kertaa.",
+     "answer": false,
+     "explain": "Palkinto perustettiin vuonna 1984 ja se jaetaan nyt 43. kerran."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä sana säeromaani tarkoittaa?",
+     "options": [
+      "romaani, joka on kirjoitettu runon muotoon",
+      "kirja, jossa on vain kuvia",
+      "sanakirja"
+     ],
+     "answer": 0,
+     "explain": "Sanan selitys on tekstissä."
+    },
+    {
+     "type": "tf",
+     "q": "Keskustelussa toisen henkilön mutsi on jo lukenut kaikki ehdokkaat.",
+     "answer": false,
+     "explain": "Hän ei ole vielä lukenut niitä, mutta on tilannut kirjoja kirjastosta."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä toinen puhuja lukee mieluummin?",
+     "options": [
+      "lastenkirjoja",
+      "sanomalehtiä",
+      "sarjakuvia"
+     ],
+     "answer": 0,
+     "explain": "Hän sanoo: Mä luen mieluummin lastenkirjoja."
+    }
+   ]
+  },
+  "kuuntelu": {
+   "title": "Uutinen Finlandia-ehdokkaista",
+   "intro": "Kuuntele uutinen ja sen jälkeen keksitty keskustelu. Vastaa kysymyksiin. Tekstin saa nähdä vasta kuuntelun jälkeen.",
+   "vocab": [
+    "[[ehdokas|teos tai ihminen, joka on ehdolla palkintoon · nominee]]",
+    "[[säätiö|organisaatio, joka käyttää rahaa tiettyyn tarkoitukseen · foundation]]",
+    "[[julkistaa|kertoa julkisesti · to announce]]",
+    "[[voittaja|se, joka voittaa · winner]]"
+   ],
+   "script": [
+    "Suomen Kirjasäätiö jakaa Finlandia-palkinnot kolmessa sarjassa. Sarjat ovat kaunokirjallisuus, tietokirjallisuus sekä lasten- ja nuortenkirjallisuus. Jokaisessa sarjassa on kuusi ehdokasta.",
+    "Ehdokkaat julkistettiin marraskuun alussa. Ylen mukaan tietokirjallisuuden ehdokkaat kerrottiin ensin, sitten lasten- ja nuortenkirjallisuuden ja viimeisenä kaunokirjallisuuden. Jokainen voittaja saa 30 000 euroa. Voittajat julkistetaan 26. marraskuuta. Kaunokirjallisuuden Finlandia jaetaan nyt 43. kerran."
+   ],
+   "dialogue": [
+    "(keksitty esimerkki) – Mä [[oon|olen · I am (spoken form)|puhekieli]] ajatellut lukea yhden Finlandia-ehdokkaan.",
+    "– Hyvä idea! Minkä sä valitset?",
+    "– Mä otan kaunokirjallisuuden sarjasta jonkun, koska mä tykkään romaaneista.",
+    "– Mun [[mutsi|äiti · mum (slang)|slangi]] tykkää enemmän tietokirjoista.",
+    "– No sitten teillä on keskusteltavaa kahvilla!",
+    "– Niin on. Mä voisin kysyä siltä, haluaako se lukea saman kirjan kuin mä.",
+    "– Se on hyvä idea. Voitte lukea kirjan samaan aikaan ja puhua siitä sitten viikonloppuna.",
+    "– Joo, mä ehdotan sitä sille jo tänään. Toivottavasti se tykkää ajatuksesta.",
+    "– Kerro sitten, mitä se vastasi. Mua kiinnostaa kuulla."
+   ],
+   "questions": [
+    {
+     "type": "tf",
+     "q": "Suomen Kirjasäätiö jakaa Finlandia-palkinnot.",
+     "answer": true,
+     "explain": "Uutinen alkaa tällä lauseella."
+    },
+    {
+     "type": "mc",
+     "q": "Kuinka monessa sarjassa palkinnot jaetaan?",
+     "options": [
+      "kolmessa",
+      "kuudessa",
+      "yhdessä"
+     ],
+     "answer": 0,
+     "explain": "Palkinnot jaetaan kolmessa sarjassa."
+    },
+    {
+     "type": "mc",
+     "q": "Kuinka monta ehdokasta jokaisessa sarjassa on?",
+     "options": [
+      "kolme",
+      "kuusi",
+      "kymmenen"
+     ],
+     "answer": 1,
+     "explain": "Jokaisessa sarjassa on kuusi ehdokasta."
+    },
+    {
+     "type": "tf",
+     "q": "Voittajat julkistetaan joulukuussa.",
+     "answer": false,
+     "explain": "Voittajat julkistetaan 26. marraskuuta."
+    },
+    {
+     "type": "mc",
+     "q": "Kuinka paljon jokainen voittaja saa?",
+     "options": [
+      "30 000 euroa",
+      "3 000 euroa",
+      "300 euroa"
+     ],
+     "answer": 0,
+     "explain": "Jokainen voittaja saa 30 000 euroa."
+    },
+    {
+     "type": "mc",
+     "q": "Milloin voittajat julkistetaan?",
+     "options": [
+      "26. marraskuuta",
+      "6. joulukuuta",
+      "1. tammikuuta"
+     ],
+     "answer": 0,
+     "explain": "Voittajat julkistetaan 26. marraskuuta."
+    },
+    {
+     "type": "tf",
+     "q": "Kaunokirjallisuuden Finlandia jaetaan nyt 43. kerran.",
+     "answer": true,
+     "explain": "Uutinen sanoo näin."
+    },
+    {
+     "type": "mc",
+     "q": "Mitä toinen puhuja aikoo tehdä?",
+     "options": [
+      "lukea yhden ehdokkaan",
+      "kirjoittaa romaanin",
+      "myydä kirjoja"
+     ],
+     "answer": 0,
+     "explain": "Hän sanoo: Mä oon ajatellut lukea yhden Finlandia-ehdokkaan."
+    },
+    {
+     "type": "dictation",
+     "text": "Suomen Kirjasäätiö jakaa palkinnot."
+    },
+    {
+     "type": "dictation",
+     "text": "Voittajat julkistetaan marraskuun lopussa."
+    }
+   ]
+  },
+  "kirjoitus": {
+   "title": "Kirjoita kirjapalkinnosta",
+   "tasks": [
+    {
+     "type": "gap",
+     "q": "Ehdokkaat ___ (julkistaa) marraskuun alussa.",
+     "hint": "passiivin imperfekti",
+     "accept": [
+      "julkistettiin"
+     ],
+     "explain": "julkistaa – julkistettiin",
+     "near": [
+      "julkistetaan",
+      "julkisti"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Palkinnot jaetaan ___ (kolme) sarjassa.",
+     "hint": "inessiivi",
+     "accept": [
+      "kolmessa"
+     ],
+     "explain": "kolme – kolmessa (missä?)",
+     "near": [
+      "kolme",
+      "kolmea"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Voittaja saa palkinnoksi 30 000 ___ (euro).",
+     "hint": "partitiivi",
+     "accept": [
+      "euroa"
+     ],
+     "explain": "euro – euroa (summan jälkeen partitiivi)",
+     "near": [
+      "euro",
+      "euron"
+     ]
+    },
+    {
+     "type": "gap",
+     "q": "Palkinnon voittaja ___ (selvitä) marraskuun lopussa.",
+     "hint": "preesens, yksikön 3. persoona",
+     "accept": [
+      "selviää"
+     ],
+     "explain": "selvitä – se selviää",
+     "near": [
+      "selviävät",
+      "selvisi"
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The foundation awards the prizes.",
+     "accept": [
+      "Säätiö jakaa palkinnot."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "Each winner receives a prize.",
+     "accept": [
+      "Jokainen voittaja saa palkinnon."
+     ]
+    },
+    {
+     "type": "order",
+     "en": "The nominees were announced in November.",
+     "accept": [
+      "Ehdokkaat kerrottiin marraskuun alussa."
+     ]
+    },
+    {
+     "type": "translate",
+     "en": "The foundation announces the nominees.",
+     "keywords": [
+      [
+       "säätiö"
+      ],
+      [
+       "julkist",
+       "kerto"
+      ],
+      [
+       "ehdok"
+      ]
+     ],
+     "model": "Säätiö julkistaa ehdokkaat."
+    },
+    {
+     "type": "translate",
+     "en": "Each category has six nominees.",
+     "keywords": [
+      [
+       "sarja",
+       "luokka",
+       "kategori"
+      ],
+      [
+       "kuusi",
+       "6"
+      ],
+      [
+       "ehdok"
+      ]
+     ],
+     "model": "Jokaisessa sarjassa on kuusi ehdokasta."
+    },
+    {
+     "type": "translate",
+     "en": "The winners will be announced on 26 November.",
+     "keywords": [
+      [
+       "voittaj"
+      ],
+      [
+       "julkist",
+       "kerrot"
+      ],
+      [
+       "marraskuu"
+      ]
+     ],
+     "model": "Voittajat julkistetaan 26. marraskuuta."
+    }
+   ],
+   "free": {
+    "prompt": "Kirjoita ystävälle viesti. Kerro, minkä sarjan Finlandia-ehdokkaan haluaisit lukea, ja kysy, haluaako ystävä lukea saman kirjan.",
+    "words": "50–80",
+    "checklist": [
+     "Viestissä ystävälle voit käyttää puhekieltä, esimerkiksi mä, sä ja onks.",
+     "Kerro, mistä sarjasta haluat lukea kirjan.",
+     "Kysy ystävältä, haluaako hän lukea saman kirjan.",
+     "Jos kirjoitat kirjaston asiakaspalveluun, käytä yleiskieltä."
+    ],
+    "model": "Moi! Mä haluaisin lukea yhden Finlandia-ehdokkaan, ehkä jonkun kaunokirjallisuuden sarjasta. Haluaisitsä lukea saman kirjan? Sit me voitais jutella siitä kahvilla. Onks sulla jo joku suosikki?"
+   }
+  },
+  "puhe": {
+   "title": "Puhu kirjapalkinnosta",
+   "tasks": [
+    {
+     "type": "read",
+     "text": "Suomen Kirjasäätiö jakaa Finlandia-palkinnot."
+    },
+    {
+     "type": "read",
+     "text": "Jokaisessa sarjassa on ehdokkaita."
+    },
+    {
+     "type": "read",
+     "text": "Voittaja saa palkinnon."
+    },
+    {
+     "type": "read",
+     "text": "Ehdokkaat julkistettiin marraskuun alussa."
+    },
+    {
+     "type": "read",
+     "text": "Tietokirjallisuus kertoo todellisista asioista."
+    },
+    {
+     "type": "read",
+     "text": "Kirjat kertovat monista aiheista."
+    },
+    {
+     "type": "respond",
+     "q": "Kuka jakaa Finlandia-palkinnot?",
+     "hint": "säätiö",
+     "keywords": [
+      [
+       "kirjasää"
+      ]
+     ],
+     "model": "Suomen Kirjasäätiö jakaa palkinnot.",
+     "variants": [
+      "Suomen Kirjasäätiö."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Kuinka monta ehdokasta jokaisessa sarjassa on? Vastaa kokonaisella lauseella.",
+     "hint": "luku",
+     "keywords": [
+      [
+       "kuusi",
+       "6"
+      ]
+     ],
+     "model": "Jokaisessa sarjassa on kuusi ehdokasta.",
+     "variants": [
+      "Kuusi."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Kuinka paljon voittaja saa?",
+     "hint": "euroa",
+     "keywords": [
+      [
+       "30",
+       "kolmekymmentä",
+       "30000"
+      ]
+     ],
+     "model": "Voittaja saa 30 000 euroa.",
+     "variants": [
+      "30 000 euroa."
+     ]
+    },
+    {
+     "type": "respond",
+     "q": "Milloin voittajat julkistetaan? Vastaa kokonaisella lauseella.",
+     "hint": "marraskuu",
+     "keywords": [
+      [
+       "marraskuu"
+      ]
+     ],
+     "model": "Voittajat julkistetaan marraskuussa.",
+     "variants": [
+      "Marraskuussa."
+     ]
+    }
+   ]
+  }
+ }
+}
