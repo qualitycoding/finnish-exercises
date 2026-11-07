@@ -59,7 +59,9 @@ D-018 of the plan. This file is the checklist for one run.
       in each source column;
     - `## Real people`, a table `| Sentence | Source |` with an https URL per row, or the single line `None.`;
     - `## Word order`, one line on why the reversed order of each order task is not neutral;
-    - the slang-check evidence.
+    - the slang-check evidence (two independent sources per `slangi` word). The first six themes were labelled without
+      Kielitoimiston sanakirja, which was unreachable; when it is reachable, check their slang and `puhekieli` words
+      against it and correct the labels in a new theme version.
 
 ## 4. Verify, then publish
 
@@ -71,11 +73,12 @@ D-018 of the plan. This file is the checklist for one run.
    the branch: `git push origin refresh/<id>`.
 4. Wait for two runs on that exact commit. **CI** must succeed (on `refresh/**` it also fails if the diff against
    `origin/main` does anything but add a theme file and a note and change the manifest). The **Refresh guard** run is
-   found only like this, polling every 30 seconds for up to 20 minutes:
+   found only like this (`<sha>` is the full 40-character hash from `git rev-parse HEAD`; an abbreviated hash never
+   matches), polling every 30 seconds for up to 20 minutes:
    `gh api 'repos/qualitycoding/finnish-exercises/actions/workflows/refresh-guard.yml/runs?event=workflow_run&per_page=50' --jq '.workflow_runs[]|select(.display_title=="Refresh guard <sha>")|[.status,.conclusion,.id]|@tsv'`
    must print `completed	success	<id>`. If either fails or the guard run does not appear, stop without pushing to `main`.
 5. Fast-forward only: `git push origin refresh/<id>:main`, never `--force`. If it is refused, rebase again and wait for
-   CI again (at most three times).
+   CI again (at most three times). Once `main` has the commit, delete the branch: `git push origin --delete refresh/<id>`.
 6. Confirm three runs for the new `main` commit: **CI**, **pages build and deployment**, and **Live site check**. The
    live check counts only if its job `live` concluded `success`:
    `for id in $(gh api 'repos/qualitycoding/finnish-exercises/actions/runs?head_sha=<sha>&per_page=50' --jq '.workflow_runs[]|select(.name=="Live site check")|.id'); do gh api repos/qualitycoding/finnish-exercises/actions/runs/$id/jobs --jq '.jobs[]|select(.name=="live")|.conclusion'; done`

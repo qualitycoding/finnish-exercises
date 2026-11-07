@@ -9,6 +9,7 @@ import {
   shuffle,
   parseMarkup,
   plain,
+  splitSentences,
 } from "./scoring.js";
 
 const KINDS = ["luku", "kuuntelu", "kirjoitus", "puhe"];
@@ -25,11 +26,16 @@ const MAX = 10;
 const IMPORT_LIMIT = 1024 * 1024;
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 const MARKER = /\(keksitty esimerkki\)\s*/gi;
-const ABBREVIATIONS = new Set(["esim.", "mm.", "n.", "ns.", "ts.", "jne."]);
+const ISO_AT = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?$/;
+const LOCK_MS = 600; // after a click on the sticky bar the controls stay inert for this long (double taps, B-01)
+const DRAFT_MAX = 10000;
 
 const app = document.getElementById("app");
 let themes = [];
+let knownIds = [];
+let skippedFiles = [];
 let timerHandle = null;
+let activeListen = null;
 
 /* ---------- storage ---------- */
 
@@ -41,13 +47,50 @@ function isPlainObject(x) {
   return x !== null && typeof x === "object" && !Array.isArray(x);
 }
 
+/** A finite number from a number or a numeric string, else NaN. */
+function num(v) {
+  if (typeof v === "number") return Number.isFinite(v) ? v : NaN;
+  if (typeof v === "string" && v.trim() !== "") return Number(v);
+  return NaN;
+}
+
+/** Lenient clean-up of a stored entry (CR-01): coerce what can be read, drop what cannot. Never throws. */
+function sanitiseEntry(raw) {
+  if (!isPlainObject(raw)) return null;
+  const clamp = (n) => Math.round(Math.min(MAX, Math.max(0, n)) * 2) / 2;
+  const best = num(raw.best);
+  if (!Number.isFinite(best)) return null;
+  const history = [];
+  if (Array.isArray(raw.history)) {
+    for (const item of raw.history.slice(-20)) {
+      const score = isPlainObject(item) ? num(item.score) : NaN;
+      if (Number.isFinite(score) && typeof item.at === "string" && item.at.length <= 40) history.push({ score: clamp(score), at: item.at });
+    }
+  }
+  const last = num(raw.last);
+  const attempts = num(raw.attempts);
+  return {
+    best: clamp(best),
+    last: Number.isFinite(last) ? clamp(last) : clamp(best),
+    attempts: Number.isInteger(attempts) && attempts >= 0 && attempts <= 100000 ? attempts : Math.max(1, history.length),
+    history,
+  };
+}
+
 function loadStore() {
   try {
     const raw = localStorage.getItem(STORE_KEY);
     const data = raw ? JSON.parse(raw) : {};
     const store = emptyStore();
-    if (isPlainObject(data.scores)) store.scores = data.scores;
-    if (isPlainObject(data.drafts)) store.drafts = data.drafts;
+    if (isPlainObject(data.scores)) {
+      for (const key of Object.keys(data.scores)) {
+        const entry = KEY_PATTERN.test(key) ? sanitiseEntry(data.scores[key]) : null;
+        if (entry) store.scores[key] = entry;
+      }
+    }
+    if (isPlainObject(data.drafts)) {
+      for (const key of Object.keys(data.drafts)) if (KEY_PATTERN.test(key) && typeof data.drafts[key] === "string") store.drafts[key] = data.drafts[key];
+    }
     if (typeof data.lastExport === "string") store.lastExport = data.lastExport;
     return store;
   } catch {
@@ -80,11 +123,13 @@ function recordScore(exId, score) {
 
 function saveDraft(exId, text) {
   const store = loadStore();
-  store.drafts[exId] = text;
-  saveStore(store);
+  store.drafts[exId] = String(text).slice(0, DRAFT_MAX);
+  return saveStore(store);
 }
 
 const isHalf = (n) => typeof n === "number" && Number.isFinite(n) && n >= 0 && n <= MAX && Number.isInteger(n * 2);
+
+const isIsoAt = (at) => typeof at === "string" && at.length <= 40 && ISO_AT.test(at) && Number.isFinite(Date.parse(at));
 
 /** Validate one imported entry; returns a fresh clean object or null. */
 function cleanEntry(raw) {
@@ -94,11 +139,9 @@ function cleanEntry(raw) {
   if (!Array.isArray(raw.history)) return null;
   const history = [];
   for (const item of raw.history.slice(0, 200)) {
-    if (isPlainObject(item) && isHalf(item.score) && typeof item.at === "string" && item.at.length <= 40) {
-      history.push({ score: item.score, at: item.at });
-    }
+    if (isPlainObject(item) && isHalf(item.score) && isIsoAt(item.at)) history.push({ score: item.score, at: item.at });
   }
-  return { best: raw.best, last: raw.last, attempts: raw.attempts, history };
+  return { best: Math.max(raw.best, raw.last), last: raw.last, attempts: raw.attempts, history };
 }
 
 const newestAt = (entry) => entry.history.reduce((m, h) => (h.at > m ? h.at : m), "");
@@ -119,6 +162,11 @@ function mergeEntry(local, incoming) {
   };
 }
 
+/** Only exercises of the published themes can be imported (B-08): the key is <theme id>-<kind>. */
+function isKnownExercise(key) {
+  return knownIds.some((id) => KINDS.some((k) => key === `${id}-${k}`));
+}
+
 /** Merge a parsed export into the stored scores. Returns { ok, imported, skipped }. */
 function importScores(data) {
   if (!isPlainObject(data) || data.version !== 1 || !isPlainObject(data.scores)) return { ok: false, imported: 0, skipped: 0 };
@@ -126,7 +174,7 @@ function importScores(data) {
   let imported = 0;
   let skipped = 0;
   for (const key of Object.keys(data.scores)) {
-    const entry = KEY_PATTERN.test(key) ? cleanEntry(data.scores[key]) : null;
+    const entry = KEY_PATTERN.test(key) && isKnownExercise(key) ? cleanEntry(data.scores[key]) : null;
     if (!entry) {
       skipped += 1;
       continue;
@@ -135,6 +183,7 @@ function importScores(data) {
     store.scores[key] = mergeEntry(own, entry);
     imported += 1;
   }
+  if (imported === 0) return { ok: false, imported: 0, skipped, empty: true };
   if (!saveStore(store)) return { ok: false, imported: 0, skipped, saveFailed: true };
   return { ok: true, imported, skipped };
 }
@@ -177,6 +226,7 @@ function sequence() {
 }
 
 function fmtScore(n) {
+  if (typeof n !== "number" || !Number.isFinite(n)) return "–";
   return Number.isInteger(n) ? String(n) : n.toFixed(1);
 }
 
@@ -362,44 +412,61 @@ function voicesReady() {
   return speech.ready;
 }
 
-/** Split into sentences without breaking after ordinals (3.) or known abbreviations. */
-function sentences(text) {
-  const out = [];
-  let cur = [];
-  for (const word of text.split(/\s+/).filter(Boolean)) {
-    cur.push(word);
-    const ends = /[.!?]["”)»]?$/.test(word);
-    const ordinal = /^\d+\.$/.test(word);
-    if (ends && !ordinal && !ABBREVIATIONS.has(word.toLowerCase())) {
-      out.push(cur.join(" "));
-      cur = [];
-    }
-  }
-  if (cur.length) out.push(cur.join(" "));
-  return out;
-}
-
 function speakable(text) {
   return plain(text).replace(MARKER, "").trim();
 }
 
-/** Queue every sentence at once (no onend chaining). Voice choice uses the voices known right now. */
-function speakParagraphs(paragraphs, rate = speech.rate) {
-  if (!speech.synth) return false;
-  const voice = chooseVoice(currentVoices());
-  speech.synth.cancel();
-  for (const p of paragraphs) {
-    for (const sentence of sentences(speakable(p))) {
-      const clean = sentence.replace(/^[–—-]\s*/, "").replace(/\s[–—]\s/g, ", ");
-      if (!clean) continue;
-      const u = new SpeechSynthesisUtterance(clean);
-      u.lang = "fi-FI";
-      if (voice) u.voice = voice;
-      u.rate = rate;
-      speech.synth.speak(u);
-    }
+/** Show why audio did not play, next to the control that was pressed (CR-02, B-06). */
+function speechProblem(anchor, code) {
+  const host = anchor?.closest?.(".q") || anchor?.closest?.("section") || app;
+  let el = host.querySelector(":scope > .speech-problem");
+  if (!el) {
+    el = h("p", { class: "notice speech-problem", role: "status" });
+    host.append(el);
   }
-  return true;
+  const hint = document.getElementById("transcript") ? " Read the transcript instead." : " Try another browser, or install a Finnish voice in your device settings.";
+  el.dataset.problem = code;
+  el.textContent = code === "unsupported" ? `This browser has no speech synthesis, so the audio cannot be played.${hint}` : `Your browser could not play the audio (${code}).${hint}`;
+}
+
+function clearSpeechProblem(anchor) {
+  const host = anchor?.closest?.(".q") || anchor?.closest?.("section") || app;
+  host.querySelector(":scope > .speech-problem")?.remove();
+}
+
+/**
+ * Queue every sentence at once (no onend chaining). Voice choice uses the voices known right now.
+ * Returns false and tells the learner (next to `anchor`) when nothing could be played.
+ */
+function speakParagraphs(paragraphs, rate = speech.rate, anchor = null) {
+  if (!speech.synth) {
+    speechProblem(anchor, "unsupported");
+    return false;
+  }
+  try {
+    const voice = chooseVoice(currentVoices());
+    speech.synth.cancel();
+    clearSpeechProblem(anchor);
+    for (const p of paragraphs) {
+      for (const sentence of splitSentences(speakable(p))) {
+        const clean = sentence.replace(/^[–—-]\s*/, "").replace(/\s[–—]\s/g, ", ");
+        if (!clean) continue;
+        const u = new SpeechSynthesisUtterance(clean);
+        u.lang = "fi-FI";
+        if (voice) u.voice = voice;
+        u.rate = rate;
+        u.onerror = (e) => {
+          const code = (e && e.error) || "error";
+          if (code !== "interrupted" && code !== "canceled") speechProblem(anchor, code);
+        };
+        speech.synth.speak(u);
+      }
+    }
+    return true;
+  } catch (err) {
+    speechProblem(anchor, (err && err.name) || "error");
+    return false;
+  }
 }
 
 function stopSpeaking() {
@@ -422,6 +489,14 @@ function rateSelect() {
   );
 }
 
+const RECOGNITION_PROBLEMS = {
+  "not-allowed": "The browser did not allow the microphone.",
+  "service-not-allowed": "The browser did not allow speech recognition.",
+  network: "Speech recognition needs an internet connection.",
+  "audio-capture": "No microphone was found.",
+  unsupported: "This browser has no speech recognition.",
+};
+
 const NO_VOICE_MESSAGE =
   "No Finnish voice found. Install a Finnish text-to-speech voice in your device settings, or use Microsoft Edge, Safari or Chrome on Android. You can still read the transcript.";
 
@@ -440,7 +515,29 @@ function voiceStatus() {
     }
   };
   voicesReady().then(apply);
+  // Voices may arrive after the 2 s wait (B-07): keep listening while this line is on screen.
+  const late = () => {
+    if (!el.isConnected) {
+      try {
+        speech.synth.removeEventListener("voiceschanged", late);
+      } catch {
+        /* no removeEventListener */
+      }
+      return;
+    }
+    apply();
+  };
+  try {
+    speech.synth?.addEventListener("voiceschanged", late);
+  } catch {
+    /* no event support */
+  }
   return el;
+}
+
+/** Stop the running recognition, if any; its promise rejects with { aborted: true } and the page ignores it (B-04). */
+function abortListening() {
+  activeListen?.cancel();
 }
 
 /** Listen once with the Web Speech API. Resolves with the transcript alternatives; always settles. */
@@ -451,27 +548,34 @@ function listenOnce() {
       reject(new Error("unsupported"));
       return;
     }
+    abortListening();
     const rec = new Recognition();
     let done = false;
     let timer = null;
-    const finish = (fn, value) => {
+    const handle = {
+      cancel: () => finish(reject, Object.assign(new Error("aborted"), { aborted: true }), true),
+    };
+    const finish = (fn, value, abort = false) => {
       if (done) return;
       done = true;
       clearTimeout(timer);
+      if (activeListen === handle) activeListen = null;
       try {
-        rec.stop();
+        if (abort && typeof rec.abort === "function") rec.abort();
+        else rec.stop();
       } catch {
         /* already stopped */
       }
       fn(value);
     };
+    activeListen = handle;
     rec.lang = "fi-FI";
     rec.interimResults = false;
     rec.maxAlternatives = 3;
     rec.onresult = (e) => {
-      const res = e.results[0];
+      const res = e?.results?.[0];
       const alts = [];
-      for (let i = 0; i < res.length; i += 1) alts.push(res[i].transcript);
+      for (let i = 0; res && i < res.length; i += 1) alts.push(res[i].transcript);
       finish(resolve, alts);
     };
     rec.onerror = (e) => finish(reject, new Error((e && e.error) || "error"));
@@ -541,6 +645,9 @@ function renderIndex() {
       { class: "lead" },
       "Read, listen, write and speak about current affairs in Finland. Each exercise takes about ten minutes, scores 0–10 and can be repeated as often as you like. Your results are saved in this browser.",
     ),
+    skippedFiles.length
+      ? h("p", { class: "notice", id: "theme-warning", role: "status" }, `Some exercises could not be loaded and were left out (${skippedFiles.join("; ")}). The rest works. Reload the page to try again.`)
+      : null,
     needsBackup(store)
       ? h("p", { class: "notice backup-reminder" }, h("a", { href: "#/tietoja" }, "Back up your scores"), " – your browser may delete saved data you have not exported.")
       : null,
@@ -583,6 +690,7 @@ function renderAbout() {
   const store = loadStore();
   const voices = currentVoices().filter((v) => normLang(v).startsWith("fi"));
   const status = h("p", { class: "muted", id: "import-status", role: "status" });
+  const savedCount = h("span", { id: "saved-count" }, String(Object.keys(store.scores).length));
   const importInput = h("input", { type: "file", accept: "application/json,.json", class: "visually-hidden", id: "import" });
   importInput.addEventListener("change", async () => {
     const file = importInput.files?.[0];
@@ -598,9 +706,12 @@ function renderAbout() {
       }
       const result = importScores(JSON.parse(await file.text()));
       if (!result.ok) {
-        fail(result.saveFailed ? "Your browser would not save the imported scores. Your scores are unchanged." : "That file is not an export from this site. Your scores are unchanged.");
+        if (result.saveFailed) fail("Your browser would not save the imported scores. Your scores are unchanged.");
+        else if (result.empty) fail(`That file has no results for these exercises (${result.skipped} invalid entr${result.skipped === 1 ? "y" : "ies"} skipped). Your scores are unchanged.`);
+        else fail("That file is not an export from this site. Your scores are unchanged.");
         return;
       }
+      savedCount.textContent = String(Object.keys(loadStore().scores).length);
       status.dataset.ok = "1";
       status.textContent = `Imported ${result.imported} exercise${result.imported === 1 ? "" : "s"}; ${result.skipped} invalid entr${result.skipped === 1 ? "y" : "ies"} skipped. Better scores are kept.`;
     } catch {
@@ -628,14 +739,14 @@ function renderAbout() {
       h(
         "p",
         {},
-        "Every exercise has ten items worth 1, ½ or 0 points. Typed answers must match exactly; half a point is given when only ä or ö is wrong, or for one typo in a word of six letters or more (Finnish vowel and consonant length changes the word, so short words get no typo allowance). Word-order tasks need the neutral order. Translations and spoken answers are checked for key words, and key words are matched inside inflected forms and compounds. Dictation and read-aloud answers earn full marks at about 90 % similarity. Speaking allows up to three recordings per item and the best one counts.",
+        "Every exercise has ten items worth 1, ½ or 0 points. Typed answers must match exactly; half a point is given when only ä or ö is wrong, or for one typo in a word of six letters or more (Finnish vowel and consonant length changes the word, so short words get no typo allowance). Word-order tasks need the neutral order. Translations and spoken answers are checked for key words, and key words are matched inside inflected forms and compounds. A key word typed without ä or ö still counts but caps the item at half a point, as in the gap tasks. Dictation and read-aloud answers earn full marks at about 90 % similarity. Speaking allows up to three recordings per item and the best one counts.",
       ),
       h("h2", {}, "Register labels"),
       legend(),
       h(
         "p",
         { class: "small muted" },
-        "News texts are written for language learning from the news of the date shown, in standard Finnish (yleiskieli). Each text ends with an invented dialogue in spoken Finnish (puhekieli). Labels follow Kielitoimiston sanakirja where the word is listed; slang can be regional or age-bound. The texts are original and the news may have moved on since.",
+        "News texts are written for language learning from the news of the date shown, in standard Finnish (yleiskieli). Each text ends with an invented dialogue in spoken Finnish (puhekieli). The register labels (slangi, puhekieli, idiomi) were set by checking each slang word against at least two independent web sources; the evidence is in the content notes in the repository. Kielitoimiston sanakirja, the dictionary of the Institute for the Languages of Finland, could not be consulted when the exercises were made, so a label may differ from the dictionary's. Slang can be regional or age-bound. The texts are original and the news may have moved on since.",
       ),
     ),
     h(
@@ -654,7 +765,7 @@ function renderAbout() {
       "div",
       { class: "card" },
       h("h2", { class: "first" }, "Your results"),
-      h("p", {}, `Saved results: ${Object.keys(store.scores).length} exercises. They live only in this browser. Safari may delete site data after seven days without a visit unless you add the site to your Home Screen, so export a backup now and then.`),
+      h("p", {}, "Saved results: ", savedCount, ` exercises. They live only in this browser. Safari may delete site data after seven days without a visit unless you add the site to your Home Screen, so export a backup now and then.`),
       h(
         "div",
         { class: "row" },
@@ -708,8 +819,10 @@ function renderAbout() {
 }
 
 function renderExercise(themeId, kind) {
+  abortListening();
   const theme = themes.find((t) => t.id === themeId);
-  const ex = theme?.exercises?.[kind];
+  const known = KINDS.includes(kind) && theme && Object.prototype.hasOwnProperty.call(theme.exercises || {}, kind);
+  const ex = known ? theme.exercises[kind] : null;
   if (!theme || !ex) {
     fill(app, h("h1", {}, "That exercise does not exist"), h("a", { href: "#/" }, "Back to the start"));
     return;
@@ -748,7 +861,12 @@ function renderExercise(themeId, kind) {
   const items = builders[kind](ex, theme, body, seed, id);
 
   const prevScore = loadStore().scores[id];
-  const checkBtn = h("button", { type: "button", class: "btn primary", id: "check" }, "Check my answers");
+  // The Check button is inert for a moment after every render, so the second tap of a double tap on
+  // "Try again" cannot land on the new Check button in the same place (B-01).
+  const checkBtn = h("button", { type: "button", class: "btn primary", id: "check", disabled: true }, "Check my answers");
+  setTimeout(() => {
+    checkBtn.disabled = false;
+  }, LOCK_MS);
   const status = h("span", {}, prevScore ? `Best so far: ${fmtScore(prevScore.best)}/10 (${prevScore.attempts} attempts)` : "Answer every item, then press Check.");
   add(resultBar, status, checkBtn);
 
@@ -758,9 +876,13 @@ function renderExercise(themeId, kind) {
     checked = true;
     stopTimer();
     stopSpeaking();
+    abortListening();
     const points = items.map((it) => it.check());
     const score = total(points, MAX);
     const { saved, entry } = recordScore(id, score);
+    const nextLink = next ? h("a", { class: "btn primary", href: exHref(next.theme.id, next.kind) }, "Next →") : h("a", { class: "btn primary", href: "#/" }, "Back to the start");
+    nextLink.addEventListener("click", (e) => nextLink.getAttribute("aria-disabled") === "true" && e.preventDefault());
+    const afterCheck = h("span", { class: "row tight" }, h("button", { type: "button", class: "btn", id: "retry", onclick: () => renderExercise(themeId, kind) }, "Try again"), nextLink);
     body.querySelectorAll("input, textarea, select, .chip, button.lock").forEach((el) => {
       if (!el.closest(".keep-enabled")) el.disabled = true;
     });
@@ -771,11 +893,20 @@ function renderExercise(themeId, kind) {
         h("span", { class: "muted small" }, `best ${fmtScore(entry.best)} · ${entry.attempts} attempts`),
         saved ? null : h("span", { class: "save-error", id: "save-error", role: "alert" }, " Your browser would not save this result. Export is unavailable too, so note the score yourself."),
       ),
-      h("span", { class: "row tight" },
-        h("button", { type: "button", class: "btn", id: "retry", onclick: () => renderExercise(themeId, kind) }, "Try again"),
-        next ? h("a", { class: "btn primary", href: exHref(next.theme.id, next.kind) }, "Next →") : h("a", { class: "btn primary", href: "#/" }, "Back to the start"),
-      ),
+      afterCheck,
     );
+    // Same place as Check, but inert for LOCK_MS: the second tap of a double tap on Check is ignored (B-01).
+    const locked = [...afterCheck.querySelectorAll("button, a")];
+    locked.forEach((el) => {
+      el.setAttribute("aria-disabled", "true");
+      if (el.tagName === "BUTTON") el.disabled = true;
+    });
+    setTimeout(() => {
+      locked.forEach((el) => {
+        el.removeAttribute("aria-disabled");
+        el.disabled = false;
+      });
+    }, LOCK_MS);
     resultBar.scrollIntoView({ block: "nearest" });
   });
 
@@ -947,8 +1078,8 @@ function dictationQuestion(q, n) {
     { class: "q", "data-type": "dictation" },
     h("p", { class: "prompt" }, h("span", { class: "num" }, `${n}.`), "Dictation: listen and type the sentence."),
     h("div", { class: "row keep-enabled" },
-      h("button", { type: "button", class: "btn small", onclick: () => speakParagraphs([q.text]) }, "▶ Listen"),
-      h("button", { type: "button", class: "btn small", onclick: () => speakParagraphs([q.text], 0.65) }, "▶ Slowly"),
+      h("button", { type: "button", class: "btn small", onclick: (e) => speakParagraphs([q.text], undefined, e.currentTarget) }, "▶ Listen"),
+      h("button", { type: "button", class: "btn small", onclick: (e) => speakParagraphs([q.text], 0.65, e.currentTarget) }, "▶ Slowly"),
     ),
     input,
     fb,
@@ -992,12 +1123,13 @@ function speakingTask(q, n) {
     stopSpeaking();
     recBtn.classList.add("on");
     recBtn.textContent = "Listening…";
+    let aborted = false;
     try {
       const alts = await listenOnce();
       tries += 1;
       if (!alts.length) {
         heard.dataset.heard = "";
-        heard.textContent = "I heard nothing – try again.";
+        heard.textContent = `I heard nothing – try again. (attempt ${tries}/3)`;
       } else {
         const r = score(alts);
         best = Math.max(best, r.points);
@@ -1005,15 +1137,25 @@ function speakingTask(q, n) {
         heard.textContent = `I heard: “${r.text}” → ${fmtScore(r.points)} pt (best ${fmtScore(best)} pt, attempt ${tries}/3)`;
       }
     } catch (err) {
-      heard.dataset.heard = "";
-      heard.textContent = `Speech recognition did not work (${err.message}). Please rate yourself instead.`;
-      selfMode = true;
-      selfBox.hidden = false;
+      if (err.aborted) {
+        aborted = true; // the learner left, retried or pressed Check: the page no longer wants this result
+      } else if (err.message === "no-speech" || err.message === "aborted") {
+        tries += 1;
+        heard.dataset.heard = "";
+        heard.textContent = `I heard nothing – try again. (attempt ${tries}/3)`;
+      } else {
+        heard.dataset.heard = "";
+        heard.textContent = `${RECOGNITION_PROBLEMS[err.message] || `Speech recognition did not work (${err.message}).`} Please rate yourself instead.`;
+        selfMode = true;
+        selfBox.hidden = false;
+      }
     } finally {
       busy = false;
-      recBtn.classList.remove("on");
-      recBtn.textContent = tries >= 3 ? "No more attempts" : "🎤 Speak again";
-      if (tries >= 3) recBtn.disabled = true;
+      if (!aborted) {
+        recBtn.classList.remove("on");
+        recBtn.textContent = tries >= 3 ? "No more attempts" : "🎤 Speak again";
+        if (tries >= 3) recBtn.disabled = true;
+      }
     }
   });
 
@@ -1037,7 +1179,7 @@ function speakingTask(q, n) {
     h(
       "div",
       { class: "row" },
-      h("button", { type: "button", class: "btn small keep-enabled", onclick: () => speakParagraphs([q.type === "read" ? q.text : q.q]) }, q.type === "read" ? "▶ Hear the model" : "▶ Hear the question"),
+      h("button", { type: "button", class: "btn small keep-enabled", onclick: (e) => speakParagraphs([q.type === "read" ? q.text : q.q], undefined, e.currentTarget) }, q.type === "read" ? "▶ Hear the model" : "▶ Hear the question"),
       hasRecognition ? recBtn : null,
       hasRecognition ? toggle : null,
     ),
@@ -1093,7 +1235,7 @@ function sourcesBlock(theme) {
     { class: "card small" },
     h("h2", { class: "first" }, "Sources and date"),
     h("p", { class: "muted" }, `The texts are original and were written for language learning from the news of ${theme.dateLabel}. The situation may have changed since.`),
-    h("ul", { class: "sources" }, theme.sources.map((s) => h("li", {}, h("a", { href: s.url, target: "_blank", rel: "noopener noreferrer" }, s.title)))),
+    h("ul", { class: "sources" }, theme.sources.map((s) => h("li", {}, /^https:\/\//i.test(s.url || "") ? h("a", { href: s.url, target: "_blank", rel: "noopener noreferrer" }, s.title) : s.title))),
   );
 }
 
@@ -1115,10 +1257,10 @@ function buildReading(ex, theme, body, seed) {
 
 function buildListening(ex, theme, body, seed) {
   const playAll = h("button", { type: "button", class: "btn primary", id: "play" }, "▶ Play the report and the dialogue");
-  playAll.addEventListener("click", () => speakParagraphs([...ex.script, ...ex.dialogue]));
+  playAll.addEventListener("click", (e) => speakParagraphs([...ex.script, ...ex.dialogue], undefined, e.currentTarget));
   const parts = [
-    ...ex.script.map((p, i) => h("button", { type: "button", class: "btn small", onclick: () => speakParagraphs([p]) }, `Report ${i + 1}`)),
-    ex.dialogue.length ? h("button", { type: "button", class: "btn small", onclick: () => speakParagraphs(ex.dialogue) }, "Dialogue") : null,
+    ...ex.script.map((p, i) => h("button", { type: "button", class: "btn small", onclick: (e) => speakParagraphs([p], undefined, e.currentTarget) }, `Report ${i + 1}`)),
+    ex.dialogue.length ? h("button", { type: "button", class: "btn small", onclick: (e) => speakParagraphs(ex.dialogue, undefined, e.currentTarget) }, "Dialogue") : null,
   ];
   const transcript = h(
     "details",
@@ -1164,7 +1306,8 @@ function buildWriting(ex, theme, body, seed, id) {
 
   if (ex.free) {
     const drafts = loadStore().drafts;
-    const ta = h("textarea", { class: "keep-enabled", lang: "fi", "aria-label": "Free writing" });
+    const ta = h("textarea", { class: "keep-enabled", lang: "fi", "aria-label": "Free writing", maxlength: String(DRAFT_MAX) });
+    const draftNote = h("span", { class: "muted small", id: "draft-error", role: "status" });
     ta.value = typeof drafts[id] === "string" ? drafts[id] : "";
     const count = h("span", { class: "muted small" });
     const upd = () => {
@@ -1173,7 +1316,7 @@ function buildWriting(ex, theme, body, seed, id) {
     };
     ta.addEventListener("input", () => {
       upd();
-      saveDraft(id, ta.value);
+      draftNote.textContent = saveDraft(id, ta.value) ? "" : "Draft not saved: your browser would not store it.";
     });
     upd();
     add(body,
@@ -1184,7 +1327,7 @@ function buildWriting(ex, theme, body, seed, id) {
         h("p", {}, fi(ex.free.prompt)),
         h("ul", { class: "small" }, ex.free.checklist.map((c) => h("li", {}, fi(c)))),
         ta,
-        h("div", { class: "row" }, count, h("span", { class: "muted small" }, "· saved automatically in this browser")),
+        h("div", { class: "row" }, count, h("span", { class: "muted small" }, "· saved automatically in this browser"), draftNote),
         h("details", {}, h("summary", {}, "Show a model text"), h("p", { class: "article" }, fi(ex.free.model))),
       ),
     );
@@ -1214,11 +1357,37 @@ function buildSpeaking(ex, theme, body, seed) {
 function route() {
   stopTimer();
   stopSpeaking();
+  abortListening();
   const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
-  if (parts[0] === "harjoitus" && parts.length === 3) renderExercise(parts[1], parts[2]);
-  else if (parts[0] === "tietoja") renderAbout();
-  else renderIndex();
+  let ok = true;
+  try {
+    if (parts[0] === "harjoitus" && parts.length === 3) renderExercise(parts[1], parts[2]);
+    else if (parts[0] === "tietoja") renderAbout();
+    else renderIndex();
+  } catch (err) {
+    ok = false;
+    console.warn("route failed", err);
+    fill(
+      app,
+      h("h1", {}, "Something went wrong"),
+      h("p", { id: "route-error" }, "This page could not be shown. Saved data in this browser may be damaged."),
+      h("p", {}, h("a", { href: "#/tietoja" }, "Open About and use “Reset all results”"), " or ", h("a", { href: "#/" }, "go to the start"), "."),
+    );
+  }
   document.documentElement.dataset.route = location.hash || "#/";
+  announceRoute();
+  return ok;
+}
+
+/** Tell screen readers about the new page and move focus to its heading (CR-14). */
+function announceRoute() {
+  const status = document.getElementById("route-status");
+  if (status) status.textContent = document.title;
+  const heading = app.querySelector("h1");
+  if (heading) {
+    heading.setAttribute("tabindex", "-1");
+    heading.focus({ preventScroll: true });
+  }
 }
 
 /** Fetch JSON, bypassing stale caches, and say exactly what came back when it is not JSON. */
@@ -1239,11 +1408,29 @@ async function fetchJson(path) {
   }
 }
 
+function validTheme(t) {
+  return isPlainObject(t) && typeof t.id === "string" && isPlainObject(t.exercises) && KINDS.every((k) => isPlainObject(t.exercises[k]));
+}
+
 async function boot() {
   askPersist();
+  window.addEventListener("pagehide", abortListening);
   try {
     const manifest = await fetchJson("data/manifest.json");
-    themes = await Promise.all(manifest.themes.map((f) => fetchJson(`data/${f}`)));
+    if (!Array.isArray(manifest?.themes)) throw new Error("data/manifest.json: no list of themes");
+    // One missing or broken theme file must not take the whole site down (B-03): load what can be loaded.
+    const results = await Promise.allSettled(
+      manifest.themes.map(async (f) => {
+        const theme = await fetchJson(`data/${f}`);
+        if (!validTheme(theme)) throw new Error(`data/${f}: not a valid theme file`);
+        return theme;
+      }),
+    );
+    themes = results.filter((r) => r.status === "fulfilled").map((r) => r.value);
+    skippedFiles = results.filter((r) => r.status === "rejected").map((r) => r.reason?.message || "unknown error");
+    knownIds = manifest.themes.map((f) => String(f).replace(/^themes\//, "").replace(/\.json$/, ""));
+    if (skippedFiles.length) console.warn("skipped theme files", skippedFiles);
+    if (!themes.length) throw new Error(skippedFiles[0] || "data/manifest.json: no themes");
   } catch (err) {
     fill(
       app,
@@ -1255,8 +1442,7 @@ async function boot() {
     return;
   }
   window.addEventListener("hashchange", route);
-  route();
-  document.documentElement.dataset.ready = "1";
+  document.documentElement.dataset.ready = route() ? "1" : "error";
 }
 
 boot();

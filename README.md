@@ -33,7 +33,7 @@ Every glossed word carries a label so it is clear how informal it is:
 **PUHEKIELI** (everyday spoken Finnish, for example *mä*, *onks*, *toi*),
 **IDIOMI** (fixed expression), and plain **SANA** for ordinary vocabulary.
 Each reading text ends with an invented dialogue (clearly marked *keksitty esimerkki*) where the colloquial words appear in context.
-A word is labelled slang only when two independent sources confirm it; the evidence is recorded in the theme's content note.
+A word is labelled slang only when two independent web sources confirm it; the evidence is recorded in the theme's content note. Kielitoimiston sanakirja could not be consulted when the first six themes were made; see REFRESH.md for the re-check.
 
 ### Browser support for speech
 
@@ -75,7 +75,7 @@ npm run screenshots         # phone-sized screenshots into docs/screenshots
 
 1. Follow [REFRESH.md](REFRESH.md): copy a file in `data/themes/`, change `id`, texts and questions (10 items per exercise), and write `content-notes/<id>.md`.
 2. Add the theme as the first entry of `data/manifest.json`.
-3. Run `npm test` and push. CI runs the same checks.
+3. Run `npm test`, then publish through the branch flow in [REFRESH.md](REFRESH.md) section 4 (`refresh/<id>`, CI, Refresh guard, fast-forward of `main`). Do not push straight to `main`.
 
 ## Licence
 

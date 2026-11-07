@@ -80,26 +80,44 @@ export function scoreOrder(builtWords, accepted) {
 
 /**
  * Keyword task (translations, spoken answers). Each keyword group is a list of acceptable stems;
- * a group matches when any word of the answer starts with one of its stems (diacritics strict).
- * All groups → 1, at least half → 0.5, else 0.
+ * a group matches when any word of the answer contains one of its stems (rules by stem length, D-017).
+ * Stems of six or more letters also match across a space the recogniser may have put inside a compound (D-019).
+ * A stem starting with "=" must equal a whole word (numerals: "=kolme" is not found in "kolmekymmentä").
+ * All groups → 1, at least half → 0.5, else 0. A group that matches only after folding ä/ö/å to a/o
+ * (a learner without a Finnish keyboard) counts for half marks overall, like a gap slip (D-019).
+ * `missing` lists groups found neither exactly nor folded; `slips` lists groups found only folded.
  */
 export function scoreKeywords(answer, groups) {
-  const words = tokens(answer);
+  const exact = keywordHits(answer, groups, false);
+  const loose = keywordHits(answer, groups, true);
+  const n = groups.length;
+  const found = exact.filter(Boolean).length;
+  const foundLoose = loose.filter(Boolean).length;
+  const missing = groups.filter((_, i) => !loose[i]).map((g) => g[0]);
+  const slips = groups.filter((_, i) => loose[i] && !exact[i]).map((g) => g[0]);
+  if (found === n) return { points: 1, note: "All key words are there!", missing, slips };
+  if (foundLoose === n) return { points: 0.5, note: "Almost: check ä and ö.", missing, slips };
+  if (foundLoose * 2 >= n) return { points: 0.5, note: slips.length ? "Partly right: check ä and ö." : "Partly right.", missing, slips };
+  return { points: 0, note: "Too many key words missing.", missing, slips };
+}
+
+function keywordHits(answer, groups, folded) {
+  const prep = folded ? fold : normalize;
+  const words = prep(answer).split(" ").filter(Boolean);
   const joined = ` ${words.join(" ")} `;
-  const hit = groups.map((stems) =>
+  const compact = words.join("");
+  return groups.map((stems) =>
     stems.some((stem) => {
-      const s = normalize(stem);
+      // "=kolme" matches the whole word only, so "kolmekymmentä" does not count as "kolme" (D-019).
+      if (String(stem).startsWith("=")) return words.includes(prep(String(stem).slice(1)));
+      const s = prep(stem);
       if (s.includes(" ")) return joined.includes(` ${s}`);
       if (s.length <= 2) return words.includes(s);
+      if (s.length >= 6 && compact.includes(s)) return true;
       if (s.length >= 4) return words.some((w) => w.includes(s));
       return words.some((w) => w.startsWith(s));
     }),
   );
-  const found = hit.filter(Boolean).length;
-  const missing = groups.filter((_, i) => !hit[i]).map((g) => g[0]);
-  if (found === groups.length) return { points: 1, note: "All key words are there!", missing };
-  if (found * 2 >= groups.length) return { points: 0.5, note: "Partly right.", missing };
-  return { points: 0, note: "Too many key words missing.", missing };
 }
 
 /** Dictation / read-aloud: ≥ 0.9 word similarity → 1, ≥ 0.7 → 0.5, else 0. */
@@ -171,4 +189,28 @@ export function scoreSpoken(alternatives, target, full = 0.9, half = 0.6) {
   if (best >= full) return { points: 1, sim: best, note: "Very good!" };
   if (best >= half) return { points: 0.5, sim: best, note: "Almost." };
   return { points: 0, sim: best, note: "Try again." };
+}
+
+const ABBREVIATIONS = new Set(["esim.", "mm.", "n.", "ns.", "ts.", "jne."]);
+
+/**
+ * Split text into sentences for speech. A full stop after a number is an ordinal (7. marraskuuta) only
+ * when the next word starts with a lower-case letter; "linjat 11 ja 12. Ylen mukaan" ends a sentence (D-019).
+ * Known abbreviations never end a sentence.
+ */
+export function splitSentences(text) {
+  const words = String(text ?? "").split(/\s+/).filter(Boolean);
+  const out = [];
+  let cur = [];
+  words.forEach((word, i) => {
+    cur.push(word);
+    const ends = /[.!?]["”)»]?$/.test(word);
+    const ordinal = /^\d+\.$/.test(word) && /^\p{Ll}/u.test(words[i + 1] || "");
+    if (ends && !ordinal && !ABBREVIATIONS.has(word.toLowerCase())) {
+      out.push(cur.join(" "));
+      cur = [];
+    }
+  });
+  if (cur.length) out.push(cur.join(" "));
+  return out;
 }

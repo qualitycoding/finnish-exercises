@@ -1,19 +1,25 @@
-// Planning spike (R6): content-note checker satisfying T-061. S-004 copies it to tools/check-notes.mjs.
+// Content-note checker (D-018, T-061): every fact row needs https sources from at least two publisher groups.
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const GROUPS = [
   ["yle", ["yle.fi"]],
-  ["sanoma", ["hs.fi", "is.fi"]],
-  ["alma", ["iltalehti.fi", "kauppalehti.fi", "talouselama.fi"]],
-  ["mtv", ["mtvuutiset.fi"]],
+  ["sanoma", ["hs.fi", "is.fi", "taloussanomat.fi"]],
+  ["alma", ["iltalehti.fi", "kauppalehti.fi", "talouselama.fi", "tivi.fi", "mikrobitti.fi", "uusisuomi.fi"]],
+  ["mtv", ["mtvuutiset.fi", "mtv.fi"]],
   ["stt", ["stt.fi"]],
 ];
 
 /** Publisher group of a URL: a known group, otherwise the host without www. */
 export function publisherGroup(url) {
-  const host = new URL(url).hostname.replace(/^www\./, "");
+  let host;
+  try {
+    host = new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return `invalid:${url}`; // counts as its own group so a malformed link cannot make two sources out of one
+  }
+  if (!host) return `invalid:${url}`;
   for (const [g, hosts] of GROUPS) if (hosts.some((h) => host === h || host.endsWith(`.${h}`))) return g;
   return host;
 }

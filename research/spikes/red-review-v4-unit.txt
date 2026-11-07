@@ -1,0 +1,173 @@
+TAP version 13
+# Subtest: T-062 a keyword typed without ä/ö counts, but only for half marks overall (as a gap slip does)
+not ok 1 - T-062 a keyword typed without ä/ö counts, but only for half marks overall (as a gap slip does)
+  ---
+  duration_ms: 2.154717
+  type: 'test'
+  location: '/tmp/red/tests/review-v4.test.mjs:17:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    
+    undefined !== []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/review-v4.test.mjs:21:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: T-063 long stems (6+ letters) match across a space a recogniser put inside a compound; short stems do not
+not ok 2 - T-063 long stems (6+ letters) match across a space a recogniser put inside a compound; short stems do not
+  ---
+  duration_ms: 0.22718
+  type: 'test'
+  location: '/tmp/red/tests/review-v4.test.mjs:33:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/review-v4.test.mjs:34:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: T-064 sentences: an ordinal before a lower-case word stays together, a number ending a sentence does not
+not ok 3 - T-064 sentences: an ordinal before a lower-case word stays together, a number ending a sentence does not
+  ---
+  duration_ms: 0.133743
+  type: 'test'
+  location: '/tmp/red/tests/review-v4.test.mjs:40:1'
+  failureType: 'testCodeFailure'
+  error: 'scoring.splitSentences is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    splitSentences (file:///tmp/red/tests/review-v4.test.mjs:14:39)
+    TestContext.<anonymous> (file:///tmp/red/tests/review-v4.test.mjs:41:20)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-065 index.html keeps the D-017 CSP and nothing inline; app code has no HTML sinks or style attributes
+ok 4 - T-065 index.html keeps the D-017 CSP and nothing inline; app code has no HTML sinks or style attributes
+  ---
+  duration_ms: 1.097998
+  type: 'test'
+  ...
+# Subtest: T-066 note checker: sibling hosts of one publisher are one group, and a malformed link cannot count as a source
+not ok 5 - T-066 note checker: sibling hosts of one publisher are one group, and a malformed link cannot count as a source
+  ---
+  duration_ms: 0.327103
+  type: 'test'
+  location: '/tmp/red/tests/review-v4.test.mjs:75:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'mtv.fi' !== 'mtv'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'mtv'
+  actual: 'mtv.fi'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/review-v4.test.mjs:76:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-067 the validator reports a malformed source link instead of throwing
+not ok 6 - T-067 the validator reports a malformed source link instead of throwing
+  ---
+  duration_ms: 1.205648
+  type: 'test'
+  location: '/tmp/red/tests/review-v4.test.mjs:87:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Got unwanted exception.
+    Actual message: "Invalid URL"
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  actual:
+  error: 'Invalid URL'
+  name: 'TypeError'
+  stack: |-
+    new URL (node:internal/url:818:25)
+    validateTheme (file:///tmp/red/tools/validate.mjs:62:20)
+    file:///tmp/red/tests/review-v4.test.mjs:91:41
+    getActual (node:assert:609:5)
+    Function.doesNotThrow (node:assert:777:32)
+    TestContext.<anonymous> (file:///tmp/red/tests/review-v4.test.mjs:91:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+  operator: 'doesNotThrow'
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/review-v4.test.mjs:91:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-081 a stem written '=word' matches that whole word only (numerals do not match inside other numerals)
+not ok 7 - T-081 a stem written '=word' matches that whole word only (numerals do not match inside other numerals)
+  ---
+  duration_ms: 1.246122
+  type: 'test'
+  location: '/tmp/red/tests/review-v4.test.mjs:95:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/review-v4.test.mjs:97:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 1
+# fail 6
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 116.397506

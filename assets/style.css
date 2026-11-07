@@ -186,7 +186,9 @@ input[type="text"]:focus, textarea:focus, select:focus { outline: 2px solid var(
 }
 .btn.primary { background: var(--blue); color: var(--on-blue); }
 .btn.small { padding: 0.3rem 0.6rem; font-size: 0.88rem; font-weight: 500; }
-.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+h1:focus { outline: none; }
+.term:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .btn.rec { border-color: var(--bad); color: var(--bad); }
 .btn.rec.on { background: var(--bad); color: var(--on-blue); }
 .row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.5rem 0; }
@@ -206,6 +208,7 @@ input[type="text"]:focus, textarea:focus, select:focus { outline: 2px solid var(
 .notice { border-left: 4px solid var(--yellow); background: var(--yellow-soft); padding: 0.6rem 0.8rem; border-radius: 8px; }
 .transcript { font-style: italic; }
 details summary { cursor: pointer; font-weight: 600; }
+[hidden] { display: none !important; }
 .selfscore { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 .selfscore label { border: 1px solid var(--line); border-radius: 8px; padding: 0.25rem 0.6rem; cursor: pointer; }
 .sources li { margin-bottom: 0.25rem; }

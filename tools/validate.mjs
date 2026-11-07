@@ -1,5 +1,4 @@
-// Planning spike (R6): shows the frozen validator tests T-010..T-024 are satisfiable.
-// S-004 may start from this file (copy to tools/validate.mjs and fix the import path).
+// Theme validator (D-003, D-017, D-018): rules V1–V17, run by CI and by the frozen validator tests.
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -58,8 +57,14 @@ export function validateTheme(theme, file = "theme") {
   const srcs = Array.isArray(theme.sources) ? theme.sources : [];
   const hosts = new Set();
   for (const s of srcs) {
-    if (!/^https:\/\//.test(s?.url || "")) fail("V2", file, `source url not https: ${s?.url}`);
-    else hosts.add(new URL(s.url).hostname.replace(/^www\./, ""));
+    if (!/^https:\/\/[^/\s]+/.test(s?.url || "")) fail("V2", file, `source url not https: ${s?.url}`);
+    else {
+      try {
+        hosts.add(new URL(s.url).hostname.replace(/^www\./, ""));
+      } catch {
+        fail("V2", file, `source url cannot be parsed: ${s.url}`);
+      }
+    }
   }
   if (hosts.size < 2) fail("V2", file, `needs sources from at least two distinct hosts (found ${hosts.size})`);
 

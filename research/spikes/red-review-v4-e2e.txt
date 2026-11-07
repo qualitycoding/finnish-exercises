@@ -1,0 +1,222 @@
+TAP version 13
+# Subtest: T-068 a double tap on Check, and on Try again, never triggers the other button
+not ok 1 - T-068 a double tap on Check, and on Try again, never triggers the other button
+  ---
+  duration_ms: 1396.223342
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:81:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    the score is still on screen: the second tap did not hit Try again
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/e2e-review-v4.test.mjs:87:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: T-069 damaged saved scores never stop the app from showing
+not ok 2 - T-069 damaged saved scores never stop the app from showing
+  ---
+  duration_ms: 5106.132647
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:105:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('html[data-ready=\'1\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    TestContext.<anonymous> (/tmp/red/tests/e2e-review-v4.test.mjs:121:16)
+  ...
+# Subtest: T-070 one missing theme file is skipped and reported; the other themes still work
+not ok 3 - T-070 one missing theme file is skipped and reported; the other themes still work
+  ---
+  duration_ms: 30075.099953
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:135:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('html[data-ready=\'1\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    TestContext.<anonymous> (/tmp/red/tests/e2e-review-v4.test.mjs:140:14)
+  ...
+# Subtest: T-071 recognition is released when the learner leaves, presses Check or retries, and late results are ignored
+not ok 4 - T-071 recognition is released when the learner leaves, presses Check or retries, and late results are ignored
+  ---
+  duration_ms: 308.86296
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:159:1'
+  failureType: 'testCodeFailure'
+  error: 'navigating away releases the recogniser'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/e2e-review-v4.test.mjs:167:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-072 audio failures are shown to the learner instead of failing silently
+not ok 5 - T-072 audio failures are shown to the learner instead of failing silently
+  ---
+  duration_ms: 30158.770595
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:185:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    locator.waitFor: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.speech-problem') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    TestContext.<anonymous> (/tmp/red/tests/e2e-review-v4.test.mjs:190:43)
+  ...
+# Subtest: T-073 prototype names and unknown kinds in the address give the 'does not exist' page
+not ok 6 - T-073 prototype names and unknown kinds in the address give the 'does not exist' page
+  ---
+  duration_ms: 30086.358877
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:219:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('html[data-ready=\'1\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    open (/tmp/red/tests/e2e-review-v4.test.mjs:75:14)
+    async TestContext.<anonymous> (/tmp/red/tests/e2e-review-v4.test.mjs:222:5)
+  ...
+# Subtest: T-074 speaking: three attempts, a fourth is ignored, Try again restores them; 'no speech' counts, a blocked microphone falls back
+not ok 7 - T-074 speaking: three attempts, a fourth is ignored, Try again restores them; 'no speech' counts, a blocked microphone falls back
+  ---
+  duration_ms: 30844.138623
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:231:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    locator.waitFor: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#app .q').first().locator('.transcript:has-text("attempt 1/3")') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    TestContext.<anonymous> (/tmp/red/tests/e2e-review-v4.test.mjs:256:64)
+  ...
+# Subtest: T-075 import keeps its limits: 1 MB, known exercises, ISO times, ranges, history length, empty files
+not ok 8 - T-075 import keeps its limits: 1 MB, known exercises, ISO times, ranges, history length, empty files
+  ---
+  duration_ms: 340.633947
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:271:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    best is never lower than last
+    
+    2 !== 9
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 9
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/e2e-review-v4.test.mjs:301:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-076 the 'Back up your scores' reminder appears only for scores older than a week without a recent export
+ok 9 - T-076 the 'Back up your scores' reminder appears only for scores older than a week without a recent export
+  ---
+  duration_ms: 455.985963
+  type: 'test'
+  ...
+# Subtest: T-077 voices that arrive late are picked up, and a missing speech engine is reported on the listening page
+not ok 10 - T-077 voices that arrive late are picked up, and a missing speech engine is reported on the listening page
+  ---
+  duration_ms: 4092.158584
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:338:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    page.waitForSelector: Timeout 1500ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#voice-status[data-voice=\'fi\']') to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    TestContext.<anonymous> (/tmp/red/tests/e2e-review-v4.test.mjs:351:16)
+  ...
+# Subtest: T-078 no page type logs a console error or a CSP violation
+ok 11 - T-078 no page type logs a console error or a CSP violation
+  ---
+  duration_ms: 469.217193
+  type: 'test'
+  ...
+# Subtest: T-079 About says how labels were checked, and screen readers get a route announcement without a live main
+not ok 12 - T-079 About says how labels were checked, and screen readers get a route announcement without a live main
+  ---
+  duration_ms: 150.778209
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:373:1'
+  failureType: 'testCodeFailure'
+  error: 'no claim that the dictionary was followed'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///tmp/red/tests/e2e-review-v4.test.mjs:377:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-080 a draft that cannot be stored says so
+not ok 13 - T-080 a draft that cannot be stored says so
+  ---
+  duration_ms: 30181.940252
+  type: 'test'
+  location: '/tmp/red/tests/e2e-review-v4.test.mjs:389:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    locator.waitFor: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#draft-error').filter({ hasText: 'not saved' }) to be visible[22m
+    
+  code: 'ERR_TEST_FAILURE'
+  name: 'TimeoutError'
+  stack: |-
+    TestContext.<anonymous> (/tmp/red/tests/e2e-review-v4.test.mjs:395:64)
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 2
+# fail 11
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 164563.366801
