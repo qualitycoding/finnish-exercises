@@ -304,7 +304,8 @@
      "type": "order",
      "en": "The researchers do not yet know the effect.",
      "accept": [
-      "Tutkijat eivät vielä tiedä tehoa."
+      "Tutkijat eivät vielä tiedä tehoa.",
+      "Tutkijat eivät tiedä vielä tehoa."
      ]
     },
     {
@@ -312,24 +313,34 @@
      "en": "The study was published in a scientific journal.",
      "keywords": [
       [
-       "tutkim"
+       "tutkim",
+       "artikkel"
       ],
       [
-       "julkais"
+       "julkais",
+       "ilmesty",
+       "ilmest"
       ],
       [
        "tiedelehd",
-       "lehde"
+       "lehde",
+       "lehte",
+       "lehti"
       ]
      ],
-     "model": "Tutkimus julkaistiin tiedelehdessä."
+     "model": "Tutkimus julkaistiin tiedelehdessä.",
+     "variants": [
+      "Tutkimus ilmestyi tieteellisessä lehdessä.",
+      "Artikkeli julkaistiin tiedelehdessä."
+     ]
     },
     {
      "type": "translate",
      "en": "The method combines a drug and vibration.",
      "keywords": [
       [
-       "menetelm"
+       "menetelm",
+       "hoito"
       ],
       [
        "yhdist"
@@ -339,27 +350,38 @@
       ],
       [
        "värähte",
-       "tärin"
+       "tärin",
+       "värin",
+       "vibra"
       ]
      ],
-     "model": "Menetelmä yhdistää lääkkeen ja värähtelyn."
+     "model": "Menetelmä yhdistää lääkkeen ja värähtelyn.",
+     "variants": [
+      "Menetelmä yhdistää lääkkeen ja värinän.",
+      "Hoito yhdistää lääkkeen ja vibraation."
+     ]
     },
     {
      "type": "translate",
      "en": "The researchers want to study the treatment on patients.",
      "keywords": [
       [
-       "tutkija"
+       "tutkij"
       ],
       [
        "halua",
-       "aiko"
+       "aiko",
+       "toivo"
       ],
       [
        "potila"
       ]
      ],
-     "model": "Tutkijat haluavat tutkia hoitoa potilailla."
+     "model": "Tutkijat haluavat tutkia hoitoa potilailla.",
+     "variants": [
+      "Tutkijat haluavat testata hoitoa potilailla.",
+      "Tutkijat toivovat voivansa tutkia hoitoa potilailla."
+     ]
     }
    ],
    "free": {
@@ -425,10 +447,16 @@
       ],
       [
        "värähte",
-       "tärin"
+       "tärin",
+       "värin",
+       "vibra"
       ]
      ],
-     "model": "Siinä yhdistetään lääke ja värähtely."
+     "model": "Siinä yhdistetään lääke ja värähtely.",
+     "variants": [
+      "Lääkettä ja värinää.",
+      "Lääkkeen ja vibraation."
+     ]
     },
     {
      "type": "respond",
@@ -440,12 +468,19 @@
       ],
       [
        "aikui",
-       "vapaaehto"
+       "vapaaehto",
+       "koehenkil",
+       "tutkittav",
+       "henkil",
+       "ihmis"
       ]
      ],
      "model": "Tutkimukseen osallistui terveitä aikuisia.",
      "variants": [
-      "Terveitä aikuisia."
+      "Terveitä aikuisia.",
+      "Terveitä ihmisiä.",
+      "Terveitä henkilöitä.",
+      "Terveitä vapaaehtoisia."
      ]
     },
     {
@@ -455,7 +490,9 @@
      "keywords": [
       [
        "selvit",
-       "tutki"
+       "tutki",
+       "testa",
+       "kokeil"
       ],
       [
        "hoit"
@@ -465,7 +502,11 @@
        "auttaa"
       ]
      ],
-     "model": "He haluavat selvittää, auttaako hoito potilaita."
+     "model": "He haluavat selvittää, auttaako hoito potilaita.",
+     "variants": [
+      "He haluavat testata hoitoa potilailla.",
+      "He haluavat tutkia hoitoa potilailla."
+     ]
     }
    ]
   }

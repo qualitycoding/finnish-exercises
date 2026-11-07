@@ -8,12 +8,12 @@ Researched 2026-11-07. Publisher groups (D-017): Yle; Government (Ilmatieteen la
 
 | Fact | Source 1 | Source 2 | Items |
 |---|---|---|---|
-| The polar vortex has weakened (Yle: broken up) unusually early this autumn | https://yle.fi/a/74-20255601 | https://www.ilmatieteenlaitos.fi/tiedote/79fGR4xZDaqeapwXxSZZJ7 | luku 1, kuuntelu 1, kuuntelu 9, kirjoitus gap 1, translate 1, puhe 1 |
+| The polar vortex has weakened (Yle: broken up) unusually early this autumn | https://yle.fi/a/74-20255601 | https://www.ilmatieteenlaitos.fi/tiedote/79fGR4xZDaqeapwXxSZZJ7 | luku 1, kuuntelu 1, kuuntelu 4, kuuntelu 9, kirjoitus gap 1, translate 1, puhe 1 |
 | The polar vortex is a large area of cold air in the stratosphere above the polar regions | https://yle.fi/a/74-20255601 | https://www.ilmatieteenlaitos.fi/tiedote/79fGR4xZDaqeapwXxSZZJ7 | luku 2, kuuntelu 2, puhe 7 |
-| The effects on weather appear only after weeks | https://yle.fi/a/74-20255601 | https://www.ilmatieteenlaitos.fi/tiedote/79fGR4xZDaqeapwXxSZZJ7 | luku 3, kuuntelu 3, kuuntelu 10, kirjoitus gap 2, order 3, translate 2, puhe 2, puhe 8 |
-| A weak vortex can let cold air reach further south, but a hard cold spell in Finland is not certain | https://yle.fi/a/74-20255601 | https://www.ilmatieteenlaitos.fi/tiedote/79fGR4xZDaqeapwXxSZZJ7 | luku 4, luku 5, kuuntelu 4, kuuntelu 5, kirjoitus gap 4, puhe 4, puhe 9 |
+| The effects on weather appear only after weeks | https://yle.fi/a/74-20255601 | https://www.ilmatieteenlaitos.fi/tiedote/79fGR4xZDaqeapwXxSZZJ7 | luku 3, luku 4, kuuntelu 3, kuuntelu 10, kirjoitus gap 2, order 3, translate 2, puhe 2, puhe 8 |
+| When a polar vortex weakens, cold polar air can move south towards lower latitudes (a mechanism; Yle: kylmää ilmaa pääsee virtaamaan kohti eteläisempiä leveysasteita) | https://yle.fi/a/74-20255601 | https://www.nesdis.noaa.gov/about/k-12-education/severe-weather/what-the-polar-vortex | luku 5, kuuntelu 5, kirjoitus gap 4, puhe 4, puhe 9 |
 
-Context only, attributed to the source in the text, never asked in an item: October was exceptionally warm across most of Finland (Ilmatieteen laitos, https://www.ilmatieteenlaitos.fi/tiedote/4x8Bzsupb4BsDqlALXcJUw); the westerly winds around the vortex have weakened quickly, winter is only beginning and long forecasts are uncertain (Ilmatieteen laitos, 3 November release); the vortex breaking up is usually a mid-winter event, a Yle meteorologist's warning that the road surface can be frosty or icy although the forecast shows plus degrees, and several traffic accidents on Friday 6 November (Yle, https://yle.fi/a/74-20255611).
+Context only, attributed to the source in the text, never asked in an item: that the vortex weakening does not mean a sure or hard cold spell in Finland (Ilmatieteen laitos, 3 November release; Yle does not say it, so it has one source and the text says "Ilmatieteen laitoksen mukaan"; S-ADVERSARIAL C-10); October was exceptionally warm across most of Finland (Ilmatieteen laitos, https://www.ilmatieteenlaitos.fi/tiedote/4x8Bzsupb4BsDqlALXcJUw); the westerly winds around the vortex have weakened quickly, winter is only beginning and long forecasts are uncertain (Ilmatieteen laitos, 3 November release); the vortex breaking up is usually a mid-winter event, a Yle meteorologist's warning that the road surface can be frosty or icy although the forecast shows plus degrees, and several traffic accidents on Friday 6 November (Yle, https://yle.fi/a/74-20255611).
 
 ## Real people
 
@@ -28,3 +28,7 @@ Each order task is a plain subject, verb, complement/adverbial sentence; the rev
 - duuni (slangi): https://en.wikipedia.org/wiki/Helsinki_slang (listed as 'work' among the slang examples), https://preply.com/en/blog/finnish-slang (work/job, slang) and https://sublearn.com/learn/fi/phrases/duuni (tagged Slang).
 - mutsi (slangi, 'mother'): https://en.wikipedia.org/wiki/Helsinki_slang and https://preply.com/en/blog/finnish-slang.
 - Spoken-form labels (puhekieli: mä, sä, oon, oot, oo, onks, toi, tosi) follow K-20261107T001500Z-puhekieli-features.
+
+## Changes after review
+
+S-ADVERSARIAL C-10: the claim "no sure hard cold spell" left luku 4 and kuuntelu 4 (now about the weeks-long delay and the unusually early weakening); the cold-air mechanism gained a second publisher group (NOAA NESDIS, a US federal agency). Keyword stems for the translations and the spoken answers now cover gradation and the sources' own wording (C-01).

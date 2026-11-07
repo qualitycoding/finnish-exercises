@@ -30,3 +30,7 @@ Each order task is a plain subject, verb, object sentence; Finnish neutral order
 
 - mutsi (slangi): https://en.wikipedia.org/wiki/Helsinki_slang (mum among the slang examples) and https://preply.com/en/blog/finnish-slang (mum, slang).
 - Spoken-form labels (puhekieli: mun, onks, toi, tosi, oon) follow K-20261107T001500Z-puhekieli-features.
+
+## Changes after review
+
+S-ADVERSARIAL C-05/C-01: puhe 10 now needs the day (26. marraskuuta or "marraskuun lopussa"), because "marraskuun alussa" is when the nominees were announced; numerals in keyword groups match whole words only.

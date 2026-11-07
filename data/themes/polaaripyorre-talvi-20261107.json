@@ -21,6 +21,10 @@
   {
    "title": "Yle: Keli on nyt petollinen, monin paikoin odotettavissa kuuraliukkautta (6.11.2026)",
    "url": "https://yle.fi/a/74-20255611"
+  },
+  {
+   "title": "NOAA NESDIS: What is the polar vortex? (25.8.2025)",
+   "url": "https://www.nesdis.noaa.gov/about/k-12-education/severe-weather/what-the-polar-vortex"
   }
  ],
  "exercises": {
@@ -29,7 +33,7 @@
    "intro": "Lue sääuutinen ja sen jälkeen keksitty keskustelu. Vastaa sitten kysymyksiin.",
    "text": [
     "Napa-alueen yllä oleva [[polaaripyörre|stratosfäärissä oleva laaja kylmän ilman alue napa-alueen päällä · polar vortex]] on heikentynyt poikkeuksellisen aikaisin. Ilmatieteen laitoksen mukaan pyörre on tähän aikaan vuodesta tavallista heikompi. Ylen mukaan pyörre on jopa hajonnut, vaikka hajoaminen on yleensä keskitalven ilmiö. Ilmatieteen laitoksen mukaan pyörrettä kiertävät länsituulet ovat heikentyneet nopeasti.",
-    "Pyörteen [[vaikutus|muutos, jonka jokin aiheuttaa · effect]] säähän ei näy heti. Sekä Ilmatieteen laitos että Yle kertovat, että vaikutukset näkyvät vasta viikkojen kuluttua. Jos pyörre pysyy heikkona pitkään, kylmää ilmaa voi päästä napa-alueelta etelään. Se ei kuitenkaan tarkoita, että Suomeen tulee varmasti kova [[pakkanen|lämpötila, joka on alle nollan · frost]].",
+    "Pyörteen [[vaikutus|muutos, jonka jokin aiheuttaa · effect]] säähän ei näy heti. Sekä Ilmatieteen laitos että Yle kertovat, että vaikutukset näkyvät vasta viikkojen kuluttua. Jos pyörre pysyy heikkona pitkään, kylmää ilmaa voi päästä napa-alueelta etelään. Ilmatieteen laitoksen mukaan se ei kuitenkaan tarkoita, että Suomeen tulee varmasti kova [[pakkanen|lämpötila, joka on alle nollan · frost]].",
     "Ilmatieteen laitos kertoo myös, että lokakuu oli poikkeuksellisen lämmin lähes koko maassa. Marraskuun alussa lämpötila putosi kuitenkin pakkasen puolelle. Ylen meteorologin mukaan tienpinta voi olla [[kuurassa|peittynyt ohueen jääkerrokseen · covered in hoarfrost]] tai jäässä, vaikka sääennuste näyttäisi plussaa. Perjantaina tieliikenteessä sattui Ylen mukaan useita onnettomuuksia. Siksi autoilijoiden pitää varoa [[kuuraliukkautta|liukasta tienpintaa, kun kosteus on jäätynyt tien pintaan · slippery frost on the road]].",
     "Ilmatieteen laitos muistuttaa, että talvi on vasta alkamassa. Siksi kannattaa seurata uusia ennusteita. Pitkät [[sääennusteet|arviot tulevasta säästä · weather forecasts]] ovat sen mukaan epävarmoja."
    ],
@@ -72,9 +76,9 @@
     },
     {
      "type": "tf",
-     "q": "Teksti sanoo, että Suomeen tulee varmasti kova pakkasjakso.",
+     "q": "Teksti sanoo, että pyörteen vaikutus näkyy säässä heti.",
      "answer": false,
-     "explain": "Teksti sanoo, että se ei ole varmaa."
+     "explain": "Teksti sanoo, että vaikutukset näkyvät vasta viikkojen kuluttua."
     },
     {
      "type": "mc",
@@ -145,7 +149,7 @@
    ],
    "script": [
     "Napa-alueen yllä oleva polaaripyörre on heikentynyt poikkeuksellisen aikaisin. Pyörre on laaja kylmän ilman alue stratosfäärissä. Ilmatieteen laitos kertoo, että se on tähän aikaan vuodesta tavallista heikompi. Pyörrettä kiertävät länsituulet ovat heikentyneet nopeasti.",
-    "Pyörteen vaikutukset säähän näkyvät vasta viikkojen kuluttua. Jos pyörre pysyy heikkona pitkään, kylmää ilmaa voi päästä etelään. Se ei silti tarkoita varmaa pakkasjaksoa Suomessa. Ilmatieteen laitos muistuttaa, että talvi on vasta alkamassa. Siksi kannattaa seurata uusia sääennusteita."
+    "Pyörteen vaikutukset säähän näkyvät vasta viikkojen kuluttua. Jos pyörre pysyy heikkona pitkään, kylmää ilmaa voi päästä etelään. Ilmatieteen laitoksen mukaan se ei silti tarkoita varmaa pakkasjaksoa Suomessa. Laitos muistuttaa myös, että talvi on vasta alkamassa. Siksi kannattaa seurata uusia sääennusteita."
    ],
    "dialogue": [
     "(keksitty esimerkki) – Kuulitsä uutisen? Talvi voi tulla aikaisin.",
@@ -186,9 +190,9 @@
     },
     {
      "type": "tf",
-     "q": "Pyörre aiheuttaa varmasti kovan pakkasjakson Suomeen.",
+     "q": "Pyörre on heikentynyt tavallista myöhemmin.",
      "answer": false,
-     "explain": "Uutinen sanoo, että se ei ole varmaa."
+     "explain": "Uutinen sanoo, että pyörre on heikentynyt poikkeuksellisen aikaisin."
     },
     {
      "type": "mc",
@@ -312,7 +316,8 @@
      "type": "order",
      "en": "The weather changes after weeks.",
      "accept": [
-      "Sää muuttuu viikkojen kuluttua."
+      "Sää muuttuu viikkojen kuluttua.",
+      "Viikkojen kuluttua sää muuttuu."
      ]
     },
     {
@@ -321,16 +326,24 @@
      "keywords": [
       [
        "polaari",
-       "pyörre"
+       "pyörre",
+       "pyörte"
       ],
       [
-       "heikent"
+       "heikent",
+       "heikk",
+       "hajo"
       ],
       [
-       "aikai"
+       "aikai",
+       "varhai"
       ]
      ],
-     "model": "Polaaripyörre on heikentynyt aikaisin."
+     "model": "Polaaripyörre on heikentynyt aikaisin.",
+     "variants": [
+      "Polaaripyörre heikkeni aikaisin.",
+      "Polaaripyörre on heikentynyt varhain."
+     ]
     },
     {
      "type": "translate",
@@ -341,13 +354,18 @@
       ],
       [
        "näky",
-       "näkyv"
+       "nähd",
+       "havait"
       ],
       [
        "viik"
       ]
      ],
-     "model": "Vaikutukset näkyvät muutaman viikon kuluttua."
+     "model": "Vaikutukset näkyvät muutaman viikon kuluttua.",
+     "variants": [
+      "Vaikutukset nähdään muutaman viikon kuluttua.",
+      "Vaikutukset näkyvät viikkojen päästä."
+     ]
     },
     {
      "type": "translate",
@@ -357,13 +375,21 @@
        "talv"
       ],
       [
-       "vasta"
+       "vasta",
+       "juuri"
       ],
       [
-       "alka"
+       "alka",
+       "alku",
+       "alussa"
       ]
      ],
-     "model": "Talvi on vasta alkamassa."
+     "model": "Talvi on vasta alkamassa.",
+     "variants": [
+      "Talvi on vasta alussa.",
+      "Talvi on juuri alkamassa.",
+      "Talvi alkaa vasta."
+     ]
     }
    ],
    "free": {
@@ -411,13 +437,18 @@
      "hint": "stratosfääri",
      "keywords": [
       [
-       "stratosf"
-      ],
-      [
-       "napa"
+       "stratosf",
+       "napa",
+       "nava",
+       "pohjoisnav"
       ]
      ],
-     "model": "Polaaripyörre on stratosfäärissä napa-alueen yllä."
+     "model": "Polaaripyörre on stratosfäärissä napa-alueen yllä.",
+     "variants": [
+      "Stratosfäärissä.",
+      "Napa-alueen yllä.",
+      "Polaaripyörre on stratosfäärissä pohjoisnavan yllä."
+     ]
     },
     {
      "type": "respond",
@@ -426,15 +457,12 @@
      "keywords": [
       [
        "viik"
-      ],
-      [
-       "kulutt",
-       "vasta"
       ]
      ],
      "model": "Vaikutus näkyy vasta viikkojen kuluttua.",
      "variants": [
-      "Viikkojen kuluttua."
+      "Viikkojen päästä.",
+      "Vasta viikkojen kuluttua."
      ]
     },
     {
@@ -446,24 +474,32 @@
        "kylm"
       ],
       [
-       "etelä"
+       "etel"
       ]
      ],
-     "model": "Kylmää ilmaa voi päästä etelään."
+     "model": "Kylmää ilmaa voi päästä etelään.",
+     "variants": [
+      "Kylmää ilmaa voi virrata etelään.",
+      "Kylmä ilma voi levitä etelämmäs."
+     ]
     },
     {
      "type": "respond",
      "q": "Mitä tienpinnalle voi tulla pakkasyönä? Vastaa kokonaisella lauseella.",
-     "hint": "kuura, jää",
+     "hint": "kuura, jää, liukkaus",
      "keywords": [
       [
        "kuura",
-       "jää"
+       "jää",
+       "liukk",
+       "liukas"
       ]
      ],
      "model": "Tienpinnalle voi tulla kuuraa.",
      "variants": [
-      "Kuuraa tai jäätä."
+      "Tienpinnalle voi tulla liukkautta.",
+      "Tienpinnalle voi tulla jäätä.",
+      "Tienpinta voi olla liukas."
      ]
     }
    ]

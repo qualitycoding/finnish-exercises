@@ -138,7 +138,7 @@
     "[[kävelijä|ihminen, joka kulkee jalan · pedestrian]]"
    ],
    "script": [
-    "Helsingissä alkoi lauantaina 7. marraskuuta raitiovaunuliikenne Kruunusilloilla. Uusi reitti yhdistää Laajasalon ja Kruunuvuorenrannan keskustaan ja Pasilaan. Reitillä kulkevat linjat 11 ja 12. Ylen mukaan ensimmäinen ratikka täyttyi matkustajista heti aamulla.",
+    "Helsingissä alkoi lauantaina 7. marraskuuta raitiovaunuliikenne Kruunusilloilla. Uusi reitti yhdistää Laajasalon ja Kruunuvuorenrannan keskustaan ja Pasilaan. Reitillä kulkevat linjat yksitoista ja kaksitoista. Ylen mukaan ensimmäinen ratikka täyttyi matkustajista heti aamulla.",
     "Reitin tärkein osa on Kruunuvuorensilta. Se on Suomen pisin silta, ja sen pituus on noin 1,2 kilometriä. Silta avattiin kävelijöille ja pyöräilijöille jo huhtikuussa. Autoilu on kielletty, mutta pelastusajoneuvot saavat käyttää siltaa. HSL kertoo, että hanke valmistui aikataulua nopeammin. Nyt kaupunkilaiset voivat itse kokeilla uutta yhteyttä."
    ],
    "dialogue": [
@@ -306,7 +306,8 @@
      "type": "order",
      "en": "Pedestrians use the bridge in April.",
      "accept": [
-      "Kävelijät käyttävät siltaa huhtikuussa."
+      "Kävelijät käyttävät siltaa huhtikuussa.",
+      "Huhtikuussa kävelijät käyttävät siltaa."
      ]
     },
     {
@@ -319,13 +320,22 @@
       ],
       [
        "avat",
-       "avas"
+       "avau",
+       "avas",
+       "avaa",
+       "käyttöön",
+       "alkoi",
+       "aloit"
       ],
       [
        "lauantai"
       ]
      ],
-     "model": "Uusi raitiotie avattiin lauantaina."
+     "model": "Uusi raitiotie avattiin lauantaina.",
+     "variants": [
+      "Uusi ratikkalinja avautui lauantaina.",
+      "Uusi linja otettiin käyttöön lauantaina."
+     ]
     },
     {
      "type": "translate",
@@ -339,29 +349,41 @@
        "suome"
       ],
       [
-       "pisin"
+       "pisin",
+       "pisim"
       ]
      ],
-     "model": "Silta on Suomen pisin silta."
+     "model": "Silta on Suomen pisin silta.",
+     "variants": [
+      "Silta on Suomen pisin.",
+      "Se on Suomen pisin silta."
+     ]
     },
     {
      "type": "translate",
      "en": "Pedestrians and cyclists can use the bridge.",
      "keywords": [
       [
-       "kävelij",
+       "kävel",
        "jalankulk"
       ],
       [
-       "pyöräilij",
+       "pyöräil",
        "pyörä"
       ],
       [
        "käyttä",
-       "kulkea"
+       "kulk",
+       "ylit",
+       "voi",
+       "saa"
       ]
      ],
-     "model": "Kävelijät ja pyöräilijät voivat käyttää siltaa."
+     "model": "Kävelijät ja pyöräilijät voivat käyttää siltaa.",
+     "variants": [
+      "Sillalla voi kävellä ja pyöräillä.",
+      "Jalankulkijat ja pyöräilijät saavat käyttää siltaa."
+     ]
     }
    ],
    "free": {
@@ -427,10 +449,14 @@
        "jalankulk"
       ],
       [
-       "pyöräilij"
+       "pyöräilij",
+       "pyörä"
       ]
      ],
-     "model": "Kävelijät ja pyöräilijät saivat käyttää siltaa."
+     "model": "Kävelijät ja pyöräilijät saivat käyttää siltaa.",
+     "variants": [
+      "Jalankulkijat ja pyöräilijät saivat käyttää siltaa."
+     ]
     },
     {
      "type": "respond",
@@ -438,13 +464,14 @@
      "hint": "sillan nimi",
      "keywords": [
       [
-       "kruunuvuorensil",
+       "kruunuvuor",
        "kruunusil"
       ]
      ],
      "model": "Kruunuvuorensilta on Suomen pisin silta.",
      "variants": [
-      "Kruunuvuorensilta."
+      "Kruunuvuorensilta.",
+      "Kruunuvuoren silta."
      ]
     },
     {

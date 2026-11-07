@@ -1,10 +1,10 @@
 {
  "id": "ennallistamissuunnitelma-20261107",
- "title": "Ennallistamissuunnitelma lähti EU:lle",
+ "title": "Ennallistamissuunnitelma EU:lle",
  "short": "Ympäristö",
  "dateLabel": "7. marraskuuta 2026",
  "level": "B1–B2",
- "summary": "Hallitus päätti kansallisen ennallistamissuunnitelman luonnoksesta ja lähetti sen EU-komissiolle. Teksti kertoo, mistä suunnitelmassa kiistellään.",
+ "summary": "Hallitus päätti lähettää kansallisen ennallistamissuunnitelman luonnoksen EU-komissiolle. Teksti kertoo, mistä suunnitelmassa kiistellään.",
  "sources": [
   {
    "title": "Yle: Hallitus päätti kiistellystä ennallistamisesta: ei pakkoa suojelualueiden ulkopuolelle, metsistä ei vieläkään päätöstä (5.11.2026)",
@@ -21,12 +21,12 @@
  ],
  "exercises": {
   "luku": {
-   "title": "Ennallistamissuunnitelma lähti EU:lle",
+   "title": "Ennallistamissuunnitelma EU:lle",
    "intro": "Lue uutinen ja sen jälkeen keksitty keskustelu. Vastaa sitten kysymyksiin.",
    "text": [
-    "Suomen hallitus päätti torstaina 5. marraskuuta kansallisen [[ennallistamissuunnitelman|suunnitelman, jolla luontoa palautetaan lähemmäs luonnontilaa · restoration plan]] luonnoksesta. Hallitus lähetti luonnoksen Euroopan komissiolle. Suunnitelma kertoo, miten Suomi toteuttaa EU:n [[ennallistamisasetuksen|EU:n lain, jonka tavoite on pysäyttää luontokato · restoration regulation]]. Toimet koskevat esimerkiksi soita, metsiä ja vesistöjä.",
+    "Suomen hallitus päätti torstaina 5. marraskuuta kansallisen [[ennallistamissuunnitelman|suunnitelman, jolla luontoa palautetaan lähemmäs luonnontilaa · restoration plan]] luonnoksesta. Samalla se päätti lähettää luonnoksen Euroopan komissiolle. Suunnitelma kertoo, miten Suomi toteuttaa EU:n [[ennallistamisasetuksen|EU:n lain, jonka tavoite on pysäyttää luontokato · restoration regulation]]. Toimet koskevat esimerkiksi soita, metsiä ja vesistöjä.",
     "Suunnitelman kiistellyin kohta on [[heikentämättömyysvelvoite|velvoite, jonka mukaan hyvässä tilassa olevan luonnon tila ei saa merkittävästi heikentyä · non-deterioration obligation]]. Ylen mukaan hallitus rajasi sitovan velvoitteen vain Natura 2000 -alueisiin. Muualla toimet perustuvat vapaaehtoisuuteen. Karjalaisen julkaiseman STT:n uutisen mukaan Sahateollisuus ry pitää vapaaehtoisuutta hyvänä ratkaisuna yksityisillä mailla.",
-    "Luonnonsuojeluliitto sanoo, että rajaus on selvästi ennallistamisasetuksen vastainen. Liiton mielestä myös suojelualueiden ulkopuolisten metsien tilaa pitää parantaa. WWF Suomi haluaa, että komissiolle lähetetty luonnos tulee julkiseksi. Silloin ihmiset voivat arvioida, onko suunnitelma tehokas.",
+    "Luonnonsuojeluliitto sanoo, että rajaus on selvästi ennallistamisasetuksen vastainen. Liiton mielestä myös suojelualueiden ulkopuolisten metsien tilaa pitää parantaa. WWF Suomi haluaa, että komissiolle lähetettävä luonnos tulee julkiseksi. Silloin ihmiset voivat arvioida, onko suunnitelma tehokas.",
     "Metsät ovat olleet asetuksen vaikein kysymys. Päätös siitä, kuinka paljon boreaalisia luonnonmetsiä ennallistetaan, siirtyi vielä eteenpäin. Ylen mukaan hallituksen listalla on 57 toimenpidettä, eikä niille varata lisärahaa. Ylen mukaan komissio arvioi luonnoksen ensin, ja lopullinen suunnitelma valmistuu vasta seuraavan hallituksen aikana."
    ],
    "dialogue": [
@@ -45,12 +45,12 @@
      "type": "mc",
      "q": "Mitä hallitus teki torstaina?",
      "options": [
-      "Se päätti ennallistamissuunnitelman luonnoksesta ja lähetti sen komissiolle.",
+      "Se päätti lähettää ennallistamissuunnitelman luonnoksen komissiolle.",
       "Se hyväksyi uuden metsälain.",
       "Se perusti uuden kansallispuiston."
      ],
      "answer": 0,
-     "explain": "Hallitus päätti luonnoksesta ja lähetti sen Euroopan komissiolle."
+     "explain": "Hallitus päätti lähettää luonnoksen Euroopan komissiolle."
     },
     {
      "type": "mc",
@@ -106,7 +106,7 @@
       "Se haluaa lisää hakkuita."
      ],
      "answer": 0,
-     "explain": "WWF haluaa, että komissiolle lähetetty luonnos tulee julkiseksi."
+     "explain": "WWF haluaa, että komissiolle lähetettävä luonnos tulee julkiseksi."
     },
     {
      "type": "tf",
@@ -143,7 +143,7 @@
     "[[luonnos|ensimmäinen versio tekstistä · draft]]"
    ],
    "script": [
-    "Suomen hallitus päätti torstaina kansallisen ennallistamissuunnitelman luonnoksesta. Luonnos lähetettiin Euroopan komissiolle. Suunnitelma kertoo, miten Suomi toteuttaa EU:n ennallistamisasetusta. Ylen mukaan asetuksen tavoite on pysäyttää luontokato.",
+    "Suomen hallitus päätti torstaina kansallisen ennallistamissuunnitelman luonnoksesta. Luonnos lähetetään Euroopan komissiolle. Suunnitelma kertoo, miten Suomi toteuttaa EU:n ennallistamisasetusta. Ylen mukaan asetuksen tavoite on pysäyttää luontokato.",
     "Ylen mukaan sitova velvoite heikentämättömyydestä koskee vain Natura 2000 -alueita. Muualla toimet perustuvat vapaaehtoisuuteen. Luonnonsuojeluliitto sanoo, että rajaus on asetuksen vastainen. WWF Suomi haluaa, että luonnos julkaistaan, jotta ihmiset voivat arvioida suunnitelmaa. Päätös boreaalisista luonnonmetsistä siirtyi eteenpäin."
    ],
    "dialogue": [
@@ -165,14 +165,14 @@
     },
     {
      "type": "mc",
-     "q": "Kenelle luonnos lähetettiin?",
+     "q": "Kenelle luonnos lähetetään?",
      "options": [
       "Euroopan komissiolle",
       "kunnille",
       "koulujen rehtoreille"
      ],
      "answer": 0,
-     "explain": "Luonnos lähetettiin Euroopan komissiolle."
+     "explain": "Luonnos lähetetään Euroopan komissiolle."
     },
     {
      "type": "mc",
@@ -232,7 +232,7 @@
     },
     {
      "type": "dictation",
-     "text": "Hallitus lähetti luonnoksen komissiolle."
+     "text": "Hallitus päätti lähettää luonnoksen komissiolle."
     },
     {
      "type": "dictation",
@@ -259,13 +259,13 @@
     {
      "type": "gap",
      "q": "Luonnos ___ (lähettää) komissiolle.",
-     "hint": "passiivin imperfekti",
+     "hint": "passiivin preesens",
      "accept": [
-      "lähetettiin"
+      "lähetetään"
      ],
-     "explain": "lähettää – lähetettiin",
+     "explain": "lähettää – lähetetään",
      "near": [
-      "lähetetään",
+      "lähetettiin",
       "lähetti"
      ]
     },
@@ -297,9 +297,9 @@
     },
     {
      "type": "order",
-     "en": "The government sent the draft.",
+     "en": "The government sends the draft.",
      "accept": [
-      "Hallitus lähetti luonnoksen."
+      "Hallitus lähettää luonnoksen."
      ]
     },
     {
@@ -324,15 +324,20 @@
        "hallitus"
       ],
       [
-       "päätti",
-       "päätä"
+       "päätt",
+       "päätö"
       ],
       [
-       "suunnitelma",
-       "suunnitelm"
+       "suunnitelm",
+       "luonnos"
       ]
      ],
-     "model": "Hallitus päätti suunnitelmasta."
+     "model": "Hallitus päätti suunnitelmasta.",
+     "variants": [
+      "Hallitus on päättänyt suunnitelmasta.",
+      "Hallitus teki päätöksen suunnitelmasta.",
+      "Hallitus päättää suunnitelmasta."
+     ]
     },
     {
      "type": "translate",
@@ -351,20 +356,27 @@
     },
     {
      "type": "translate",
-     "en": "The draft was sent to the Commission.",
+     "en": "The draft is being sent to the Commission.",
      "keywords": [
       [
        "luonnos"
       ],
       [
-       "lähetettiin",
-       "lähetetty"
+       "lähet",
+       "lähti",
+       "lähte",
+       "lähdö",
+       "toimit"
       ],
       [
        "komissio"
       ]
      ],
-     "model": "Luonnos lähetettiin komissiolle."
+     "model": "Luonnos lähetetään komissiolle.",
+     "variants": [
+      "Luonnos lähti komissiolle.",
+      "Luonnos on lähdössä komissiolle."
+     ]
     }
    ],
    "free": {
@@ -384,7 +396,7 @@
    "tasks": [
     {
      "type": "read",
-     "text": "Hallitus lähetti luonnoksen komissiolle."
+     "text": "Hallitus päätti lähettää luonnoksen komissiolle."
     },
     {
      "type": "read",
@@ -408,16 +420,17 @@
     },
     {
      "type": "respond",
-     "q": "Kenelle hallitus lähetti luonnoksen?",
+     "q": "Kenelle hallitus päätti lähettää luonnoksen?",
      "hint": "komissio",
      "keywords": [
       [
        "komissio"
       ]
      ],
-     "model": "Hallitus lähetti luonnoksen komissiolle.",
+     "model": "Hallitus päätti lähettää luonnoksen komissiolle.",
      "variants": [
-      "Komissiolle."
+      "Komissiolle.",
+      "Euroopan komissiolle."
      ]
     },
     {
@@ -451,7 +464,7 @@
     {
      "type": "respond",
      "q": "Minkä EU:n asetuksen toteuttamisesta suunnitelma kertoo? Vastaa kokonaisella lauseella.",
-     "hint": "asetus",
+     "hint": "ennallistamisasetus",
      "keywords": [
       [
        "ennallistamisasetu",

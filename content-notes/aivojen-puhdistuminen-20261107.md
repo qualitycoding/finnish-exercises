@@ -30,3 +30,7 @@ Each order task is a plain subject, verb, object sentence; the reversed word seq
 
 - duuni (slangi): https://en.wikipedia.org/wiki/Helsinki_slang (listed as 'work' among the slang examples), https://preply.com/en/blog/finnish-slang (work/job, slang) and https://sublearn.com/learn/fi/phrases/duuni (tagged Slang).
 - Spoken-form labels (puhekieli: oot, toi, onks, tosi, kuulitsä) follow K-20261107T001500Z-puhekieli-features.
+
+## Changes after review
+
+S-ADVERSARIAL C-11: "noin kolmekymmentä" in the texts is consistent with Yle's "noin 30 tervettä henkilöä" and the university's 29 participants, so it stays. Keyword groups for puhe 9 and the translations now accept the sources' own wording (henkilöitä, vibraatio, värinä, koehenkilöitä).

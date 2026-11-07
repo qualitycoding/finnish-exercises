@@ -30,3 +30,7 @@ Each order task is a plain subject, verb, object/adverbial sentence; the reverse
 
 - fillari (slangi): https://en.wikipedia.org/wiki/Helsinki_slang (Helsinki slang for bicycle) and https://preply.com/en/blog/finnish-slang (listed as slang).
 - Spoken-form labels (puhekieli: mä, oon, toi, tosi, onks, sit, me mennään) follow K-20261107T001500Z-puhekieli-features.
+
+## Changes after review
+
+S-REVIEW CR-03: the listening script reads the line numbers out ("yksitoista ja kaksitoista") so that no sentence ends in a digit with a full stop. Keyword groups accept "kävellä ja pyöräillä", "avautui" and "Kruunuvuoren silta" (C-01, C-02).

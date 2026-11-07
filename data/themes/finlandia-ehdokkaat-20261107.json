@@ -319,7 +319,8 @@
      "type": "order",
      "en": "The nominees were announced in November.",
      "accept": [
-      "Ehdokkaat kerrottiin marraskuun alussa."
+      "Ehdokkaat kerrottiin marraskuun alussa.",
+      "Marraskuun alussa kerrottiin ehdokkaat."
      ]
     },
     {
@@ -331,13 +332,19 @@
       ],
       [
        "julkist",
-       "kerto"
+       "kerto",
+       "ilmoit",
+       "paljast"
       ],
       [
        "ehdok"
       ]
      ],
-     "model": "Säätiö julkistaa ehdokkaat."
+     "model": "Säätiö julkistaa ehdokkaat.",
+     "variants": [
+      "Säätiö ilmoittaa ehdokkaat.",
+      "Säätiö kertoo ehdokkaat."
+     ]
     },
     {
      "type": "translate",
@@ -345,18 +352,24 @@
      "keywords": [
       [
        "sarja",
-       "luokka",
+       "luok",
        "kategori"
       ],
       [
-       "kuusi",
+       "=kuusi",
+       "=kuuden",
+       "=kuutta",
        "6"
       ],
       [
        "ehdok"
       ]
      ],
-     "model": "Jokaisessa sarjassa on kuusi ehdokasta."
+     "model": "Jokaisessa sarjassa on kuusi ehdokasta.",
+     "variants": [
+      "Jokaisessa luokassa on kuusi ehdokasta.",
+      "Joka sarjassa on 6 ehdokasta."
+     ]
     },
     {
      "type": "translate",
@@ -367,13 +380,21 @@
       ],
       [
        "julkist",
-       "kerrot"
+       "kerrot",
+       "kerto",
+       "ilmoit",
+       "paljast",
+       "selvi"
       ],
       [
        "marraskuu"
       ]
      ],
-     "model": "Voittajat julkistetaan 26. marraskuuta."
+     "model": "Voittajat julkistetaan 26. marraskuuta.",
+     "variants": [
+      "Voittajat ilmoitetaan 26. marraskuuta.",
+      "Voittajat kerrotaan marraskuun 26. päivä."
+     ]
     }
    ],
    "free": {
@@ -421,12 +442,15 @@
      "hint": "säätiö",
      "keywords": [
       [
-       "kirjasää"
+       "kirjasää",
+       "säätiö"
       ]
      ],
      "model": "Suomen Kirjasäätiö jakaa palkinnot.",
      "variants": [
-      "Suomen Kirjasäätiö."
+      "Suomen Kirjasäätiö.",
+      "Säätiö jakaa palkinnot.",
+      "Kirjasäätiö jakaa palkinnot."
      ]
     },
     {
@@ -435,13 +459,16 @@
      "hint": "luku",
      "keywords": [
       [
-       "kuusi",
+       "=kuusi",
+       "=kuuden",
+       "=kuutta",
        "6"
       ]
      ],
      "model": "Jokaisessa sarjassa on kuusi ehdokasta.",
      "variants": [
-      "Kuusi."
+      "Kuusi.",
+      "Kuusi ehdokasta."
      ]
     },
     {
@@ -450,28 +477,37 @@
      "hint": "euroa",
      "keywords": [
       [
-       "30",
-       "kolmekymmentä",
-       "30000"
+       "30 000",
+       "30000",
+       "kolmekymmentä tuhat",
+       "30 tuhat"
       ]
      ],
      "model": "Voittaja saa 30 000 euroa.",
      "variants": [
-      "30 000 euroa."
+      "30 000 euroa.",
+      "30000 euroa.",
+      "Kolmekymmentä tuhatta euroa."
      ]
     },
     {
      "type": "respond",
      "q": "Milloin voittajat julkistetaan? Vastaa kokonaisella lauseella.",
-     "hint": "marraskuu",
+     "hint": "päivämäärä",
      "keywords": [
       [
        "marraskuu"
+      ],
+      [
+       "26",
+       "lopus",
+       "loppu"
       ]
      ],
-     "model": "Voittajat julkistetaan marraskuussa.",
+     "model": "Voittajat julkistetaan 26. marraskuuta.",
      "variants": [
-      "Marraskuussa."
+      "26. marraskuuta.",
+      "Marraskuun lopussa."
      ]
     }
    ]

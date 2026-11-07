@@ -8,7 +8,7 @@ Researched 2026-11-07. Publisher groups (D-017): Yle; Karjalainen (Keskisuomalai
 
 | Fact | Source 1 | Source 2 | Items |
 |---|---|---|---|
-| The government decided on the draft restoration plan on Thursday 5 November and sent it to the European Commission | https://yle.fi/a/74-20255222 | https://www.karjalainen.fi/uutissuomalainen/9930567 | luku 1, kuuntelu 1, kuuntelu 2, kirjoitus gap 1, gap 2, order 1, translate 1, translate 3, puhe 1, puhe 7 |
+| The government decided on Thursday 5 November on the draft restoration plan and to send it to the European Commission (Yle: lähettää, lähetetään; Karjalainen: päätti toimittamisesta) | https://yle.fi/a/74-20255222 | https://www.karjalainen.fi/uutissuomalainen/9930567 | luku 1, kuuntelu 1, kuuntelu 2, kirjoitus gap 1, gap 2, order 1, translate 1, translate 3, puhe 1, puhe 7 |
 | The plan describes how Finland implements the EU restoration regulation | https://yle.fi/a/74-20255222 | https://www.maaseuduntulevaisuus.fi/metsa/d07723a3-b4b9-4b07-8247-bdf02c7191c7 | luku 1, luku 3, kuuntelu 3, puhe 10 |
 | The measures cover peatlands, forests and waters | https://yle.fi/a/74-20255222 | https://www.maaseuduntulevaisuus.fi/metsa/d07723a3-b4b9-4b07-8247-bdf02c7191c7 | luku 1, kirjoitus gap 3, order 3, puhe 2 |
 | The binding non-deterioration obligation covers only Natura 2000 areas | https://yle.fi/a/74-20255222 | https://www.karjalainen.fi/uutissuomalainen/9930567 | luku 4, kuuntelu 4, puhe 8 |
@@ -31,3 +31,7 @@ Each order task is a plain subject, verb, object sentence; Finnish neutral order
 
 - duuni (slangi, used as duunissa in luku dialogue): https://en.wikipedia.org/wiki/Helsinki_slang (work among the slang examples), https://preply.com/en/blog/finnish-slang (work/job, slang) and https://sublearn.com/learn/fi/phrases/duuni (tagged Slang). Kielitoimiston sanakirja was unreachable (D-017 fallback).
 - Spoken-form labels (puhekieli: mun, onks, toi, oon) follow K-20261107T001500Z-puhekieli-features.
+
+## Changes after review
+
+S-ADVERSARIAL C-09: items and texts now say the government decided to send the draft ("päätti lähettää", "lähetetään"), not that it was already sent; Yle writes "lähettää" and "lähetettävän", Karjalainen writes "päätti ... toimittamisesta" and only a WWF quote speaks of a draft already delivered. The gap item asks for the present passive.

@@ -21,6 +21,14 @@
   {
    "title": "Keskuskauppakamari (STT Info): Pienpakettien tullimaksu oikea ja tervetullut ratkaisu (1.7.2026)",
    "url": "https://www.sttinfo.fi/tiedote/72173063/keskuskauppakamari-pienpakettien-tullimaksu-oikea-ja-tervetullut-ratkaisu?lang=fi"
+  },
+  {
+   "title": "Yle: EU:n ulkopuolelta tulevista verkkokauppaostoksista pitää jatkossa maksaa käsittelymaksu (1.11.2026)",
+   "url": "https://yle.fi/a/74-20254428"
+  },
+  {
+   "title": "Tulli (STT Info): EU:n tulliliitto astui uuteen aikakauteen (24.9.2026)",
+   "url": "https://www.sttinfo.fi/tiedote/72350615/eun-tulliliitto-astui-uuteen-aikakauteen-luvassa-lisaa-muutoksia-verkkokauppaan?lang=fi"
   }
  ],
  "exercises": {
@@ -30,8 +38,8 @@
    "text": [
     "Suomeen tullattujen [[halpatuontilähetysten|EU:n ulkopuolelta tilattujen edullisten tuotteiden lähetysten · of low-cost imported parcels]] määrä on laskenut jyrkästi. Yle kertoo Tullin tietojen mukaan, että EU:n ulkopuolelta tilattujen halpojen ostosten tavaraerien määrä oli heinä–syyskuussa 77 prosenttia pienempi kuin vuotta aiemmin. Myös tavaraerien yhteisarvo laski, noin 53 prosenttia. Heinäkuussa määrä oli Tullin mukaan jo noin 76 prosenttia pienempi kuin vuotta aiemmin.",
     "Taustalla on uusi [[tullimaksu|maksu, jonka Tulli perii maahan tuodusta tavarasta · customs duty]]. Heinäkuun alusta 2026 maksu on koskenut myös enintään 150 euron arvoisia tilauksia, jotka tulevat EU:n ulkopuolelta. Ennen sitä tullia perittiin vain yli 150 euron tilauksista. Nyt maksu on yleensä kolme euroa jokaista [[tavaraerää|yhtä tuotetta tai samanlaisten tuotteiden ryhmää lähetyksessä · goods item]] kohden.",
-    "Keskuskauppakamari pitää maksua tervetulleena. Sen mukaan maksu korjaa epäreilua [[kilpailua|yritysten taistelua samoista asiakkaista · competition]] eurooppalaisten ja kiinalaisten verkkokauppojen välillä. Tulli muistuttaa kuitenkin, että lasku ei vielä kerro koko totuutta. Sen mukaan ostajat ja myyjät voivat yrittää välttää maksuja esimerkiksi laittamalla samanlaisia tuotteita samaan erään. Vasta koko EU:n luvut näyttävät, kuinka paljon uusi maksu on todella vähentänyt suomalaisten tilauksia.",
-    "Tulli kertoi toukokuussa, että kaikille EU:n ulkopuolisille verkkokauppaostoksille suunnitellaan lisäksi [[käsittelymaksua|maksua, joka peritään tavaran tullauksesta · handling fee]] marraskuulle. Maksu koskisi tilauksia arvosta riippumatta."
+    "Keskuskauppakamari pitää maksua tervetulleena. Sen mukaan maksu korjaa epäreilua [[kilpailua|yritysten taistelua samoista asiakkaista · competition]] eurooppalaisten ja kiinalaisten verkkokauppojen välillä. Tulli muistuttaa kuitenkin, että lasku ei vielä kerro koko totuutta. Sen mukaan ostajat ja myyjät voivat yrittää välttää maksuja esimerkiksi laittamalla samanlaisia tuotteita samaan erään. Ylen mukaan Tulli sanoo, että vasta koko EU:n luvut näyttävät, kuinka paljon uusi maksu on todella vähentänyt suomalaisten tilauksia.",
+    "Marraskuun alusta lähtien kaikista EU:n ulkopuolelta tilatuista verkkokauppaostoksista peritään lisäksi [[käsittelymaksu|maksu, joka peritään tavaran tullauksesta · handling fee]], kaksi euroa jokaista tavaraerää kohden. Maksu koskee tilauksia arvosta riippumatta."
    ],
    "dialogue": [
     "(keksitty esimerkki) – [[Näitsä|näitkö sinä · did you see (spoken form)|puhekieli]] uutisen halpatilauksista?",
@@ -89,9 +97,9 @@
     },
     {
      "type": "tf",
-     "q": "Tulli sanoo, että vähennys kertoo jo tarkasti, kuinka paljon suomalaiset tilaavat.",
+     "q": "Teksti sanoo, että käsittelymaksu on vain suunnitelma.",
      "answer": false,
-     "explain": "Tulli sanoo, että vasta koko EU:n luvut kertovat tarkemmin."
+     "explain": "Teksti sanoo, että käsittelymaksu peritään marraskuun alusta."
     },
     {
      "type": "mc",
@@ -145,7 +153,7 @@
    ],
    "script": [
     "Suomeen tullattujen halpatuontilähetysten määrä on laskenut voimakkaasti. Tullin mukaan EU:n ulkopuolelta tilattujen halpojen ostosten tavaraerien määrä oli heinä–syyskuussa lähes kolme neljäsosaa pienempi kuin vuotta aiemmin. Myös tavaraerien yhteisarvo laski. Tullin mukaan kiinnostus halpatuontiin on voinut myös vähentyä.",
-    "Taustalla on uusi tullimaksu. Heinäkuun alusta lähtien maksu on koskenut myös enintään sadan viidenkymmenen euron tilauksia. Maksu on yleensä kolme euroa jokaista tavaraerää kohden. Tulli sanoo, että vasta koko EU:n luvut kertovat tarkemmin maksun vaikutuksesta."
+    "Taustalla on uusi tullimaksu. Heinäkuun alusta lähtien maksu on koskenut myös enintään sadan viidenkymmenen euron tilauksia. Maksu on yleensä kolme euroa jokaista tavaraerää kohden. Marraskuun alusta peritään lisäksi käsittelymaksu, kaksi euroa jokaista tavaraerää kohden."
    ],
    "dialogue": [
     "(keksitty esimerkki) – [[Näitsä|näitkö sinä · did you see (spoken form)|puhekieli]] uutisen halpatilauksista?",
@@ -193,14 +201,14 @@
     },
     {
      "type": "mc",
-     "q": "Mitä Tulli sanoo luvuista?",
+     "q": "Mistä lähtien käsittelymaksu peritään?",
      "options": [
-      "Vasta koko EU:n luvut kertovat tarkemmin.",
-      "Luvut ovat salaisia.",
-      "Luvut ovat virheellisiä."
+      "marraskuun alusta",
+      "tammikuun alusta",
+      "kesäkuun alusta"
      ],
      "answer": 0,
-     "explain": "Tulli sanoo, että vasta koko EU:n luvut kertovat tarkemmin."
+     "explain": "Marraskuun alusta peritään lisäksi käsittelymaksu."
     },
     {
      "type": "tf",
@@ -236,7 +244,7 @@
     },
     {
      "type": "dictation",
-     "text": "Vasta koko EU:n luvut kertovat tarkemmin."
+     "text": "Käsittelymaksu peritään marraskuun alusta."
     }
    ]
   },
@@ -325,51 +333,74 @@
        "maksu"
       ],
       [
-       "kolme",
+       "=kolme",
+       "=kolmen",
+       "=kolmea",
        "3"
       ],
       [
-       "tavaraer"
+       "tavaraer",
+       "tavara",
+       "tuote",
+       "tuotte",
+       "lähetys"
       ]
      ],
-     "model": "Tullimaksu on kolme euroa tavaraerää kohden."
+     "model": "Tullimaksu on kolme euroa tavaraerää kohden.",
+     "variants": [
+      "Tullimaksu on kolme euroa jokaista tavaraa kohti.",
+      "Tullimaksu on 3 euroa per tuote."
+     ]
     },
     {
      "type": "translate",
      "en": "The number of orders has fallen sharply.",
      "keywords": [
       [
-       "tilau"
-      ],
-      [
-       "määr",
-       "lukum"
+       "tilau",
+       "paket",
+       "määr"
       ],
       [
        "lask",
        "pien",
-       "väh"
+       "vähen",
+       "pudo",
+       "puto",
+       "romah"
       ]
      ],
-     "model": "Tilausten määrä on laskenut jyrkästi."
+     "model": "Tilausten määrä on laskenut jyrkästi.",
+     "variants": [
+      "Tilausten määrä on pudonnut jyrkästi.",
+      "Tilaukset ovat vähentyneet voimakkaasti."
+     ]
     },
     {
      "type": "translate",
      "en": "Ordering from outside the EU costs more now.",
      "keywords": [
       [
-       "ulkopuol"
+       "ulkopuol",
+       "ulkomai"
       ],
       [
        "maksa",
-       "kallii"
+       "kalli",
+       "hinta"
       ],
       [
        "nyt",
-       "enemmän"
+       "nyky",
+       "enemmän",
+       "kalliimp"
       ]
      ],
-     "model": "EU:n ulkopuolelta tilaaminen maksaa nyt enemmän."
+     "model": "EU:n ulkopuolelta tilaaminen maksaa nyt enemmän.",
+     "variants": [
+      "EU:n ulkopuolelta tilaaminen on nykyään kalliimpaa.",
+      "Tilaaminen EU:n ulkopuolelta maksaa enemmän."
+     ]
     }
    ],
    "free": {
@@ -421,10 +452,17 @@
        "ulkomai"
       ],
       [
-       "tilau"
+       "tilau",
+       "paket",
+       "lähety",
+       "ostok",
+       "tavar"
       ]
      ],
-     "model": "Maksu peritään EU:n ulkopuolelta tulevista tilauksista."
+     "model": "Maksu peritään EU:n ulkopuolelta tulevista tilauksista.",
+     "variants": [
+      "Maksu peritään EU:n ulkopuolelta tulevista paketeista."
+     ]
     },
     {
      "type": "respond",
@@ -434,16 +472,25 @@
       [
        "tavaraer",
        "tilau",
-       "lähetys"
+       "lähety",
+       "paket",
+       "ostos",
+       "määr"
       ],
       [
        "lask",
-       "pien"
+       "pien",
+       "vähen",
+       "putos",
+       "pudon",
+       "romah"
       ]
      ],
      "model": "Tavaraerien määrä laski voimakkaasti.",
      "variants": [
-      "Tilausten määrä laski."
+      "Tilausten määrä laski.",
+      "Tilaukset vähenivät voimakkaasti.",
+      "Pakettien määrä laski."
      ]
     },
     {
@@ -452,30 +499,38 @@
      "hint": "euroa",
      "keywords": [
       [
-       "kolme",
+       "=kolme",
+       "=kolmen",
+       "=kolmea",
        "3"
       ]
      ],
      "model": "Maksu on yleensä kolme euroa.",
      "variants": [
-      "Kolme euroa."
+      "Kolme euroa.",
+      "Maksu on 3 euroa."
      ]
     },
     {
      "type": "respond",
-     "q": "Mitä Tulli tarvitsee, jotta se voi arvioida maksun vaikutusta tarkemmin? Vastaa kokonaisella lauseella.",
-     "hint": "luvut",
+     "q": "Mistä lähtien käsittelymaksu peritään? Vastaa kokonaisella lauseella.",
+     "hint": "kuukausi",
      "keywords": [
       [
-       "luku",
-       "luvu"
+       "marraskuu"
       ],
       [
-       "koko",
-       "eu"
+       "alusta",
+       "alkaen",
+       "alkaa",
+       "lähtien"
       ]
      ],
-     "model": "Tulli tarvitsee koko EU:n luvut."
+     "model": "Käsittelymaksu peritään marraskuun alusta.",
+     "variants": [
+      "Marraskuun alusta.",
+      "Marraskuusta alkaen."
+     ]
     }
    ]
   }
