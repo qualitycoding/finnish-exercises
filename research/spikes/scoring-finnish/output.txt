@@ -1,0 +1,9 @@
+gap exact hallituksen                      {"points":1,"note":"Rätt!"}
+gap ä/ö slip paatos~päätös                 {"points":0.5,"note":"Nästan – kolla å, ä och ö."}
+gap length slip tuli~tuuli (short word)    {"points":0,"note":"Inte riktigt."}
+gap length slip hallituken (6+)            {"points":0.5,"note":"Nästan – ett stavfel."}
+kw inflected model                         {"points":1,"note":"Alla nyckelord finns med!","missing":[]}
+kw inflected other case                    {"points":1,"note":"Alla nyckelord finns med!","missing":[]}
+kw generic sentence                        {"points":0,"note":"För många nyckelord saknas.","missing":["hallitu","päät","vero"]}
+kw gradation kauppa/kaupan stem kaup       "1 1"
+kw 2-letter ei over-broad?                 {"points":1,"note":"Alla nyckelord finns med!","missing":[]}

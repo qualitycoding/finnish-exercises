@@ -1,0 +1,12 @@
+import { scoreTyped, scoreKeywords, fold } from "./scoring.js";
+const r = (l,v)=>console.log(l.padEnd(42), JSON.stringify(v));
+r("gap exact hallituksen", scoreTyped("hallituksen",["hallituksen"]));
+r("gap ä/ö slip paatos~päätös", scoreTyped("paatos",["päätös"]));
+r("gap length slip tuli~tuuli (short word)", scoreTyped("tuli",["tuuli"]));
+r("gap length slip hallituken (6+)", scoreTyped("hallituken",["hallituksen"]));
+const kw=[["hallitu"],["päät","päät"],["vero"]];
+r("kw inflected model", scoreKeywords("Hallitus päätti nostaa veroja.", kw));
+r("kw inflected other case", scoreKeywords("Hallituksen päätöksen mukaan verot nousevat.", kw));
+r("kw generic sentence", scoreKeywords("Minä en tiedä mitään tästä asiasta.", kw));
+r("kw gradation kauppa/kaupan stem kaup", scoreKeywords("Menen kauppaan", [["kaup"]]).points + " " + scoreKeywords("kaupan ovi",[["kaup"]]).points);
+r("kw 2-letter ei over-broad?", scoreKeywords("eilen satoi", [["ei"]]));

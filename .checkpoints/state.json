@@ -1,22 +1,87 @@
 {
-  "run_id": "20261106T235415Z-finnish-current-affairs-exercises",
-  "branch": "gen-20261106T235415Z-finnish-current-affairs-exercises",
-  "sequence": 1,
-  "profiles": ["software (proposed)"],
-  "mode_flags": {"courseware": true, "software.deploys": "proposed true (GitHub Pages)", "audio": false},
-  "phase": "0", "subphase": "0.3.6 intake batch sent; awaiting answers",
-  "completed": ["0.1 environment diagnostic", "0.3.7 store access"],
-  "pending": ["0.3 answers", "1.1 layout", "R0..R7", "2", "3", "4", "4.7", "5"],
-  "environment": {
-    "class": "stable (Claude cloud; per protocol 0.1 observed class)",
-    "subagents": "Agent tool available",
-    "git_push_finnish_exercises": "push permission true (repo attached with push; empty repo, default branch main, public, no licence)",
-    "pages_api": "GET repos/qualitycoding/finnish-exercises/pages -> 403 from session proxy: Pages must be enabled by the owner (Settings > Pages > Deploy from a branch > main > / (root))",
-    "gh_cli": "GH_TOKEN invalid for gh auth status; repo API reads work through proxy",
-    "github_io_reachable": false,
-    "node": "v22.23.4", "python": "3.13.18", "playwright_cli": "1.63.0 (no browsers cached locally)"
-  },
-  "lesson_store": {"location": "github.com/qualitycoding/Lessons", "commit_read": "8d6c44c", "readable": true},
-  "knowledge_store": {"location": "github.com/qualitycoding/knowledge", "commit_read": "bf95f15", "readable": true},
-  "updated_at": "2026-11-06T23:55:00Z"
+ "run_id": "20261106T235415Z-finnish-current-affairs-exercises",
+ "branch": "gen-20261106T235415Z-finnish-current-affairs-exercises",
+ "sequence": 2,
+ "profiles": [
+  "software"
+ ],
+ "mode_flags": {
+  "courseware": true,
+  "software.deploys": true,
+  "audio": false
+ },
+ "phase": "3",
+ "subphase": "3.6 cold read + 4 pre-mortem pending",
+ "completed": [
+  "0.1",
+  "0.3",
+  "0.3.7",
+  "R0",
+  "R1",
+  "R2",
+  "R3",
+  "R4",
+  "R6",
+  "R7",
+  "2B",
+  "2E freeze",
+  "3.1-3.5"
+ ],
+ "pending": [
+  "3.6",
+  "4",
+  "4.7",
+  "5"
+ ],
+ "environment": {
+  "class": "stable (Claude cloud; per protocol 0.1 observed class)",
+  "subagents": "Agent tool available",
+  "git_push_finnish_exercises": "push permission true (repo attached with push; empty repo, default branch main, public, no licence)",
+  "pages_api": "GET repos/qualitycoding/finnish-exercises/pages -> 403 from session proxy: Pages must be enabled by the owner (Settings > Pages > Deploy from a branch > main > / (root))",
+  "gh_cli": "GH_TOKEN invalid for gh auth status; repo API reads work through proxy",
+  "github_io_reachable": false,
+  "node": "v22.23.4",
+  "python": "3.13.18",
+  "playwright_cli": "1.63.0 (no browsers cached locally)"
+ },
+ "lesson_store": {
+  "location": "github.com/qualitycoding/Lessons",
+  "commit_read": "8d6c44c",
+  "readable": true
+ },
+ "knowledge_store": {
+  "location": "github.com/qualitycoding/knowledge",
+  "commit_read": "bf95f15",
+  "readable": true
+ },
+ "updated_at": "2026-11-07T00:14:48Z",
+ "not_applicable": [
+  "2A",
+  "2C",
+  "2D",
+  "R2b",
+  "1.5",
+  "3.10",
+  "G-001"
+ ],
+ "research_round": 3,
+ "lessons_loaded": "see research/PRIOR_KNOWLEDGE.md",
+ "lessons_recorded": [
+  "L-20261107T002000Z-frozen-expected-values-reasoned-not-run",
+  "L-20261107T002100Z-register-counts-written-by-hand",
+  "L-20261107T002200Z-node-test-directory-argument"
+ ],
+ "knowledge_added": [
+  "K-20261107T001000Z-finnish-tts-voices",
+  "K-20261107T001100Z-finnish-keyword-stem-matching",
+  "K-20261107T001200Z-sandbox-preinstalled-playwright-browsers",
+  "K-20261107T001300Z-node-test-directory-argument",
+  "K-20261107T001400Z-yle-content-copyright",
+  "K-20261107T001500Z-puhekieli-features",
+  "K-20261107T003000Z-source-register-finnish-exercises"
+ ],
+ "intake": {
+  "answered_at": "2026-11-07T00:02Z",
+  "answer": "Plan and build; include v3.15 refresh; switch to Sonnet for implementation; all other defaults"
+ }
 }
